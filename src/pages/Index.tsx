@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Menu, X, MapPin, Clock, Award, Phone, FileCheck } from "lucide-react";
 
@@ -25,37 +26,31 @@ const testimonials = [
 ];
 
 const certificates = [
-  { 
-    name: "Certificación Barbicide", 
-    description: "Protocolo internacional de higiene y sanitización",
-    icon: <FileCheck className="w-8 h-8 text-blue-400" />
-  },
-  { 
-    name: "Certificación AMB", 
-    description: "Reconocimiento oficial de la Asociación Mexicana de Barbería",
-    icon: <Award className="w-8 h-8 text-yellow-400" />
-  },
-  { 
-    name: "Fundación Carlos Slim", 
-    description: "Certificado de capacitación laboral reconocido nacionalmente",
-    icon: <FileCheck className="w-8 h-8 text-green-400" />
-  },
-  { 
-    name: "Certificación Internacional", 
-    description: "Validez internacional para trabajar en otros países",
-    icon: <Award className="w-8 h-8 text-purple-400" />
-  },
-  { 
-    name: "Certificado de Competencias", 
-    description: "Avalado por instituciones educativas reconocidas",
-    icon: <FileCheck className="w-8 h-8 text-red-400" />
-  },
+  { name: "Barbicide", logo: "🧪" },
+  { name: "Carlos Slim", logo: "🏛️" },
+  { name: "AMB", logo: "✂️" },
+  { name: "Amos Academy", logo: "🎓" },
+  { name: "CONOCER", logo: "📜" },
+  { name: "SEP", logo: "🏫" },
 ];
 
 const modalities = [
   { icon: "🕒", title: "Matutino", desc: "Lunes y miércoles 9am-12pm" },
   { icon: "🌆", title: "Vespertino", desc: "Martes y jueves 4pm-7pm" },
   { icon: "🗓️", title: "Sabatino", desc: "Sábados 10am-2pm" },
+];
+
+const learningEnvironment = [
+  { icon: "👨‍🏫", title: "Profesores activos", desc: "Barberos profesionales trabajando en el sector" },
+  { icon: "👥", title: "Grupos pequeños", desc: "Máximo 8 estudiantes por grupo para atención personalizada" },
+  { icon: "💇‍♂️", title: "Práctica real con clientes", desc: "Desde la primera semana trabajas con clientes reales" },
+];
+
+const masterCourses = [
+  { title: "Colorimetría Avanzada", desc: "Domina las técnicas de color profesional", price: "$3,500" },
+  { title: "Corte a Tijera", desc: "Perfecciona el arte del corte clásico", price: "$2,800" },
+  { title: "Fades Profesionales", desc: "Técnicas avanzadas de degradados", price: "$2,500" },
+  { title: "Barbería Clásica", desc: "Técnicas tradicionales de barbería", price: "$3,200" },
 ];
 
 function Navbar() {
@@ -75,6 +70,9 @@ function Navbar() {
           <div className="hidden md:flex items-center space-x-4">
             <a href="https://wa.me/5214423643964" className="bg-yellow-400 text-black px-6 py-2 rounded-lg font-semibold hover:bg-yellow-300 transition-colors">
               Inscribirme
+            </a>
+            <a href="https://www.mercadopago.com.mx/checkout/v1/redirect?preference-id=141039576-ff609d72-4186-4497-b7c2-89d0fa84f7fd" className="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+              Pagar
             </a>
             <a href="https://wa.me/5214423643964" className="text-white hover:text-yellow-400 transition-colors">
               💬
@@ -98,6 +96,9 @@ function Navbar() {
           <div className="px-4 py-3 space-y-3">
             <a href="https://wa.me/5214423643964" className="block bg-yellow-400 text-black px-4 py-2 rounded-lg font-semibold text-center">
               Inscribirme
+            </a>
+            <a href="https://www.mercadopago.com.mx/checkout/v1/redirect?preference-id=141039576-ff609d72-4186-4497-b7c2-89d0fa84f7fd" className="block bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold text-center">
+              Pagar
             </a>
             <a href="https://wa.me/5214423643964" className="block text-white py-2">💬 WhatsApp</a>
             <a href="https://instagram.com/asociacionmexicanadebarberia" className="block text-white py-2">📸 Instagram</a>
@@ -199,9 +200,30 @@ function InscriptionSection() {
   );
 }
 
-function ModalitiesSection() {
+function LearningEnvironmentSection() {
   return (
     <section className="py-20 bg-white text-black">
+      <div className="max-w-6xl mx-auto px-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
+          Ambiente de Aprendizaje Profesional
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {learningEnvironment.map((item, index) => (
+            <div key={index} className="bg-gray-50 rounded-xl p-6 text-center border border-gray-200">
+              <div className="text-4xl mb-4">{item.icon}</div>
+              <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+              <p className="text-gray-600">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ModalitiesSection() {
+  return (
+    <section className="py-20 bg-gray-100 text-black">
       <div className="max-w-4xl mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
           Modalidades de curso: Elige tu mejor horario
@@ -225,7 +247,7 @@ function PricingSection() {
     <section className="py-20 bg-black text-white">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-          Planes de Pago Flexibles
+          Formas de Pago
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {pricingOptions.map((option, index) => (
@@ -246,12 +268,52 @@ function PricingSection() {
   );
 }
 
+function CertificatesSection() {
+  return (
+    <section className="py-20 bg-white text-black overflow-hidden">
+      <div className="max-w-6xl mx-auto px-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
+          Certificaciones Oficiales
+        </h2>
+        <div className="relative">
+          <div className="flex animate-scroll gap-8">
+            {[...certificates, ...certificates].map((cert, index) => (
+              <div key={index} className="flex-shrink-0 bg-gray-50 rounded-xl p-8 text-center border border-gray-200 w-64">
+                <div className="text-6xl mb-4">{cert.logo}</div>
+                <h3 className="text-xl font-bold">{cert.name}</h3>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="text-center mt-12">
+          <p className="text-lg text-gray-700 mb-6">
+            Al finalizar el curso recibirás <strong>múltiples certificaciones oficiales</strong> que te respaldan como barbero profesional
+          </p>
+        </div>
+      </div>
+      <style jsx>{`
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        .animate-scroll {
+          animation: scroll 20s linear infinite;
+        }
+      `}</style>
+    </section>
+  );
+}
+
 function TestimonialsSection() {
   return (
     <section className="py-20 bg-gray-800 text-white">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-          Graduados AMB: De Principiantes a Profesionales
+          Testimonios: De Principiantes a Profesionales
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {testimonials.map((testimonial, index) => (
@@ -274,31 +336,24 @@ function TestimonialsSection() {
   );
 }
 
-function CertificatesSection() {
+function MasterCoursesSection() {
   return (
-    <section className="py-20 bg-white text-black">
+    <section className="py-20 bg-gray-100 text-black">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-          Certificaciones Oficiales que Respaldan tu Futuro
+          Master Courses - Especializaciones
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {certificates.map((cert, index) => (
-            <div key={index} className="bg-gray-50 rounded-xl p-6 text-center border border-gray-200 hover:shadow-lg transition-shadow">
-              <div className="flex justify-center mb-4">
-                {cert.icon}
-              </div>
-              <h3 className="text-xl font-bold mb-3">{cert.name}</h3>
-              <p className="text-gray-600">{cert.description}</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {masterCourses.map((course, index) => (
+            <div key={index} className="bg-white rounded-xl p-6 text-center border border-gray-200 shadow-lg">
+              <h3 className="text-xl font-bold mb-3">{course.title}</h3>
+              <p className="text-gray-600 mb-4">{course.desc}</p>
+              <div className="text-2xl font-bold text-yellow-600 mb-4">{course.price}</div>
+              <a href="https://wa.me/5214423643964" className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-bold hover:bg-yellow-300 transition-colors block">
+                Más información
+              </a>
             </div>
           ))}
-        </div>
-        <div className="text-center mt-12">
-          <p className="text-lg text-gray-700 mb-6">
-            Al finalizar el curso recibirás <strong>5 certificaciones oficiales</strong> que te respaldan como barbero profesional
-          </p>
-          <a href="https://wa.me/5214423643964" className="bg-yellow-400 text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-300 transition-colors">
-            Conocer más sobre las certificaciones
-          </a>
         </div>
       </div>
     </section>
@@ -330,7 +385,7 @@ function ContactSection() {
     <section className="py-20 bg-white text-black">
       <div className="max-w-4xl mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-          ¿Tienes dudas? Contáctanos
+          Formulario de Contacto
         </h2>
         <div className="max-w-2xl mx-auto">
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -390,12 +445,38 @@ function ContactSection() {
   );
 }
 
+function SocialMediaSection() {
+  return (
+    <section className="py-20 bg-black text-white">
+      <div className="max-w-4xl mx-auto px-4 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold mb-16">
+          Síguenos en Redes Sociales
+        </h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <a href="https://instagram.com/asociacionmexicanadebarberia" className="bg-pink-600 hover:bg-pink-700 text-white px-6 py-4 rounded-lg font-bold transition-colors">
+            📸 Instagram
+          </a>
+          <a href="https://facebook.com/asociacionmexicanadebarberia" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-4 rounded-lg font-bold transition-colors">
+            📘 Facebook
+          </a>
+          <a href="https://maps.app.goo.gl/XjwuYZqwMxEongrY8" className="bg-red-600 hover:bg-red-700 text-white px-6 py-4 rounded-lg font-bold transition-colors">
+            📍 Google Maps
+          </a>
+          <a href="https://wa.me/5214423643964" className="bg-green-600 hover:bg-green-700 text-white px-6 py-4 rounded-lg font-bold transition-colors">
+            💬 WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function LocationSection() {
   return (
     <section className="py-20 bg-gray-900 text-white">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-          Nuestra Ubicación en el Corazón de Querétaro
+          Ubicación en el Corazón de Querétaro
         </h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div className="text-center lg:text-left">
@@ -466,11 +547,14 @@ const Index = () => {
       <Hero />
       <BenefitsSection />
       <InscriptionSection />
+      <LearningEnvironmentSection />
       <ModalitiesSection />
       <PricingSection />
       <CertificatesSection />
       <TestimonialsSection />
+      <MasterCoursesSection />
       <ContactSection />
+      <SocialMediaSection />
       <LocationSection />
       <Footer />
     </div>
