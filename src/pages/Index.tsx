@@ -1,6 +1,5 @@
-
 import { useState } from "react";
-import { Menu, X, MapPin, Clock, Award, Phone } from "lucide-react";
+import { Menu, X, MapPin, Clock, Award, Phone, Certificate } from "lucide-react";
 
 const benefits = [
   { icon: "✂️", title: "25 clases prácticas", description: "Aprende con práctica real" },
@@ -23,6 +22,34 @@ const testimonials = [
   { name: "Marco Becerra", text: "Era guardia de seguridad. Trabajaba en casetas, con horarios inhumanos. Hoy soy barbero con clientes fijos y una vida diferente.", rating: 5 },
   { name: "Estefanía Resendiz", text: "Soy estilista desde hace años, pero no sabía barbería. Aquí aprendí todo lo que me faltaba.", rating: 5 },
   { name: "Luis Ochoa", text: "Estudié en otra escuela y no aprendí nada práctico. Me cambié a AMB y fue otra historia. Hoy vivo de esto.", rating: 5 },
+];
+
+const certificates = [
+  { 
+    name: "Certificación Barbicide", 
+    description: "Protocolo internacional de higiene y sanitización",
+    icon: <Certificate className="w-8 h-8 text-blue-400" />
+  },
+  { 
+    name: "Certificación AMB", 
+    description: "Reconocimiento oficial de la Asociación Mexicana de Barbería",
+    icon: <Award className="w-8 h-8 text-yellow-400" />
+  },
+  { 
+    name: "Fundación Carlos Slim", 
+    description: "Certificado de capacitación laboral reconocido nacionalmente",
+    icon: <Certificate className="w-8 h-8 text-green-400" />
+  },
+  { 
+    name: "Certificación Internacional", 
+    description: "Validez internacional para trabajar en otros países",
+    icon: <Award className="w-8 h-8 text-purple-400" />
+  },
+  { 
+    name: "Certificado de Competencias", 
+    description: "Avalado por instituciones educativas reconocidas",
+    icon: <Certificate className="w-8 h-8 text-red-400" />
+  },
 ];
 
 const modalities = [
@@ -247,6 +274,37 @@ function TestimonialsSection() {
   );
 }
 
+function CertificatesSection() {
+  return (
+    <section className="py-20 bg-white text-black">
+      <div className="max-w-6xl mx-auto px-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
+          Certificaciones Oficiales que Respaldan tu Futuro
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {certificates.map((cert, index) => (
+            <div key={index} className="bg-gray-50 rounded-xl p-6 text-center border border-gray-200 hover:shadow-lg transition-shadow">
+              <div className="flex justify-center mb-4">
+                {cert.icon}
+              </div>
+              <h3 className="text-xl font-bold mb-3">{cert.name}</h3>
+              <p className="text-gray-600">{cert.description}</p>
+            </div>
+          ))}
+        </div>
+        <div className="text-center mt-12">
+          <p className="text-lg text-gray-700 mb-6">
+            Al finalizar el curso recibirás <strong>5 certificaciones oficiales</strong> que te respaldan como barbero profesional
+          </p>
+          <a href="https://wa.me/5214423643964" className="bg-yellow-400 text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-300 transition-colors">
+            Conocer más sobre las certificaciones
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ContactSection() {
   const [formData, setFormData] = useState({
     name: '',
@@ -410,6 +468,7 @@ const Index = () => {
       <InscriptionSection />
       <ModalitiesSection />
       <PricingSection />
+      <CertificatesSection />
       <TestimonialsSection />
       <ContactSection />
       <LocationSection />
