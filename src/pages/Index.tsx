@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X, MapPin, Clock, Award, Phone, Certificate } from "lucide-react";
+import { Menu, X, MapPin, Clock, Award, Phone, FileCheck } from "lucide-react";
 
 const benefits = [
   { icon: "✂️", title: "25 clases prácticas", description: "Aprende con práctica real" },
@@ -28,7 +28,7 @@ const certificates = [
   { 
     name: "Certificación Barbicide", 
     description: "Protocolo internacional de higiene y sanitización",
-    icon: <Certificate className="w-8 h-8 text-blue-400" />
+    icon: <FileCheck className="w-8 h-8 text-blue-400" />
   },
   { 
     name: "Certificación AMB", 
@@ -38,7 +38,7 @@ const certificates = [
   { 
     name: "Fundación Carlos Slim", 
     description: "Certificado de capacitación laboral reconocido nacionalmente",
-    icon: <Certificate className="w-8 h-8 text-green-400" />
+    icon: <FileCheck className="w-8 h-8 text-green-400" />
   },
   { 
     name: "Certificación Internacional", 
@@ -48,7 +48,7 @@ const certificates = [
   { 
     name: "Certificado de Competencias", 
     description: "Avalado por instituciones educativas reconocidas",
-    icon: <Certificate className="w-8 h-8 text-red-400" />
+    icon: <FileCheck className="w-8 h-8 text-red-400" />
   },
 ];
 
