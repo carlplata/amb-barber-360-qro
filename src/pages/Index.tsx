@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Menu, X, MapPin, Clock, Award, Phone, FileCheck } from "lucide-react";
 
@@ -25,12 +26,11 @@ const testimonials = [
 ];
 
 const certificates = [
-  { name: "Barbicide", logo: "🧪" },
-  { name: "Carlos Slim", logo: "🏛️" },
-  { name: "AMB", logo: "✂️" },
-  { name: "Amos Academy", logo: "🎓" },
-  { name: "CONOCER", logo: "📜" },
-  { name: "SEP", logo: "🏫" },
+  { name: "Barbicide", image: "/lovable-uploads/92910c3a-9ab9-4040-81b7-2400bf55429f.png" },
+  { name: "Barbicide Certification", image: "/lovable-uploads/1dd4286a-901c-4cba-9e53-53d06179454d.png" },
+  { name: "AMB Certificación Oficial", image: "/lovable-uploads/bd1b84e7-cb19-4084-a1b4-daae1f7deba9.png" },
+  { name: "Amos Academy", image: "/lovable-uploads/ed4fd92b-1021-4a93-a841-12eeaaee8ffd.png" },
+  { name: "Carlos Slim Foundation", image: "/lovable-uploads/056b97e0-40b6-4bec-8dd9-a6452668c10b.png" },
 ];
 
 const modalities = [
@@ -277,9 +277,15 @@ function CertificatesSection() {
         <div className="relative">
           <div className="flex animate-scroll gap-8">
             {[...certificates, ...certificates].map((cert, index) => (
-              <div key={index} className="flex-shrink-0 bg-gray-50 rounded-xl p-8 text-center border border-gray-200 w-64">
-                <div className="text-6xl mb-4">{cert.logo}</div>
-                <h3 className="text-xl font-bold">{cert.name}</h3>
+              <div key={index} className="flex-shrink-0 bg-gray-50 rounded-xl p-6 text-center border border-gray-200 w-80 h-64">
+                <div className="w-full h-40 mb-4 flex items-center justify-center">
+                  <img 
+                    src={cert.image} 
+                    alt={cert.name}
+                    className="max-w-full max-h-full object-contain rounded-lg"
+                  />
+                </div>
+                <h3 className="text-lg font-bold">{cert.name}</h3>
               </div>
             ))}
           </div>
