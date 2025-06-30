@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Menu, X, MapPin, Clock, Award, Phone, FileCheck } from "lucide-react";
 
@@ -291,7 +290,7 @@ function CertificatesSection() {
           </p>
         </div>
       </div>
-      <style jsx>{`
+      <style>{`
         @keyframes scroll {
           0% {
             transform: translateX(0);
