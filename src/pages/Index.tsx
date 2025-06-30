@@ -60,8 +60,12 @@ function Navbar() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-yellow-400 rounded-lg flex items-center justify-center font-bold text-black">
-              AMB
+            <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center p-1">
+              <img 
+                src="/lovable-uploads/214876ff-6021-4a14-920e-bff95182dc62.png" 
+                alt="AMB Logo" 
+                className="w-full h-full object-contain"
+              />
             </div>
             <span className="text-white font-semibold">Barbería 360°</span>
           </div>
@@ -112,8 +116,12 @@ function Hero() {
   return (
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-black text-white pt-20">
       <div className="max-w-4xl mx-auto text-center px-4">
-        <div className="w-32 h-32 bg-yellow-400 rounded-full mx-auto mb-8 flex items-center justify-center">
-          <span className="text-4xl font-bold text-black">AMB</span>
+        <div className="w-40 h-40 bg-white rounded-full mx-auto mb-8 flex items-center justify-center p-4">
+          <img 
+            src="/lovable-uploads/214876ff-6021-4a14-920e-bff95182dc62.png" 
+            alt="AMB Logo" 
+            className="w-full h-full object-contain"
+          />
         </div>
         
         <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
@@ -176,6 +184,13 @@ function InscriptionSection() {
   return (
     <section className="py-20 bg-yellow-400 text-black">
       <div className="max-w-4xl mx-auto px-4 text-center">
+        <div className="w-20 h-20 bg-white rounded-full mx-auto mb-8 flex items-center justify-center p-2">
+          <img 
+            src="/lovable-uploads/214876ff-6021-4a14-920e-bff95182dc62.png" 
+            alt="AMB Logo" 
+            className="w-full h-full object-contain"
+          />
+        </div>
         <h2 className="text-3xl md:text-4xl font-bold mb-8">
           Inscripción de $2,000 MXN incluye:
         </h2>
@@ -271,9 +286,18 @@ function CertificatesSection() {
   return (
     <section className="py-20 bg-white text-black overflow-hidden">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-          Certificaciones Oficiales
-        </h2>
+        <div className="text-center mb-16">
+          <div className="w-24 h-24 bg-black rounded-full mx-auto mb-6 flex items-center justify-center p-3">
+            <img 
+              src="/lovable-uploads/ae0a782f-1452-445a-a992-875f288b3932.png" 
+              alt="AMB Logo" 
+              className="w-full h-full object-contain filter invert"
+            />
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold">
+            Certificaciones Oficiales
+          </h2>
+        </div>
         <div className="relative">
           <div className="flex animate-scroll gap-8">
             {[...certificates, ...certificates].map((cert, index) => (
@@ -518,12 +542,25 @@ function Footer() {
   return (
     <footer className="bg-black text-white py-16">
       <div className="max-w-6xl mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          <div className="flex items-center space-x-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center mb-12">
+          <div className="flex items-center justify-center md:justify-start space-x-4">
+            <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center p-2">
+              <img 
+                src="/lovable-uploads/214876ff-6021-4a14-920e-bff95182dc62.png" 
+                alt="AMB Logo" 
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div>
+              <div className="font-bold text-lg">AMB</div>
+              <div className="text-gray-300 text-sm">Asociación Mexicana de Barbería</div>
+            </div>
+          </div>
+          <div className="flex items-center justify-center space-x-4">
             <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold">MP</span>
             </div>
-            <span className="font-bold">Pago 100% seguro con Mercado Pago</span>
+            <span className="font-bold text-center">Pago 100% seguro con Mercado Pago</span>
           </div>
           <div className="text-center md:text-right">
             <p className="text-gray-300 mb-4">
@@ -537,7 +574,7 @@ function Footer() {
             </a>
           </div>
         </div>
-        <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+        <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
           © {new Date().getFullYear()} Asociación Mexicana de Barbería (AMB). Todos los derechos reservados. Querétaro, México.
         </div>
       </div>
