@@ -11,7 +11,7 @@ const benefits = [
 ];
 
 const pricingOptions = [
-  { title: "Por clase", description: "Paga clase por clase", price: "Flexible", discount: "", image: "" },
+  { title: "Por clase", description: "Paga clase por clase", price: "Flexible", discount: "", image: "https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?w=400&h=300&fit=crop" },
   { title: "Quincenal", description: "Ahorra pagando cada 15 días", price: "8%", discount: "-8%", image: "/lovable-uploads/551f6706-0853-45f5-a166-85943744aaff.png" },
   { title: "Mensual", description: "Ahorra con pago mensual", price: "14%", discount: "-14%", image: "/lovable-uploads/b3f65a48-d8ec-44eb-bc13-bfd5aa9725f4.png" },
   { title: "Curso completo", description: "Máximo ahorro", price: "20%", discount: "-20%", image: "/lovable-uploads/d5eedcee-431b-4a18-9d03-6ef0d4786c35.png" },
@@ -264,35 +264,22 @@ function PricingSection() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {pricingOptions.map((option, index) => (
-            <div key={index} className="bg-gray-900 rounded-xl p-6 text-center border border-gray-800 relative overflow-hidden">
-              {option.image && (
-                <div className="absolute inset-0 opacity-20">
-                  <img 
-                    src={option.image} 
-                    alt={`${option.discount} descuento`}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              )}
-              <div className="relative z-10">
-                <h3 className="text-xl font-bold mb-4">{option.title}</h3>
-                <p className="text-gray-300 mb-4">{option.description}</p>
-                {option.image && (
-                  <div className="w-24 h-24 mx-auto mb-4">
-                    <img 
-                      src={option.image} 
-                      alt={`${option.discount} descuento`}
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                )}
-                <div className={`text-3xl font-bold mb-6 ${option.discount ? 'text-green-400' : 'text-white'}`}>
-                  {option.discount || option.price}
-                </div>
-                <a href="https://wa.me/5214423643964" className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-bold hover:bg-yellow-300 transition-colors block">
-                  Elegir plan
-                </a>
+            <div key={index} className="bg-gray-900 rounded-xl p-6 text-center border border-gray-800">
+              <div className="w-32 h-32 mx-auto mb-6 rounded-lg overflow-hidden bg-gray-800">
+                <img 
+                  src={option.image} 
+                  alt={option.title}
+                  className="w-full h-full object-cover"
+                />
               </div>
+              <h3 className="text-xl font-bold mb-4">{option.title}</h3>
+              <p className="text-gray-300 mb-4">{option.description}</p>
+              <div className={`text-3xl font-bold mb-6 ${option.discount ? 'text-green-400' : 'text-white'}`}>
+                {option.discount || option.price}
+              </div>
+              <a href="https://wa.me/5214423643964" className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-bold hover:bg-yellow-300 transition-colors block">
+                Elegir plan
+              </a>
             </div>
           ))}
         </div>
