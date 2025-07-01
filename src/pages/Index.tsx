@@ -11,7 +11,7 @@ const benefits = [
 ];
 
 const pricingOptions = [
-  { title: "Por clase", description: "Paga clase por clase", price: "Flexible", discount: "", image: "https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?w=400&h=300&fit=crop" },
+  { title: "Por clase", description: "Paga clase por clase", price: "Flexible", discount: "", image: "/lovable-uploads/pago-por-clase.jpg" },
   { title: "Quincenal", description: "Ahorra pagando cada 15 días", price: "8%", discount: "-8%", image: "/lovable-uploads/551f6706-0853-45f5-a166-85943744aaff.png" },
   { title: "Mensual", description: "Ahorra con pago mensual", price: "14%", discount: "-14%", image: "/lovable-uploads/b3f65a48-d8ec-44eb-bc13-bfd5aa9725f4.png" },
   { title: "Curso completo", description: "Máximo ahorro", price: "20%", discount: "-20%", image: "/lovable-uploads/d5eedcee-431b-4a18-9d03-6ef0d4786c35.png" },
