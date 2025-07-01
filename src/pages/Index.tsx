@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { Menu, X, MapPin, Clock, Award, Phone, FileCheck } from "lucide-react";
+import { ContactForm } from "@/components/ContactForm";
+import { EnrollmentModal } from "@/components/EnrollmentModal";
+import { useTestimonials } from "@/hooks/useSupabase";
 
 const benefits = [
   { icon: "✂️", title: "25 clases prácticas", description: "Aprende con práctica real" },
@@ -11,17 +14,10 @@ const benefits = [
 ];
 
 const pricingOptions = [
-  { title: "Por clase", description: "Paga clase por clase", price: "Flexible", discount: "", image: "/images/por-clase.jpg" },
-  { title: "Quincenal", description: "Ahorra pagando cada 15 días", price: "8%", discount: "-8%", image: "/images/quincenal.jpg" },
-  { title: "Mensual", description: "Ahorra con pago mensual", price: "14%", discount: "-14%", image: "/images/mensual.jpg" },
-  { title: "Curso completo", description: "Máximo ahorro", price: "20%", discount: "-20%", image: "/images/curso-completo.jpg" },
-];
-
-const testimonials = [
-  { name: "Juan Zamudio", text: "Entré sin saber ni cómo agarrar las máquinas. Hoy tengo mi propia barbería y trabajo por mi cuenta. Todo gracias a AMB", rating: 5 },
-  { name: "Marco Becerra", text: "Era guardia de seguridad. Trabajaba en casetas, con horarios inhumanos. Hoy soy barbero con clientes fijos y una vida diferente.", rating: 5 },
-  { name: "Estefanía Resendiz", text: "Soy estilista desde hace años, pero no sabía barbería. Aquí aprendí todo lo que me faltaba.", rating: 5 },
-  { name: "Luis Ochoa", text: "Estudié en otra escuela y no aprendí nada práctico. Me cambié a AMB y fue otra historia. Hoy vivo de esto.", rating: 5 },
+  { title: "Por clase", description: "Paga clase por clase", price: "Flexible", discount: "", image: "/images/por-clase.jpg", plan: "por-clase" },
+  { title: "Quincenal", description: "Ahorra pagando cada 15 días", price: "8%", discount: "-8%", image: "/images/quincenal.jpg", plan: "quincenal" },
+  { title: "Mensual", description: "Ahorra con pago mensual", price: "14%", discount: "-14%", image: "/images/mensual.jpg", plan: "mensual" },
+  { title: "Curso completo", description: "Máximo ahorro", price: "20%", discount: "-20%", image: "/images/curso-completo.jpg", plan: "curso-completo" },
 ];
 
 const certificates = [
@@ -70,9 +66,11 @@ function Navbar() {
           </div>
           
           <div className="hidden md:flex items-center space-x-4">
-            <a href="https://wa.me/5214423643964" className="bg-yellow-400 text-black px-6 py-2 rounded-lg font-semibold hover:bg-yellow-300 transition-colors">
-              Inscribirme
-            </a>
+            <EnrollmentModal>
+              <button className="bg-yellow-400 text-black px-6 py-2 rounded-lg font-semibold hover:bg-yellow-300 transition-colors">
+                Inscribirme
+              </button>
+            </EnrollmentModal>
             <a href="https://www.mercadopago.com.mx/checkout/v1/redirect?preference-id=141039576-ff609d72-4186-4497-b7c2-89d0fa84f7fd" className="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
               Pagar
             </a>
@@ -96,9 +94,11 @@ function Navbar() {
       {isOpen && (
         <div className="md:hidden bg-black/95 border-t border-gray-800">
           <div className="px-4 py-3 space-y-3">
-            <a href="https://wa.me/5214423643964" className="block bg-yellow-400 text-black px-4 py-2 rounded-lg font-semibold text-center">
-              Inscribirme
-            </a>
+            <EnrollmentModal>
+              <button className="block w-full bg-yellow-400 text-black px-4 py-2 rounded-lg font-semibold text-center">
+                Inscribirme
+              </button>
+            </EnrollmentModal>
             <a href="https://www.mercadopago.com.mx/checkout/v1/redirect?preference-id=141039576-ff609d72-4186-4497-b7c2-89d0fa84f7fd" className="block bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold text-center">
               Pagar
             </a>
@@ -146,9 +146,11 @@ function Hero() {
         </div>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="https://wa.me/5214423643964" className="bg-yellow-400 text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-300 transition-colors">
-            Inscribirme ahora
-          </a>
+          <EnrollmentModal>
+            <button className="bg-yellow-400 text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-300 transition-colors">
+              Inscribirme ahora
+            </button>
+          </EnrollmentModal>
           <a href="https://wa.me/5214423643964" className="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-black transition-colors">
             Hablar con asesor
           </a>
@@ -205,9 +207,11 @@ function InscriptionSection() {
             <p className="text-gray-600">Recibe todo el contenido siempre disponible</p>
           </div>
         </div>
-        <a href="https://wa.me/5214423643964" className="bg-black text-yellow-400 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-800 transition-colors">
-          Apartar mi lugar
-        </a>
+        <EnrollmentModal>
+          <button className="bg-black text-yellow-400 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-800 transition-colors">
+            Apartar mi lugar
+          </button>
+        </EnrollmentModal>
       </div>
     </section>
   );
@@ -277,9 +281,11 @@ function PricingSection() {
               <div className={`text-3xl font-bold mb-6 ${option.discount ? 'text-green-400' : 'text-white'}`}>
                 {option.discount || option.price}
               </div>
-              <a href="https://wa.me/5214423643964" className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-bold hover:bg-yellow-300 transition-colors block">
-                Elegir plan
-              </a>
+              <EnrollmentModal defaultPaymentPlan={option.plan}>
+                <button className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-bold hover:bg-yellow-300 transition-colors block w-full">
+                  Elegir plan
+                </button>
+              </EnrollmentModal>
             </div>
           ))}
         </div>
@@ -344,28 +350,44 @@ function CertificatesSection() {
 }
 
 function TestimonialsSection() {
+  const { testimonials, loading } = useTestimonials();
+
+  // Fallback testimonials if none are loaded from database
+  const fallbackTestimonials = [
+    { name: "Juan Zamudio", text: "Entré sin saber ni cómo agarrar las máquinas. Hoy tengo mi propia barbería y trabajo por mi cuenta. Todo gracias a AMB", rating: 5 },
+    { name: "Marco Becerra", text: "Era guardia de seguridad. Trabajaba en casetas, con horarios inhumanos. Hoy soy barbero con clientes fijos y una vida diferente.", rating: 5 },
+    { name: "Estefanía Resendiz", text: "Soy estilista desde hace años, pero no sabía barbería. Aquí aprendí todo lo que me faltaba.", rating: 5 },
+    { name: "Luis Ochoa", text: "Estudié en otra escuela y no aprendí nada práctico. Me cambié a AMB y fue otra historia. Hoy vivo de esto.", rating: 5 },
+  ];
+
+  const displayTestimonials = testimonials.length > 0 ? testimonials : fallbackTestimonials;
+
   return (
     <section className="py-20 bg-gray-800 text-white">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
           Testimonios: De Principiantes a Profesionales
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-gray-900 rounded-xl p-6 border border-gray-700">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center text-black font-bold mr-4">
-                  {testimonial.name.charAt(0)}
+        {loading ? (
+          <div className="text-center">Cargando testimonios...</div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {displayTestimonials.map((testimonial, index) => (
+              <div key={index} className="bg-gray-900 rounded-xl p-6 border border-gray-700">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center text-black font-bold mr-4">
+                    {testimonial.name.charAt(0)}
+                  </div>
+                  <div>
+                    <div className="font-bold">{testimonial.name}</div>
+                    <div className="text-yellow-400">{"⭐".repeat(testimonial.rating)}</div>
+                  </div>
                 </div>
-                <div>
-                  <div className="font-bold">{testimonial.name}</div>
-                  <div className="text-yellow-400">{"⭐".repeat(testimonial.rating)}</div>
-                </div>
+                <p className="text-gray-300 italic">"{testimonial.text}"</p>
               </div>
-              <p className="text-gray-300 italic">"{testimonial.text}"</p>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
@@ -396,26 +418,6 @@ function MasterCoursesSection() {
 }
 
 function ContactSection() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    alert('¡Mensaje enviado! Te contactaremos pronto.');
-    setFormData({ name: '', email: '', phone: '', message: '' });
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
   return (
     <section className="py-20 bg-white text-black">
       <div className="max-w-4xl mx-auto px-4">
@@ -423,49 +425,7 @@ function ContactSection() {
           Formulario de Contacto
         </h2>
         <div className="max-w-2xl mx-auto">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <input
-              type="text"
-              name="name"
-              placeholder="Nombre completo"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Correo electrónico"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
-            />
-            <input
-              type="tel"
-              name="phone"
-              placeholder="Teléfono"
-              value={formData.phone}
-              onChange={handleChange}
-              required
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
-            />
-            <textarea
-              name="message"
-              placeholder="Escribe tu mensaje aquí..."
-              value={formData.message}
-              onChange={handleChange}
-              rows={4}
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400"
-            />
-            <button
-              type="submit"
-              className="w-full bg-yellow-400 text-black px-6 py-3 rounded-lg font-bold hover:bg-yellow-300 transition-colors"
-            >
-              Enviar Mensaje
-            </button>
-          </form>
+          <ContactForm />
           <div className="text-center mt-8">
             <a
               href="https://wa.me/5214423643964"
