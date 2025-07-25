@@ -3,7 +3,7 @@ import { Menu, X, MapPin, Clock, Award, Phone, FileCheck } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
 import { EnrollmentModal } from "@/components/EnrollmentModal";
 import { useTestimonials } from "@/hooks/useSupabase";
-
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 const benefits = [
   { icon: "✂️", title: "25 clases prácticas", description: "Aprende con práctica real" },
   { icon: "🧑‍🏫", title: "Profesores activos", description: "Barberos profesionales" },
