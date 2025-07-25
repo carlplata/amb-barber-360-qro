@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { Menu, X, MapPin, Clock, Award, Phone, FileCheck } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
 import { EnrollmentModal } from "@/components/EnrollmentModal";
 import { useTestimonials } from "@/hooks/useSupabase";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
+
 const benefits = [
   { icon: "✂️", title: "25 clases prácticas", description: "Aprende con práctica real" },
   { icon: "🧑‍🏫", title: "Profesores activos", description: "Barberos profesionales" },
@@ -25,7 +26,7 @@ const certificates = [
   { name: "Barbicide Certification", image: "/lovable-uploads/1dd4286a-901c-4cba-9e53-53d06179454d.png" },
   { name: "AMB Certificación Oficial", image: "/lovable-uploads/bd1b84e7-cb19-4084-a1b4-daae1f7deba9.png" },
   { name: "Amos Academy", image: "/lovable-uploads/ed4fd92b-1021-4a93-a841-12eeaaee8ffd.png" },
-  { name: "Carlos Slim Foundation", image: "/lovable-uploads/056b97e0-40b6-4bec-8dd9-a6452668c10b.png" },
+  { name: "Fundación Carlos Slim", image: "/lovable-uploads/056b97e0-40b6-4bec-8dd9-a6452668c10b.png" },
 ];
 
 const modalities = [
@@ -74,17 +75,18 @@ function Navbar() {
             <a href="https://www.mercadopago.com.mx/checkout/v1/redirect?preference-id=141039576-ff609d72-4186-4497-b7c2-89d0fa84f7fd" className="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
               Pagar
             </a>
-           <a href="https://wa.me/5214423643964" aria-label="Contáctanos por WhatsApp" className="text-white hover:text-yellow-400 transition-colors">
-  💬
-</a>
-<a href="https://instagram.com/asociacionmexicanadebarberia" aria-label="Visita nuestro Instagram" className="text-white hover:text-yellow-400 transition-colors">
-  📸
-</a>
+            <a href="https://wa.me/5214423643964" aria-label="Contáctanos por WhatsApp" className="text-white hover:text-yellow-400 transition-colors">
+              💬
+            </a>
+            <a href="https://instagram.com/asociacionmexicanadebarberia" aria-label="Visita nuestro Instagram" className="text-white hover:text-yellow-400 transition-colors">
+              📸
+            </a>
           </div>
 
           <button 
             className="md:hidden text-white"
             onClick={() => setIsOpen(!isOpen)}
+            aria-label="Abrir menú de navegación"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -449,16 +451,16 @@ function SocialMediaSection() {
           Síguenos en Redes Sociales
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <a href="https://instagram.com/asociacionmexicanadebarberia" className="bg-pink-600 hover:bg-pink-700 text-white px-6 py-4 rounded-lg font-bold transition-colors">
+          <a href="https://instagram.com/asociacionmexicanadebarberia" aria-label="Visita nuestro Instagram" className="bg-pink-600 hover:bg-pink-700 text-white px-6 py-4 rounded-lg font-bold transition-colors">
             📸 Instagram
           </a>
-          <a href="https://facebook.com/asociacionmexicanadebarberia" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-4 rounded-lg font-bold transition-colors">
+          <a href="https://facebook.com/asociacionmexicanadebarberia" aria-label="Visita nuestro Facebook" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-4 rounded-lg font-bold transition-colors">
             📘 Facebook
           </a>
-          <a href="https://maps.app.goo.gl/XjwuYZqwMxEongrY8" className="bg-red-600 hover:bg-red-700 text-white px-6 py-4 rounded-lg font-bold transition-colors">
+          <a href="https://maps.app.goo.gl/TUfB8222GAXfCqRU8" aria-label="Encuéntranos en Google Maps" className="bg-red-600 hover:bg-red-700 text-white px-6 py-4 rounded-lg font-bold transition-colors">
             📍 Google Maps
           </a>
-          <a href="https://wa.me/5214423643964" className="bg-green-600 hover:bg-green-700 text-white px-6 py-4 rounded-lg font-bold transition-colors">
+          <a href="https://wa.me/5214423643964" aria-label="Contáctanos por WhatsApp" className="bg-green-600 hover:bg-green-700 text-white px-6 py-4 rounded-lg font-bold transition-colors">
             💬 WhatsApp
           </a>
         </div>
@@ -481,15 +483,17 @@ function LocationSection() {
             </h3>
             <p className="text-gray-300 mb-6">Querétaro, Qro. C.P. 76010</p>
             <a
-              href="https://maps.app.goo.gl/XjwuYZqwMxEongrY8"
+              href="https://maps.app.goo.gl/TUfB8222GAXfCqRU8"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-bold hover:bg-yellow-300 transition-colors inline-block"
             >
               Abrir en Google Maps
             </a>
           </div>
-          <div className="w-full h-64 bg-gray-800 rounded-xl overflow-hidden">
+          <div className="w-full h-80 bg-gray-800 rounded-xl overflow-hidden">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3734.537545084013!2d-100.39177128468488!3d20.588306986271432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d346dd3e7b47cf%3A0xcad2c66fbaabfb2d!2sAv%20Tecnol%C3%B3gico%20Sur%204A%2C%20Centro%20Sur%2C%2076010%20Santiago%20de%20Quer%C3%A9taro%2C%20Qro.!5e0!3m2!1ses!2smx!4v1718760000000!5m2!1ses!2smx"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3735.034543555544!2d-100.3952178889813!3d20.58624970220182!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d3452e69e3d2c7%3A0x2414e08c69137452!2sAsociaci%C3%B3n%20Mexicana%20de%20Barberia!5e0!3m2!1ses-419!2smx!4v1721950529013!5m2!1ses-419!2smx"
               width="100%"
               height="100%"
               style={{ border: 0 }}
