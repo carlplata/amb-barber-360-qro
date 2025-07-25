@@ -310,41 +310,42 @@ function CertificatesSection() {
             Certificaciones Oficiales
           </h2>
         </div>
-        <div className="relative">
-          <div className="flex animate-scroll gap-8">
-            {[...certificates, ...certificates].map((cert, index) => (
-              <div key={index} className="flex-shrink-0 bg-gray-50 rounded-xl p-6 text-center border border-gray-200 w-80 h-64">
-                <div className="w-full h-40 mb-4 flex items-center justify-center">
-                  <img 
-                    src={cert.image} 
-                    alt={cert.name}
-                    className="max-w-full max-h-full object-contain rounded-lg"
-                  />
+
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          className="w-full max-w-5xl mx-auto"
+        >
+          <CarouselContent>
+            {certificates.map((cert, index) => (
+              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                <div className="p-1 h-full">
+                  <div className="flex flex-col flex-shrink-0 bg-gray-50 rounded-xl p-6 text-center border border-gray-200 w-full h-full">
+                    <div className="w-full h-40 mb-4 flex items-center justify-center">
+                      <img 
+                        src={cert.image} 
+                        alt={cert.name}
+                        className="max-w-full max-h-full object-contain rounded-lg"
+                      />
+                    </div>
+                    <h3 className="text-lg font-bold mt-auto">{cert.name}</h3>
+                  </div>
                 </div>
-                <h3 className="text-lg font-bold">{cert.name}</h3>
-              </div>
+              </CarouselItem>
             ))}
-          </div>
-        </div>
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
+        
         <div className="text-center mt-12">
           <p className="text-lg text-gray-700 mb-6">
             Al finalizar el curso recibirás <strong>múltiples certificaciones oficiales</strong> que te respaldan como barbero profesional
           </p>
         </div>
       </div>
-      <style>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-        .animate-scroll {
-          animation: scroll 20s linear infinite;
-        }
-      `}</style>
     </section>
   );
 }
