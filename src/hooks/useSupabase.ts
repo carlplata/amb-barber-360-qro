@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
-import { supabase, type ContactForm, type Enrollment, type Testimonial } from '@/lib/supabase'
+import { useState } from 'react'
+import { supabase, type ContactForm, type Enrollment } from '@/lib/supabase'
 import { toast } from 'sonner'
 
 export function useContactForm() {
@@ -52,50 +52,4 @@ export function useEnrollment() {
   }
 
   return { submitEnrollment, loading }
-}
-
-export function useTestimonials() {
-  const [testimonials, setTestimonials] = useState<Testimonial[]>([])
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    fetchTestimonials()
-  }, [])
-
-  const fetchTestimonials = async () => {
-    try {
-      const { data, error } = await supabase
-        .from('testimonials')
-        .select('*')
-        .eq('approved', true)
-        .order('created_at', { ascending: false })
-
-      if (error) throw error
-
-      setTestimonials(data || [])
-    } catch (error) {
-      console.error('Error fetching testimonials:', error)
-    } finally {
-      setLoading(false)
-    }
-  }
-
-  const submitTestimonial = async (data: Omit<Testimonial, 'id' | 'created_at' | 'approved'>) => {
-    try {
-      const { error } = await supabase
-        .from('testimonials')
-        .insert([{ ...data, approved: false }])
-
-      if (error) throw error
-
-      toast.success('¡Testimonio enviado! Será revisado antes de publicarse.')
-      return true
-    } catch (error) {
-      console.error('Error submitting testimonial:', error)
-      toast.error('Error al enviar el testimonio. Por favor intenta de nuevo.')
-      return false
-    }
-  }
-
-  return { testimonials, loading, submitTestimonial, fetchTestimonials }
 }
