@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
 import { EnrollmentModal } from "@/components/EnrollmentModal";
-import { useTestimonials } from "@/hooks/useSupabase";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 
 const benefits = [
