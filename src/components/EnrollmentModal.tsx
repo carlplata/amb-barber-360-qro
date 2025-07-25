@@ -11,10 +11,19 @@ interface EnrollmentModalProps {
   defaultPaymentPlan?: string
 }
 
+// Define un tipo para los datos del formulario para mayor seguridad
+type EnrollmentFormData = {
+  name: string;
+  email: string;
+  phone: string;
+  payment_plan: string;
+  modality: string;
+}
+
 export function EnrollmentModal({ children, defaultPaymentPlan }: EnrollmentModalProps) {
   const { submitEnrollment, loading } = useEnrollment()
   const [open, setOpen] = useState(false)
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<EnrollmentFormData>({
     name: '',
     email: '',
     phone: '',
@@ -24,7 +33,8 @@ export function EnrollmentModal({ children, defaultPaymentPlan }: EnrollmentModa
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    const success = await submitEnrollment(formData as any)
+    // Ya no se necesita "as any", el tipado es correcto
+    const success = await submitEnrollment(formData)
     if (success) {
       setFormData({ name: '', email: '', phone: '', payment_plan: '', modality: '' })
       setOpen(false)
