@@ -74,12 +74,12 @@ function Navbar() {
             <a href="https://www.mercadopago.com.mx/checkout/v1/redirect?preference-id=141039576-ff609d72-4186-4497-b7c2-89d0fa84f7fd" className="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
               Pagar
             </a>
-            <a href="https://wa.me/5214423643964" className="text-white hover:text-yellow-400 transition-colors">
-              💬
-            </a>
-            <a href="https://instagram.com/asociacionmexicanadebarberia" className="text-white hover:text-yellow-400 transition-colors">
-              📸
-            </a>
+           <a href="https://wa.me/5214423643964" aria-label="Contáctanos por WhatsApp" className="text-white hover:text-yellow-400 transition-colors">
+  💬
+</a>
+<a href="https://instagram.com/asociacionmexicanadebarberia" aria-label="Visita nuestro Instagram" className="text-white hover:text-yellow-400 transition-colors">
+  📸
+</a>
           </div>
 
           <button 
