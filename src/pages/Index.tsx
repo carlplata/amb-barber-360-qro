@@ -302,7 +302,7 @@ function CertificatesSection() {
         <div className="text-center mb-16">
           <div className="w-24 h-24 bg-black rounded-full mx-auto mb-6 flex items-center justify-center p-3">
             <img 
-              src="/lovable-uploads/ae0a782f-1452-445a-a992-875f288b3932.png" 
+              src="/lovable-uploads/ae0a782f-1452-4a93-a992-875f288b3932.png" 
               alt="AMB Logo" 
               className="w-full h-full object-contain filter invert"
             />
@@ -352,17 +352,12 @@ function CertificatesSection() {
 }
 
 function TestimonialsSection() {
-  const { testimonials, loading } = useTestimonials();
-
-  // Fallback testimonials if none are loaded from database
-  const fallbackTestimonials = [
+  const testimonials = [
     { name: "Juan Zamudio", text: "Entré sin saber ni cómo agarrar las máquinas. Hoy tengo mi propia barbería y trabajo por mi cuenta. Todo gracias a AMB", rating: 5 },
     { name: "Marco Becerra", text: "Era guardia de seguridad. Trabajaba en casetas, con horarios inhumanos. Hoy soy barbero con clientes fijos y una vida diferente.", rating: 5 },
     { name: "Estefanía Resendiz", text: "Soy estilista desde hace años, pero no sabía barbería. Aquí aprendí todo lo que me faltaba.", rating: 5 },
     { name: "Luis Ochoa", text: "Estudié en otra escuela y no aprendí nada práctico. Me cambié a AMB y fue otra historia. Hoy vivo de esto.", rating: 5 },
   ];
-
-  const displayTestimonials = testimonials.length > 0 ? testimonials : fallbackTestimonials;
 
   return (
     <section className="py-20 bg-gray-800 text-white">
@@ -370,26 +365,22 @@ function TestimonialsSection() {
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
           Testimonios: De Principiantes a Profesionales
         </h2>
-        {loading ? (
-          <div className="text-center">Cargando testimonios...</div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {displayTestimonials.map((testimonial, index) => (
-              <div key={index} className="bg-gray-900 rounded-xl p-6 border border-gray-700">
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center text-black font-bold mr-4">
-                    {testimonial.name.charAt(0)}
-                  </div>
-                  <div>
-                    <div className="font-bold">{testimonial.name}</div>
-                    <div className="text-yellow-400">{"⭐".repeat(testimonial.rating)}</div>
-                  </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {testimonials.map((testimonial, index) => (
+            <div key={index} className="bg-gray-900 rounded-xl p-6 border border-gray-700">
+              <div className="flex items-center mb-4">
+                <div className="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center text-black font-bold mr-4">
+                  {testimonial.name.charAt(0)}
                 </div>
-                <p className="text-gray-300 italic">"{testimonial.text}"</p>
+                <div>
+                  <div className="font-bold">{testimonial.name}</div>
+                  <div className="text-yellow-400">{"⭐".repeat(testimonial.rating)}</div>
+                </div>
               </div>
-            ))}
-          </div>
-        )}
+              <p className="text-gray-300 italic">"{testimonial.text}"</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -456,7 +447,7 @@ function SocialMediaSection() {
           <a href="https://facebook.com/asociacionmexicanadebarberia" aria-label="Visita nuestro Facebook" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-4 rounded-lg font-bold transition-colors">
             📘 Facebook
           </a>
-          <a href="https://maps.app.goo.gl/TUfB8222GAXfCqRU8" aria-label="Encuéntranos en Google Maps" className="bg-red-600 hover:bg-red-700 text-white px-6 py-4 rounded-lg font-bold transition-colors">
+          <a href="https://maps.app.goo.gl/tu-enlace-de-google-maps" aria-label="Encuéntranos en Google Maps" className="bg-red-600 hover:bg-red-700 text-white px-6 py-4 rounded-lg font-bold transition-colors">
             📍 Google Maps
           </a>
           <a href="https://wa.me/5214423643964" aria-label="Contáctanos por WhatsApp" className="bg-green-600 hover:bg-green-700 text-white px-6 py-4 rounded-lg font-bold transition-colors">
@@ -482,7 +473,7 @@ function LocationSection() {
             </h3>
             <p className="text-gray-300 mb-6">Querétaro, Qro. C.P. 76010</p>
             <a
-              href="https://maps.app.goo.gl/TUfB8222GAXfCqRU8"
+              href="https://maps.app.goo.gl/tu-enlace-de-google-maps"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-bold hover:bg-yellow-300 transition-colors inline-block"
@@ -492,7 +483,7 @@ function LocationSection() {
           </div>
           <div className="w-full h-80 bg-gray-800 rounded-xl overflow-hidden">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3735.034543555544!2d-100.3952178889813!3d20.58624970220182!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d3452e69e3d2c7%3A0x2414e08c69137452!2sAsociaci%C3%B3n%20Mexicana%20de%20Barberia!5e0!3m2!1ses-419!2smx!4v1721950529013!5m2!1ses-419!2smx"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3734.876527078335!2d-100.39501568453664!3d20.59298818625862!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d345d691225555%3A0x8a5e5b6e9e4f5d6!2sAv.%20Tecnol%C3%B3gico%204A%2C%20Centro%2C%2076010%20Santiago%20de%20Quer%C3%A9taro%2C%20Qro.!5e0!3m2!1ses-419!2smx!4v1678886400000!5m2!1ses-419!2smx"
               width="100%"
               height="100%"
               style={{ border: 0 }}
