@@ -1,103 +1,44 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
+import { ContactForm } from "@/components/ContactForm";
+import { EnrollmentModal } from "@/components/EnrollmentModal";
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
+const benefits = [
+  { icon: "✂️", title: "25 clases prácticas", description: "Aprende con práctica real" },
+  { icon: "🧑‍🏫", title: "Profesores activos", description: "Barberos profesionales" },
+  { icon: "🏅", title: "5 certificaciones", description: "Reconocimiento oficial" },
+  { icon: "💼", title: "Bolsa de trabajo", description: "Oportunidades laborales" },
+  { icon: "📦", title: "Precio de distribución", description: "En productos y máquinas de por vida" },
+  { icon: "📍", title: "Ubicación céntrica Qro.", description: "Fácil acceso en la ciudad" },
+];
 
-@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+const pricingOptions = [
+  { title: "Por clase", description: "Paga clase por clase", price: "Flexible", discount: "", image: "/images/por-clase.jpg", plan: "por-clase" },
+  { title: "Quincenal", description: "Ahorra pagando cada 15 días", price: "8%", discount: "-8%", image: "/images/quincenal.jpg", plan: "quincenal" },
+  { title: "Mensual", description: "Ahorra con pago mensual", price: "14%", discount: "-14%", image: "/images/mensual.jpg", plan: "mensual" },
+  { title: "Curso completo", description: "Máximo ahorro", price: "20%", discount: "-20%", image: "/images/curso-completo.jpg", plan: "curso-completo" },
+];
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+const certificates = [
+  { name: "Barbicide", image: "/lovable-uploads/92910c3a-9ab9-4040-81b7-2400bf55429f.png" },
+  { name: "Barbicide Certification", image: "/lovable-uploads/1dd4286a-901c-4cba-9e53-53d06179454d.png" },
+  { name: "AMB Certificación Oficial", image: "/lovable-uploads/bd1b84e7-cb19-4084-a1b4-daae1f7deba9.png" },
+  { name: "Amos Academy", image: "/lovable-uploads/ed4fd92b-1021-4a93-a841-12eeaaee8ffd.png" },
+  { name: "Fundación Carlos Slim", image: "/lovable-uploads/056b97e0-40b6-4bec-8dd9-a6452668c10b.png" },
+];
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+const modalities = [
+  { icon: "🕒", title: "Matutino", desc: "Lunes y miércoles 9am-12pm" },
+  { icon: "🌆", title: "Vespertino", desc: "Martes y jueves 4pm-7pm" },
+  { icon: "🗓️", title: "Sabatino", desc: "Sábados 10am-2pm" },
+];
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+const learningEnvironment = [
+  { icon: "👨‍🏫", title: "Profesores activos", desc: "Barberos profesionales trabajando en el sector" },
+  { icon: "👥", title: "Grupos pequeños", desc: "Máximo 8 estudiantes por grupo para atención personalizada" },
+  { icon: "💇‍♂️", title: "Práctica real con clientes", desc: "Desde la primera semana trabajas con clientes reales" },
+];
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground;
-  }
-}
+const masterCourses = [
+  { title: "Colorimetría Avanzada", desc: "Domina las técnicas de color profesional", price: "$3,500" },
