@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
 import { EnrollmentModal } from "@/components/EnrollmentModal";
@@ -62,22 +62,22 @@ function Navbar() {
                 className="w-full h-full object-contain"
               />
             </div>
-            <span className="text-white font-semibold">Barbería 360°</span>
+            <span className="text-white font-heading uppercase tracking-wider">Barbería 360°</span>
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
             <EnrollmentModal>
-              <button className="bg-yellow-400 text-black px-6 py-2 rounded-lg font-semibold hover:bg-yellow-300 transition-colors">
+              <button className="bg-yellow-400 text-black px-6 py-2 rounded-lg font-semibold hover:bg-yellow-300 transition-transform hover:scale-105">
                 Inscribirme
               </button>
             </EnrollmentModal>
-            <a href="https://www.mercadopago.com.mx/checkout/v1/redirect?preference-id=141039576-ff609d72-4186-4497-b7c2-89d0fa84f7fd" className="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+            <a href="https://www.mercadopago.com.mx/checkout/v1/redirect?preference-id=141039576-ff609d72-4186-4497-b7c2-89d0fa84f7fd" className="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-transform hover:scale-105">
               Pagar
             </a>
-            <a href="https://wa.me/5214423643964" aria-label="Contáctanos por WhatsApp" className="text-white hover:text-yellow-400 transition-colors">
+            <a href="https://wa.me/5214423643964" aria-label="Contáctanos por WhatsApp" className="text-gray-400 hover:text-green-500 transition-colors">
               💬
             </a>
-            <a href="https://instagram.com/asociacionmexicanadebarberia" aria-label="Visita nuestro Instagram" className="text-white hover:text-yellow-400 transition-colors">
+            <a href="https://instagram.com/asociacionmexicanadebarberia" aria-label="Visita nuestro Instagram" className="text-gray-400 hover:text-pink-500 transition-colors">
               📸
             </a>
           </div>
@@ -113,72 +113,55 @@ function Navbar() {
 }
 
 function Hero() {
-    const backgroundImages = [
-        "/images/12471cee-6e75-46e7-bf58-2bf525694965.png",
-        "/images/348s.jpg",
-        "/images/IMG_5113.JPG",
-        "/images/barber-5428008_1280.jpg",
-        "/images/fades.png",
-      ];
-
     return (
       <section className="relative min-h-screen flex items-center justify-center text-white pt-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <Carousel
-            opts={{
-              loop: true,
-            }}
-            className="w-full h-full"
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+            poster="/images/location-image-171416640172.jpg" // Una imagen de respaldo mientras carga el video
           >
-            <CarouselContent>
-              {backgroundImages.map((src, index) => (
-                <CarouselItem key={index}>
-                  <div className="relative w-full h-screen">
-                    <img
-                      src={src}
-                      alt={`Fondo ${index + 1}`}
-                      className="absolute inset-0 w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-black/60" /> {/* Overlay oscuro */}
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-          </Carousel>
+            <source src="/videos/hero-background.mp4" type="video/mp4" />
+            Tu navegador no soporta el video.
+          </video>
+          <div className="absolute inset-0 bg-black/60" /> {/* Overlay oscuro */}
         </div>
-        <div className="max-w-4xl mx-auto text-center px-4 z-10 relative">
+        <div className="max-w-4xl mx-auto text-center px-4 z-10 relative animate-fade-in-up">
           <img
             src="/lovable-uploads/ae0a782f-1452-445a-a992-875f288b3932.png"
             alt="AMB Logo"
             className="w-64 mx-auto mb-8 object-contain"
           />
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+          <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6 leading-tight uppercase tracking-wider">
             Conviértete en Barbero Profesional desde Cero en Querétaro
           </h1>
           <div className="bg-black/30 rounded-xl p-6 mb-8 grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="text-center">
               <div className="text-3xl mb-2">📍</div>
-              <div className="font-semibold">Curso presencial</div>
+              <div className="font-semibold font-heading">Curso presencial</div>
               <div className="text-gray-300">en Querétaro</div>
             </div>
             <div className="text-center">
               <div className="text-3xl mb-2">🧑‍🎓</div>
-              <div className="font-semibold">Sin experiencia previa</div>
+              <div className="font-semibold font-heading">Sin experiencia previa</div>
               <div className="text-gray-300">Empezamos desde cero</div>
             </div>
             <div className="text-center">
               <div className="text-3xl mb-2">✂️</div>
-              <div className="font-semibold">Clases prácticas</div>
+              <div className="font-semibold font-heading">Clases prácticas</div>
               <div className="text-gray-300">desde el primer día</div>
             </div>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <EnrollmentModal>
-              <button className="bg-yellow-400 text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-300 transition-colors">
+              <button className="bg-yellow-400 text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-300 transition-transform hover:scale-105 font-heading uppercase">
                 Inscribirme ahora
               </button>
             </EnrollmentModal>
-            <a href="https://wa.me/5214423643964" className="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-black transition-colors">
+            <a href="https://wa.me/5214423643964" className="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-black transition-all hover:scale-105 font-heading uppercase">
               Hablar con asesor
             </a>
           </div>
@@ -191,14 +174,14 @@ function BenefitsSection() {
   return (
     <section className="py-20 bg-gray-900 text-white">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-          ¿Por qué elegir nuestro curso de barbería en Querétaro?
+        <h2 className="font-heading text-3xl md:text-4xl font-bold text-center mb-16 uppercase tracking-wider">
+          ¿Por qué elegir nuestro curso?
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {benefits.map((benefit, index) => (
-            <div key={index} className="bg-gray-800 rounded-xl p-6 text-center border border-gray-700">
+            <div key={index} className="bg-gray-800 rounded-xl p-6 text-center border border-gray-700 transition-transform hover:scale-105 hover:border-yellow-400 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
               <div className="text-4xl mb-4">{benefit.icon}</div>
-              <h3 className="text-xl font-bold mb-2">{benefit.title}</h3>
+              <h3 className="text-xl font-bold mb-2 font-heading">{benefit.title}</h3>
               <p className="text-gray-300">{benefit.description}</p>
             </div>
           ))}
@@ -208,27 +191,52 @@ function BenefitsSection() {
   );
 }
 
+function VideoSection() {
+    return (
+      <section className="py-20 bg-black text-white">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 font-heading uppercase tracking-wider">
+            Conoce Nuestra Escuela
+          </h2>
+          <div className="aspect-video bg-gray-800 rounded-lg overflow-hidden shadow-2xl">
+            <iframe
+              width="100%"
+              height="100%"
+              src="https://www.facebook.com/plugins/video.php?height=315&href=https%3A%2F%2Fwww.facebook.com%2Fasociacionmexicanadebarberia%2Fvideos%2F2906440829675027%2F&show_text=false&width=560&t=0"
+              style={{ border: 'none', overflow: 'hidden' }}
+              scrolling="no"
+              frameBorder="0"
+              allowFullScreen={true}
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+              title="Video de la escuela de barbería AMB"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
 function InscriptionSection() {
   return (
     <section className="py-20 bg-yellow-400 text-black">
       <div className="max-w-4xl mx-auto px-4 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-8">
+        <h2 className="text-3xl md:text-4xl font-bold mb-8 font-heading uppercase tracking-wider">
           Inscripción de $2,000 MXN incluye:
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-          <div className="bg-white rounded-xl p-6">
+          <div className="bg-white rounded-xl p-6 transition-transform hover:scale-105 animate-fade-in-up">
             <div className="text-4xl mb-4">👕</div>
-            <h3 className="text-xl font-bold mb-2">Mandil profesional de cuero</h3>
+            <h3 className="text-xl font-bold mb-2 font-heading">Mandil profesional de cuero</h3>
             <p className="text-gray-600">Valor $700 MXN incluido con tu inscripción</p>
           </div>
-          <div className="bg-white rounded-xl p-6">
+          <div className="bg-white rounded-xl p-6 transition-transform hover:scale-105 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
             <div className="text-4xl mb-4">📖</div>
-            <h3 className="text-xl font-bold mb-2">Manual digital y acceso online</h3>
+            <h3 className="text-xl font-bold mb-2 font-heading">Manual digital y acceso online</h3>
             <p className="text-gray-600">Recibe todo el contenido siempre disponible</p>
           </div>
         </div>
         <EnrollmentModal>
-          <button className="bg-black text-yellow-400 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-800 transition-colors">
+          <button className="bg-black text-yellow-400 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-800 transition-transform hover:scale-105 font-heading uppercase">
             Apartar mi lugar
           </button>
         </EnrollmentModal>
@@ -241,14 +249,14 @@ function LearningEnvironmentSection() {
   return (
     <section className="py-20 bg-white text-black">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 font-heading uppercase tracking-wider">
           Ambiente de Aprendizaje Profesional
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {learningEnvironment.map((item, index) => (
-            <div key={index} className="bg-gray-50 rounded-xl p-6 text-center border border-gray-200">
+            <div key={index} className="bg-gray-50 rounded-xl p-6 text-center border border-gray-200 transition-transform hover:scale-105 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
               <div className="text-4xl mb-4">{item.icon}</div>
-              <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+              <h3 className="text-xl font-bold mb-2 font-heading">{item.title}</h3>
               <p className="text-gray-600">{item.desc}</p>
             </div>
           ))}
@@ -262,14 +270,14 @@ function ModalitiesSection() {
   return (
     <section className="py-20 bg-gray-100 text-black">
       <div className="max-w-4xl mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 font-heading uppercase tracking-wider">
           Modalidades de curso: Elige tu mejor horario
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {modalities.map((modality, index) => (
-            <div key={index} className="bg-yellow-100 rounded-xl p-6 text-center">
+            <div key={index} className="bg-yellow-100 rounded-xl p-6 text-center transition-transform hover:scale-105 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
               <div className="text-4xl mb-4">{modality.icon}</div>
-              <h3 className="text-xl font-bold mb-2">{modality.title}</h3>
+              <h3 className="text-xl font-bold mb-2 font-heading">{modality.title}</h3>
               <p className="text-gray-700">{modality.desc}</p>
             </div>
           ))}
@@ -283,12 +291,12 @@ function PricingSection() {
   return (
     <section className="py-20 bg-black text-white">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 font-heading uppercase tracking-wider">
           Formas de Pago
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {pricingOptions.map((option, index) => (
-            <div key={index} className="bg-gray-900 rounded-xl p-6 text-center border border-gray-800">
+            <div key={index} className="bg-gray-900 rounded-xl p-6 text-center border border-gray-800 transition-transform hover:scale-105 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
               <div className="w-32 h-32 mx-auto mb-6 rounded-lg overflow-hidden bg-gray-800">
                 <img
                   src={option.image}
@@ -296,13 +304,13 @@ function PricingSection() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-xl font-bold mb-4">{option.title}</h3>
+              <h3 className="text-xl font-bold mb-4 font-heading">{option.title}</h3>
               <p className="text-gray-300 mb-4">{option.description}</p>
               <div className={`text-3xl font-bold mb-6 ${option.discount ? 'text-green-400' : 'text-white'}`}>
                 {option.discount || option.price}
               </div>
               <EnrollmentModal defaultPaymentPlan={option.plan}>
-                <button className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-bold hover:bg-yellow-300 transition-colors block w-full">
+                <button className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-bold hover:bg-yellow-300 transition-transform hover:scale-105 block w-full font-heading uppercase">
                   Elegir plan
                 </button>
               </EnrollmentModal>
@@ -319,7 +327,7 @@ function CertificatesSection() {
     <section className="py-20 bg-white text-black overflow-hidden">
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold">
+          <h2 className="text-3xl md:text-4xl font-bold font-heading uppercase tracking-wider">
             Certificaciones Oficiales
           </h2>
         </div>
@@ -335,7 +343,7 @@ function CertificatesSection() {
             {certificates.map((cert, index) => (
               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                 <div className="p-1 h-full">
-                  <div className="flex flex-col flex-shrink-0 bg-gray-50 rounded-xl p-6 text-center border border-gray-200 w-full h-full">
+                  <div className="flex flex-col flex-shrink-0 bg-gray-50 rounded-xl p-6 text-center border border-gray-200 w-full h-full transition-shadow hover:shadow-xl">
                     <div className="w-full h-40 mb-4 flex items-center justify-center">
                       <img
                         src={cert.image}
@@ -343,7 +351,7 @@ function CertificatesSection() {
                         className="max-w-full max-h-full object-contain rounded-lg"
                       />
                     </div>
-                    <h3 className="text-lg font-bold mt-auto">{cert.name}</h3>
+                    <h3 className="text-lg font-bold mt-auto font-heading">{cert.name}</h3>
                   </div>
                 </div>
               </CarouselItem>
@@ -374,17 +382,17 @@ function TestimonialsSection() {
     return (
       <section className="py-20 bg-gray-800 text-white">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 font-heading uppercase tracking-wider">
             Testimonios: De Principiantes a Profesionales
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-gray-900 rounded-xl p-6 border border-gray-700 flex flex-col md:flex-row items-center">
+              <div key={index} className="bg-gray-900 rounded-xl p-6 border border-gray-700 flex flex-col md:flex-row items-center transition-transform hover:scale-105 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
                 <img src={testimonial.image} alt={`Testimonio de ${testimonial.name}`} className="w-24 h-24 rounded-full object-cover mb-4 md:mb-0 md:mr-6"/>
                 <div>
                   <div className="flex items-center mb-4">
                     <div>
-                      <div className="font-bold">{testimonial.name}</div>
+                      <div className="font-bold font-heading">{testimonial.name}</div>
                       <div className="text-yellow-400">{"⭐".repeat(testimonial.rating)}</div>
                     </div>
                   </div>
@@ -408,12 +416,12 @@ function TestimonialsSection() {
     return (
       <section className="py-20 bg-gray-200">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-black">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-black font-heading uppercase tracking-wider">
             Nuestra Academia en Acción
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {galleryImages.map((image, index) => (
-              <div key={index} className="rounded-lg overflow-hidden shadow-lg">
+              <div key={index} className="rounded-lg overflow-hidden shadow-lg transition-transform hover:scale-105">
                 <img src={image} alt={`Galería de la academia ${index + 1}`} className="w-full h-full object-cover"/>
               </div>
             ))}
@@ -427,12 +435,12 @@ function TestimonialsSection() {
     return (
       <section className="py-20 bg-gray-100 text-black">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 font-heading uppercase tracking-wider">
             Master Courses - Especializaciones
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {masterCourses.map((course, index) => (
-              <div key={index} className="bg-white rounded-xl p-6 text-center border border-gray-200 shadow-lg">
+              <div key={index} className="bg-white rounded-xl p-6 text-center border border-gray-200 shadow-lg transition-transform hover:scale-105 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
                  <div className="w-full h-40 mb-6 rounded-lg overflow-hidden bg-gray-200">
                     <img
                     src={course.image}
@@ -440,10 +448,10 @@ function TestimonialsSection() {
                     className="w-full h-full object-cover"
                     />
                 </div>
-                <h3 className="text-xl font-bold mb-3">{course.title}</h3>
+                <h3 className="text-xl font-bold mb-3 font-heading">{course.title}</h3>
                 <p className="text-gray-600 mb-4">{course.desc}</p>
                 <div className="text-2xl font-bold text-yellow-600 mb-4">{course.price}</div>
-                <a href="https://wa.me/5214423643964" className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-bold hover:bg-yellow-300 transition-colors block">
+                <a href="https://wa.me/5214423643964" className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-bold hover:bg-yellow-300 transition-transform hover:scale-105 block font-heading uppercase">
                   Más información
                 </a>
               </div>
@@ -458,7 +466,7 @@ function ContactSection() {
   return (
     <section className="py-20 bg-white text-black">
       <div className="max-w-4xl mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 font-heading uppercase tracking-wider">
           Formulario de Contacto
         </h2>
         <div className="max-w-2xl mx-auto">
@@ -466,7 +474,7 @@ function ContactSection() {
           <div className="text-center mt-8">
             <a
               href="https://wa.me/5214423643964"
-              className="bg-green-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-green-600 transition-colors inline-block"
+              className="bg-green-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-green-600 transition-transform hover:scale-105 inline-block font-heading uppercase"
             >
               O contáctanos por WhatsApp
             </a>
@@ -481,20 +489,20 @@ function SocialMediaSection() {
   return (
     <section className="py-20 bg-black text-white">
       <div className="max-w-4xl mx-auto px-4 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-16">
+        <h2 className="text-3xl md:text-4xl font-bold mb-16 font-heading uppercase tracking-wider">
           Síguenos en Redes Sociales
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <a href="https://instagram.com/asociacionmexicanadebarberia" aria-label="Visita nuestro Instagram" className="bg-pink-600 hover:bg-pink-700 text-white px-6 py-4 rounded-lg font-bold transition-colors">
+          <a href="https://instagram.com/asociacionmexicanadebarberia" aria-label="Visita nuestro Instagram" className="bg-gray-800 hover:bg-pink-600 text-white px-6 py-4 rounded-lg font-bold transition-all hover:scale-110">
             📸 Instagram
           </a>
-          <a href="https://facebook.com/asociacionmexicanadebarberia" aria-label="Visita nuestro Facebook" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-4 rounded-lg font-bold transition-colors">
+          <a href="https://facebook.com/asociacionmexicanadebarberia" aria-label="Visita nuestro Facebook" className="bg-gray-800 hover:bg-blue-600 text-white px-6 py-4 rounded-lg font-bold transition-all hover:scale-110">
             📘 Facebook
           </a>
-          <a href="https://maps.app.goo.gl/uXv7oY8bF9zJ7A6n8" target="_blank" rel="noopener noreferrer" aria-label="Encuéntranos en Google Maps" className="bg-red-600 hover:bg-red-700 text-white px-6 py-4 rounded-lg font-bold transition-colors">
+          <a href="https://maps.app.goo.gl/uXv7oY8bF9zJ7A6n8" target="_blank" rel="noopener noreferrer" aria-label="Encuéntranos en Google Maps" className="bg-gray-800 hover:bg-red-600 text-white px-6 py-4 rounded-lg font-bold transition-all hover:scale-110">
             📍 Google Maps
           </a>
-          <a href="https://wa.me/5214423643964" aria-label="Contáctanos por WhatsApp" className="bg-green-600 hover:bg-green-700 text-white px-6 py-4 rounded-lg font-bold transition-colors">
+          <a href="https://wa.me/5214423643964" aria-label="Contáctanos por WhatsApp" className="bg-gray-800 hover:bg-green-600 text-white px-6 py-4 rounded-lg font-bold transition-all hover:scale-110">
             💬 WhatsApp
           </a>
         </div>
@@ -507,12 +515,12 @@ function LocationSection() {
   return (
     <section className="py-20 bg-gray-900 text-white">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 font-heading uppercase tracking-wider">
           Ubicación en el Corazón de Querétaro
         </h2>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div className="text-center lg:text-left">
-            <h3 className="text-2xl font-bold mb-4">
+            <h3 className="text-2xl font-bold mb-4 font-heading">
               Av. Tecnológico Sur #4A, Local 09, Centro.
             </h3>
             <p className="text-gray-300 mb-6">Querétaro, Qro. C.P. 76010</p>
@@ -520,7 +528,7 @@ function LocationSection() {
               href="https://maps.app.goo.gl/uXv7oY8bF9zJ7A6n8"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-bold hover:bg-yellow-300 transition-colors inline-block"
+              className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-bold hover:bg-yellow-300 transition-transform hover:scale-105 inline-block font-heading uppercase"
             >
               Abrir en Google Maps
             </a>
@@ -549,15 +557,15 @@ function Footer() {
       <div className="max-w-6xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center mb-12">
           <div className="flex items-center justify-center md:justify-start space-x-4">
-            <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center p-2">
+            <div className="w-16 h-16 flex items-center justify-center p-2">
               <img
-                src="/lovable-uploads/214876ff-6021-4a14-920e-bff95182dc62.png"
+                src="/lovable-uploads/ae0a782f-1452-445a-a992-875f288b3932.png"
                 alt="AMB Logo"
                 className="w-full h-full object-contain"
               />
             </div>
             <div>
-              <div className="font-bold text-lg">AMB</div>
+              <div className="font-bold text-lg font-heading">AMB</div>
               <div className="text-gray-300 text-sm">Asociación Mexicana de Barbería</div>
             </div>
           </div>
@@ -573,7 +581,7 @@ function Footer() {
             </p>
             <a
               href="https://www.mercadopago.com.mx/checkout/v1/redirect?preference-id=141039576-ff609d72-4186-4497-b7c2-89d0fa84f7fd"
-              className="bg-blue-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-700 transition-colors inline-block"
+              className="bg-blue-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-700 transition-transform hover:scale-105 inline-block font-heading uppercase"
             >
               Pagar ahora con Mercado Pago
             </a>
@@ -593,6 +601,7 @@ const Index = () => {
       <Navbar />
       <Hero />
       <BenefitsSection />
+      <VideoSection />
       <InscriptionSection />
       <LearningEnvironmentSection />
       <ModalitiesSection />
