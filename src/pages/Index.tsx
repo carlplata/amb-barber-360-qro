@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Instagram, MessageCircle } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
 import { EnrollmentModal } from "@/components/EnrollmentModal";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
@@ -75,10 +75,10 @@ function Navbar() {
               Pagar
             </a>
             <a href="https://wa.me/5214423643964" aria-label="Contáctanos por WhatsApp" className="text-gray-400 hover:text-green-500 transition-colors">
-              💬
+              <MessageCircle size={24} />
             </a>
             <a href="https://instagram.com/asociacionmexicanadebarberia" aria-label="Visita nuestro Instagram" className="text-gray-400 hover:text-pink-500 transition-colors">
-              📸
+              <Instagram size={24} />
             </a>
           </div>
 
@@ -103,8 +103,8 @@ function Navbar() {
             <a href="https://www.mercadopago.com.mx/checkout/v1/redirect?preference-id=141039576-ff609d72-4186-4497-b7c2-89d0fa84f7fd" className="block bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold text-center">
               Pagar
             </a>
-            <a href="https://wa.me/5214423643964" className="block text-white py-2">💬 WhatsApp</a>
-            <a href="https://instagram.com/asociacionmexicanadebarberia" className="block text-white py-2">📸 Instagram</a>
+            <a href="https://wa.me/5214423643964" className="flex items-center gap-2 text-white py-2"><MessageCircle size={20} /> WhatsApp</a>
+            <a href="https://instagram.com/asociacionmexicanadebarberia" className="flex items-center gap-2 text-white py-2"><Instagram size={20} /> Instagram</a>
           </div>
         </div>
       )}
