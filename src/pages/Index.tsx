@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Instagram, MessageCircle } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
-import { EnrollmentModal } from "@/components/EnrollmentModal";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 
 const benefits = [
@@ -47,6 +46,10 @@ const masterCourses = [
     { title: "Barbería Clásica", desc: "Técnicas tradicionales de barbería", price: "$3,200", image: "/images/barber-5428008_1280.jpg" },
 ];
 
+// URLs
+const linktreeUrl = "https://linktr.ee/cursosamb";
+const googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=Asociacion+Mexicana+de+Barberia+Queretaro";
+
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -66,18 +69,16 @@ function Navbar() {
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
-            <EnrollmentModal>
-              <button className="bg-yellow-400 text-black px-6 py-2 rounded-lg font-semibold hover:bg-yellow-300 transition-transform hover:scale-105">
-                Inscribirme
-              </button>
-            </EnrollmentModal>
-            <a href="https://www.mercadopago.com.mx/checkout/v1/redirect?preference-id=141039576-ff609d72-4186-4497-b7c2-89d0fa84f7fd" className="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-transform hover:scale-105">
+            <a href={linktreeUrl} target="_blank" rel="noopener noreferrer" className="bg-yellow-400 text-black px-6 py-2 rounded-lg font-semibold hover:bg-yellow-300 transition-transform hover:scale-105">
+              Inscribirme
+            </a>
+            <a href="https://www.mercadopago.com.mx/checkout/v1/redirect?preference-id=141039576-ff609d72-4186-4497-b7c2-89d0fa84f7fd" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-transform hover:scale-105">
               Pagar
             </a>
-            <a href="https://wa.me/5214423643964" aria-label="Contáctanos por WhatsApp" className="text-gray-400 hover:text-green-500 transition-colors">
+            <a href="https://wa.me/5214423643964" target="_blank" rel="noopener noreferrer" aria-label="Contáctanos por WhatsApp" className="text-gray-400 hover:text-green-500 transition-colors">
               <MessageCircle size={24} />
             </a>
-            <a href="https://instagram.com/asociacionmexicanadebarberia" aria-label="Visita nuestro Instagram" className="text-gray-400 hover:text-pink-500 transition-colors">
+            <a href="https://instagram.com/asociacionmexicanadebarberia" target="_blank" rel="noopener noreferrer" aria-label="Visita nuestro Instagram" className="text-gray-400 hover:text-pink-500 transition-colors">
               <Instagram size={24} />
             </a>
           </div>
@@ -95,16 +96,14 @@ function Navbar() {
       {isOpen && (
         <div className="md:hidden bg-black/95 border-t border-gray-800">
           <div className="px-4 py-3 space-y-3">
-            <EnrollmentModal>
-              <button className="block w-full bg-yellow-400 text-black px-4 py-2 rounded-lg font-semibold text-center">
-                Inscribirme
-              </button>
-            </EnrollmentModal>
-            <a href="https://www.mercadopago.com.mx/checkout/v1/redirect?preference-id=141039576-ff609d72-4186-4497-b7c2-89d0fa84f7fd" className="block bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold text-center">
+            <a href={linktreeUrl} target="_blank" rel="noopener noreferrer" className="block w-full bg-yellow-400 text-black px-4 py-2 rounded-lg font-semibold text-center">
+              Inscribirme
+            </a>
+            <a href="https://www.mercadopago.com.mx/checkout/v1/redirect?preference-id=141039576-ff609d72-4186-4497-b7c2-89d0fa84f7fd" target="_blank" rel="noopener noreferrer" className="block bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold text-center">
               Pagar
             </a>
-            <a href="https://wa.me/5214423643964" className="flex items-center gap-2 text-white py-2"><MessageCircle size={20} /> WhatsApp</a>
-            <a href="https://instagram.com/asociacionmexicanadebarberia" className="flex items-center gap-2 text-white py-2"><Instagram size={20} /> Instagram</a>
+            <a href="https://wa.me/5214423643964" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white py-2"><MessageCircle size={20} /> WhatsApp</a>
+            <a href="https://instagram.com/asociacionmexicanadebarberia" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white py-2"><Instagram size={20} /> Instagram</a>
           </div>
         </div>
       )}
@@ -122,12 +121,12 @@ function Hero() {
             muted
             playsInline
             className="w-full h-full object-cover"
-            poster="/images/location-image-171416640172.jpg" // Una imagen de respaldo mientras carga el video
+            poster="/images/location-image-171416640172.jpg"
           >
             <source src="/videos/hero-background.mp4" type="video/mp4" />
             Tu navegador no soporta el video.
           </video>
-          <div className="absolute inset-0 bg-black/60" /> {/* Overlay oscuro */}
+          <div className="absolute inset-0 bg-black/60" />
         </div>
         <div className="max-w-4xl mx-auto text-center px-4 z-10 relative animate-fade-in-up">
           <img
@@ -156,12 +155,10 @@ function Hero() {
             </div>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <EnrollmentModal>
-              <button className="bg-yellow-400 text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-300 transition-transform hover:scale-105 font-heading uppercase">
-                Inscribirme ahora
-              </button>
-            </EnrollmentModal>
-            <a href="https://wa.me/5214423643964" className="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-black transition-all hover:scale-105 font-heading uppercase">
+            <a href={linktreeUrl} target="_blank" rel="noopener noreferrer" className="bg-yellow-400 text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-300 transition-transform hover:scale-105 font-heading uppercase">
+              Inscribirme ahora
+            </a>
+            <a href="https://wa.me/5214423643964" target="_blank" rel="noopener noreferrer" className="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-black transition-all hover:scale-105 font-heading uppercase">
               Hablar con asesor
             </a>
           </div>
@@ -235,11 +232,9 @@ function InscriptionSection() {
             <p className="text-gray-600">Recibe todo el contenido siempre disponible</p>
           </div>
         </div>
-        <EnrollmentModal>
-          <button className="bg-black text-yellow-400 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-800 transition-transform hover:scale-105 font-heading uppercase">
-            Apartar mi lugar
-          </button>
-        </EnrollmentModal>
+        <a href={linktreeUrl} target="_blank" rel="noopener noreferrer" className="bg-black text-yellow-400 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-800 transition-transform hover:scale-105 font-heading uppercase inline-block">
+          Apartar mi lugar
+        </a>
       </div>
     </section>
   );
@@ -288,39 +283,42 @@ function ModalitiesSection() {
 }
 
 function PricingSection() {
-  return (
-    <section className="py-20 bg-black text-white">
-      <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 font-heading uppercase tracking-wider">
-          Formas de Pago
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {pricingOptions.map((option, index) => (
-            <div key={index} className="bg-gray-900 rounded-xl p-6 text-center border border-gray-800 transition-transform hover:scale-105 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
-              <div className="w-32 h-32 mx-auto mb-6 rounded-lg overflow-hidden bg-gray-800">
-                <img
-                  src={option.image}
-                  alt={option.title}
-                  className="w-full h-full object-cover"
-                />
+    const createWhatsAppLink = (planTitle: string) => {
+        const message = `Hola, me interesa el plan ${planTitle} para el curso de barbería 360. ¿Qué horarios hay disponibles?`;
+        return `https://wa.me/5214423643964?text=${encodeURIComponent(message)}`;
+      };
+
+    return (
+      <section className="py-20 bg-black text-white">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 font-heading uppercase tracking-wider">
+            Formas de Pago
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {pricingOptions.map((option, index) => (
+              <div key={index} className="bg-gray-900 rounded-xl p-6 text-center border border-gray-800 transition-transform hover:scale-105 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
+                <div className="w-32 h-32 mx-auto mb-6 rounded-lg overflow-hidden bg-gray-800">
+                  <img
+                    src={option.image}
+                    alt={option.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h3 className="text-xl font-bold mb-4 font-heading">{option.title}</h3>
+                <p className="text-gray-300 mb-4">{option.description}</p>
+                <div className={`text-3xl font-bold mb-6 ${option.discount ? 'text-green-400' : 'text-white'}`}>
+                  {option.discount || option.price}
+                </div>
+                <a href={createWhatsAppLink(option.title)} target="_blank" rel="noopener noreferrer" className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-bold hover:bg-yellow-300 transition-transform hover:scale-105 block w-full font-heading uppercase">
+                    Elegir plan
+                </a>
               </div>
-              <h3 className="text-xl font-bold mb-4 font-heading">{option.title}</h3>
-              <p className="text-gray-300 mb-4">{option.description}</p>
-              <div className={`text-3xl font-bold mb-6 ${option.discount ? 'text-green-400' : 'text-white'}`}>
-                {option.discount || option.price}
-              </div>
-              <EnrollmentModal defaultPaymentPlan={option.plan}>
-                <button className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-bold hover:bg-yellow-300 transition-transform hover:scale-105 block w-full font-heading uppercase">
-                  Elegir plan
-                </button>
-              </EnrollmentModal>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
-  );
-}
+      </section>
+    );
+  }
 
 function CertificatesSection() {
   return (
@@ -493,16 +491,16 @@ function SocialMediaSection() {
           Síguenos en Redes Sociales
         </h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <a href="https://instagram.com/asociacionmexicanadebarberia" aria-label="Visita nuestro Instagram" className="bg-gray-800 hover:bg-pink-600 text-white px-6 py-4 rounded-lg font-bold transition-all hover:scale-110">
+          <a href="https://instagram.com/asociacionmexicanadebarberia" target="_blank" rel="noopener noreferrer" aria-label="Visita nuestro Instagram" className="bg-gray-800 hover:bg-pink-600 text-white px-6 py-4 rounded-lg font-bold transition-all hover:scale-110">
             📸 Instagram
           </a>
-          <a href="https://facebook.com/asociacionmexicanadebarberia" aria-label="Visita nuestro Facebook" className="bg-gray-800 hover:bg-blue-600 text-white px-6 py-4 rounded-lg font-bold transition-all hover:scale-110">
+          <a href="https://facebook.com/asociacionmexicanadebarberia" target="_blank" rel="noopener noreferrer" aria-label="Visita nuestro Facebook" className="bg-gray-800 hover:bg-blue-600 text-white px-6 py-4 rounded-lg font-bold transition-all hover:scale-110">
             📘 Facebook
           </a>
-          <a href="https://maps.app.goo.gl/uXv7oY8bF9zJ7A6n8" target="_blank" rel="noopener noreferrer" aria-label="Encuéntranos en Google Maps" className="bg-gray-800 hover:bg-red-600 text-white px-6 py-4 rounded-lg font-bold transition-all hover:scale-110">
+          <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer" aria-label="Encuéntranos en Google Maps" className="bg-gray-800 hover:bg-red-600 text-white px-6 py-4 rounded-lg font-bold transition-all hover:scale-110">
             📍 Google Maps
           </a>
-          <a href="https://wa.me/5214423643964" aria-label="Contáctanos por WhatsApp" className="bg-gray-800 hover:bg-green-600 text-white px-6 py-4 rounded-lg font-bold transition-all hover:scale-110">
+          <a href="https://wa.me/5214423643964" target="_blank" rel="noopener noreferrer" aria-label="Contáctanos por WhatsApp" className="bg-gray-800 hover:bg-green-600 text-white px-6 py-4 rounded-lg font-bold transition-all hover:scale-110">
             💬 WhatsApp
           </a>
         </div>
@@ -525,7 +523,7 @@ function LocationSection() {
             </h3>
             <p className="text-gray-300 mb-6">Querétaro, Qro. C.P. 76010</p>
             <a
-              href="https://maps.app.goo.gl/uXv7oY8bF9zJ7A6n8"
+              href={googleMapsUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-bold hover:bg-yellow-300 transition-transform hover:scale-105 inline-block font-heading uppercase"
@@ -535,7 +533,7 @@ function LocationSection() {
           </div>
           <div className="w-full h-80 bg-gray-800 rounded-xl overflow-hidden">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14940.321398332156!2d-100.4039885871582!3d20.593170700000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d3451e5ff5406d%3A0x8919133f3893361!2sCentro%2C%2076000%20Santiago%20de%20Quer%C3%A9taro%2C%20Qro.!5e0!3m2!1sen!2smx!4v1722022030615!5m2!1sen!2smx"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3734.902316402283!2d-100.39525368453458!3d20.59259280720474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d3454b63364c7b%3A0x4705553038381813!2sAMB%20(Asociaci%C3%B3n%20Mexicana%20de%20Barber%C3%ADa)!5e0!3m2!1ses-419!2smx!4v1689280049449!5m2!1ses-419!2smx"
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -581,6 +579,8 @@ function Footer() {
             </p>
             <a
               href="https://www.mercadopago.com.mx/checkout/v1/redirect?preference-id=141039576-ff609d72-4186-4497-b7c2-89d0fa84f7fd"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-blue-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-700 transition-transform hover:scale-105 inline-block font-heading uppercase"
             >
               Pagar ahora con Mercado Pago
