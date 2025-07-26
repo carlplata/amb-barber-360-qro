@@ -447,7 +447,7 @@ function SocialMediaSection() {
           <a href="https://facebook.com/asociacionmexicanadebarberia" aria-label="Visita nuestro Facebook" className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-4 rounded-lg font-bold transition-colors">
             📘 Facebook
           </a>
-          <a href={"[TU ENLACE DE GOOGLE MAPS]"} aria-label="Encuéntranos en Google Maps" className="bg-red-600 hover:bg-red-700 text-white px-6 py-4 rounded-lg font-bold transition-colors">
+          <a href="https://maps.app.goo.gl/uXv7oY8bF9zJ7A6n8" target="_blank" rel="noopener noreferrer" aria-label="Encuéntranos en Google Maps" className="bg-red-600 hover:bg-red-700 text-white px-6 py-4 rounded-lg font-bold transition-colors">
             📍 Google Maps
           </a>
           <a href="https://wa.me/5214423643964" aria-label="Contáctanos por WhatsApp" className="bg-green-600 hover:bg-green-700 text-white px-6 py-4 rounded-lg font-bold transition-colors">
@@ -473,7 +473,7 @@ function LocationSection() {
             </h3>
             <p className="text-gray-300 mb-6">Querétaro, Qro. C.P. 76010</p>
             <a
-              href={"[TU ENLACE DE GOOGLE MAPS]"}
+              href="https://maps.app.goo.gl/uXv7oY8bF9zJ7A6n8"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-bold hover:bg-yellow-300 transition-colors inline-block"
@@ -483,7 +483,7 @@ function LocationSection() {
           </div>
           <div className="w-full h-80 bg-gray-800 rounded-xl overflow-hidden">
             <iframe
-              src={"[TU ENLACE PARA INSERTAR EL MAPA]"}
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14940.321398332156!2d-100.4039885871582!3d20.593170700000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d3451e5ff5406d%3A0x8919133f3893361!2sCentro%2C%2076000%20Santiago%20de%20Quer%C3%A9taro%2C%20Qro.!5e0!3m2!1sen!2smx!4v1722022030615!5m2!1sen!2smx"
               width="100%"
               height="100%"
               style={{ border: 0 }}
