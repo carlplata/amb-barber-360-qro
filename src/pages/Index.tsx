@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
 import { EnrollmentModal } from "@/components/EnrollmentModal";
@@ -14,16 +14,16 @@ const benefits = [
 ];
 
 const pricingOptions = [
-  { title: "Por clase", description: "Paga clase por clase", price: "Flexible", discount: "", image: "/images/pago por clase.jpg", plan: "por-clase" },
-  { title: "Quincenal", description: "Ahorra pagando cada 15 días", price: "8%", discount: "-8%", image: "/images/pago por quincena.jpg", plan: "quincenal" },
-  { title: "Mensual", description: "Ahorra con pago mensual", price: "14%", discount: "-14%", image: "/images/pago mensual.jpg", plan: "mensual" },
-  { title: "Curso completo", description: "Máximo ahorro", price: "20%", discount: "-20%", image: "/images/curso completo.jpg", plan: "curso-completo" },
+    { title: "Por clase", description: "Paga clase por clase", price: "Flexible", discount: "", image: "/images/pago por clase.jpg", plan: "por-clase" },
+    { title: "Quincenal", description: "Ahorra pagando cada 15 días", price: "8%", discount: "-8%", image: "/images/pago por quincena.jpg", plan: "quincenal" },
+    { title: "Mensual", description: "Ahorra con pago mensual", price: "14%", discount: "-14%", image: "/images/pago mensual.jpg", plan: "mensual" },
+    { title: "Curso completo", description: "Máximo ahorro", price: "20%", discount: "-20%", image: "/images/curso completo.jpg", plan: "curso-completo" },
 ];
 
 const certificates = [
   { name: "Barbicide", image: "/lovable-uploads/92910c3a-9ab9-4040-81b7-2400bf55429f.png" },
   { name: "Barbicide Certification", image: "/lovable-uploads/1dd4286a-901c-4cba-9e53-53d06179454d.png" },
-  { name: "AMB Certificación Oficial", image: "/lovable-uploads/bd1b84e7-cb19-4040-a1b4-daae1f7deba9.png" },
+  { name: "AMB Certificación Oficial", image: "/lovable-uploads/bd1b84e7-cb19-4084-a1b4-daae1f7deba9.png" },
   { name: "Amos Academy", image: "/lovable-uploads/ed4fd92b-1021-4a93-a841-12eeaaee8ffd.png" },
   { name: "Fundación Carlos Slim", image: "/lovable-uploads/056b97e0-40b6-4bec-8dd9-a6452668c10b.png" },
 ];
@@ -41,10 +41,10 @@ const learningEnvironment = [
 ];
 
 const masterCourses = [
-  { title: "Colorimetría Avanzada", desc: "Domina las técnicas de color profesional", price: "$3,500", image: "/images/colorimetria.jpg" },
-  { title: "Corte a Tijera", desc: "Perfecciona el arte del corte clásico", price: "$2,800", image: "/images/5c0fe394-6cb2-46cb-80ce-8c0c26f04975.png" },
-  { title: "Fades Profesionales", desc: "Técnicas avanzadas de degradados", price: "$2,500", image: "/images/fades.png" },
-  { title: "Barbería Clásica", desc: "Técnicas tradicionales de barbería", price: "$3,200", image: "/images/barber-5428008_1280.jpg" },
+    { title: "Colorimetría Avanzada", desc: "Domina las técnicas de color profesional", price: "$3,500", image: "/images/colorimetria.jpg" },
+    { title: "Corte a Tijera", desc: "Perfecciona el arte del corte clásico", price: "$2,800", image: "/images/5c0fe394-6cb2-46cb-80ce-8c0c26f04975.png" },
+    { title: "Fades Profesionales", desc: "Técnicas avanzadas de degradados", price: "$2,500", image: "/images/fades.png" },
+    { title: "Barbería Clásica", desc: "Técnicas tradicionales de barbería", price: "$3,200", image: "/images/barber-5428008_1280.jpg" },
 ];
 
 function Navbar() {
@@ -113,53 +113,81 @@ function Navbar() {
 }
 
 function Hero() {
-  return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-black text-white pt-20">
-      <div className="max-w-4xl mx-auto text-center px-4">
-        <div className="w-40 h-40 bg-white rounded-full mx-auto mb-8 flex items-center justify-center p-4">
-          <img
-            src="/lovable-uploads/214876ff-6021-4a14-920e-bff95182dc62.png"
-            alt="AMB Logo"
-            className="w-full h-full object-contain"
-          />
-        </div>
+    const backgroundImages = [
+        "/images/12471cee-6e75-46e7-bf58-2bf525694965.png",
+        "/images/348s.jpg",
+        "/images/IMG_5113.JPG",
+        "/images/barber-5428008_1280.jpg",
+        "/images/fades.png",
+      ];
 
-        <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-          Conviértete en Barbero Profesional desde Cero en Querétaro
-        </h1>
-
-        <div className="bg-black/30 rounded-xl p-6 mb-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="text-center">
-            <div className="text-3xl mb-2">📍</div>
-            <div className="font-semibold">Curso presencial</div>
-            <div className="text-gray-300">en Querétaro</div>
+    return (
+      <section className="relative min-h-screen flex items-center justify-center text-white pt-20 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Carousel
+            opts={{
+              loop: true,
+            }}
+            className="w-full h-full"
+          >
+            <CarouselContent>
+              {backgroundImages.map((src, index) => (
+                <CarouselItem key={index}>
+                  <div className="relative w-full h-screen">
+                    <img
+                      src={src}
+                      alt={`Fondo ${index + 1}`}
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/60" /> {/* Overlay oscuro */}
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+        </div>
+        <div className="max-w-4xl mx-auto text-center px-4 z-10 relative">
+          <div className="w-40 h-40 bg-white rounded-full mx-auto mb-8 flex items-center justify-center p-4">
+            <img
+              src="/lovable-uploads/214876ff-6021-4a14-920e-bff95182dc62.png"
+              alt="AMB Logo"
+              className="w-full h-full object-contain"
+            />
           </div>
-          <div className="text-center">
-            <div className="text-3xl mb-2">🧑‍🎓</div>
-            <div className="font-semibold">Sin experiencia previa</div>
-            <div className="text-gray-300">Empezamos desde cero</div>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+            Conviértete en Barbero Profesional desde Cero en Querétaro
+          </h1>
+          <div className="bg-black/30 rounded-xl p-6 mb-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="text-center">
+              <div className="text-3xl mb-2">📍</div>
+              <div className="font-semibold">Curso presencial</div>
+              <div className="text-gray-300">en Querétaro</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl mb-2">🧑‍🎓</div>
+              <div className="font-semibold">Sin experiencia previa</div>
+              <div className="text-gray-300">Empezamos desde cero</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl mb-2">✂️</div>
+              <div className="font-semibold">Clases prácticas</div>
+              <div className="text-gray-300">desde el primer día</div>
+            </div>
           </div>
-          <div className="text-center">
-            <div className="text-3xl mb-2">✂️</div>
-            <div className="font-semibold">Clases prácticas</div>
-            <div className="text-gray-300">desde el primer día</div>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <EnrollmentModal>
+              <button className="bg-yellow-400 text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-300 transition-colors">
+                Inscribirme ahora
+              </button>
+            </EnrollmentModal>
+            <a href="https://wa.me/5214423643964" className="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-black transition-colors">
+              Hablar con asesor
+            </a>
           </div>
         </div>
-
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <EnrollmentModal>
-            <button className="bg-yellow-400 text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-300 transition-colors">
-              Inscribirme ahora
-            </button>
-          </EnrollmentModal>
-          <a href="https://wa.me/5214423643964" className="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-black transition-colors">
-            Hablar con asesor
-          </a>
-        </div>
-      </div>
-    </section>
-  );
-}
+      </section>
+    );
+  }
 
 function BenefitsSection() {
   return (
@@ -352,66 +380,66 @@ function CertificatesSection() {
 }
 
 function TestimonialsSection() {
-  const testimonials = [
-    { name: "Juan Zamudio", text: "Entré sin saber ni cómo agarrar las máquinas. Hoy tengo mi propia barbería y trabajo por mi cuenta. Todo gracias a AMB", rating: 5, image: "/images/230308-carlos-flores-cs-7a4f1c.webp" },
-    { name: "Marco Becerra", text: "Era guardia de seguridad. Trabajaba en casetas, con horarios inhumanos. Hoy soy barbero con clientes fijos y una vida diferente.", rating: 5, image: "/images/IMG_5113.JPG" },
-    { name: "Estefanía Resendiz", text: "Soy estilista desde hace años, pero no sabía barbería. Aquí aprendí todo lo que me faltaba.", rating: 5, image: "/images/348s.jpg" },
-    { name: "Luis Ochoa", text: "Estudié en otra escuela y no aprendí nada práctico. Me cambié a AMB y fue otra historia. Hoy vivo de esto.", rating: 5, image: "/images/location-image-171416640172.jpg" },
-  ];
-
-  return (
-    <section className="py-20 bg-gray-800 text-white">
-      <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-          Testimonios: De Principiantes a Profesionales
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-gray-900 rounded-xl p-6 border border-gray-700 flex flex-col md:flex-row items-center">
-              <img src={testimonial.image} alt={`Testimonio de ${testimonial.name}`} className="w-24 h-24 rounded-full object-cover mb-4 md:mb-0 md:mr-6"/>
-              <div>
-                <div className="flex items-center mb-4">
-                  <div>
-                    <div className="font-bold">{testimonial.name}</div>
-                    <div className="text-yellow-400">{"⭐".repeat(testimonial.rating)}</div>
+    const testimonials = [
+      { name: "Juan Zamudio", text: "Entré sin saber ni cómo agarrar las máquinas. Hoy tengo mi propia barbería y trabajo por mi cuenta. Todo gracias a AMB", rating: 5, image: "/images/230308-carlos-flores-cs-7a4f1c.webp" },
+      { name: "Marco Becerra", text: "Era guardia de seguridad. Trabajaba en casetas, con horarios inhumanos. Hoy soy barbero con clientes fijos y una vida diferente.", rating: 5, image: "/images/IMG_5113.JPG" },
+      { name: "Estefanía Resendiz", text: "Soy estilista desde hace años, pero no sabía barbería. Aquí aprendí todo lo que me faltaba.", rating: 5, image: "/images/348s.jpg" },
+      { name: "Luis Ochoa", text: "Estudié en otra escuela y no aprendí nada práctico. Me cambié a AMB y fue otra historia. Hoy vivo de esto.", rating: 5, image: "/images/location-image-171416640172.jpg" },
+    ];
+  
+    return (
+      <section className="py-20 bg-gray-800 text-white">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
+            Testimonios: De Principiantes a Profesionales
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className="bg-gray-900 rounded-xl p-6 border border-gray-700 flex flex-col md:flex-row items-center">
+                <img src={testimonial.image} alt={`Testimonio de ${testimonial.name}`} className="w-24 h-24 rounded-full object-cover mb-4 md:mb-0 md:mr-6"/>
+                <div>
+                  <div className="flex items-center mb-4">
+                    <div>
+                      <div className="font-bold">{testimonial.name}</div>
+                      <div className="text-yellow-400">{"⭐".repeat(testimonial.rating)}</div>
+                    </div>
                   </div>
+                  <p className="text-gray-300 italic">"{testimonial.text}"</p>
                 </div>
-                <p className="text-gray-300 italic">"{testimonial.text}"</p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
-  );
-}
-
-function GallerySection() {
-  const galleryImages = [
-    "/images/Imagen de WhatsApp 2025-05-26 a las 14.31.09_0019abd3.jpg",
-    "/images/Imagen de WhatsApp 2025-05-26 a las 14.31.08_b411930b.jpg",
-    "/images/IMG_5084.JPG",
-  ];
-
-  return (
-    <section className="py-20 bg-gray-200">
-      <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-black">
-          Nuestra Academia en Acción
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {galleryImages.map((image, index) => (
-            <div key={index} className="rounded-lg overflow-hidden shadow-lg">
-              <img src={image} alt={`Galería de la academia ${index + 1}`} className="w-full h-full object-cover"/>
-            </div>
-          ))}
+      </section>
+    );
+  }
+  
+  function GallerySection() {
+    const galleryImages = [
+      "/images/Imagen de WhatsApp 2025-05-26 a las 14.31.09_0019abd3.jpg",
+      "/images/Imagen de WhatsApp 2025-05-26 a las 14.31.08_b411930b.jpg",
+      "/images/IMG_5084.JPG",
+    ];
+  
+    return (
+      <section className="py-20 bg-gray-200">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-black">
+            Nuestra Academia en Acción
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {galleryImages.map((image, index) => (
+              <div key={index} className="rounded-lg overflow-hidden shadow-lg">
+                <img src={image} alt={`Galería de la academia ${index + 1}`} className="w-full h-full object-cover"/>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
-  );
-}
-
-function MasterCoursesSection() {
+      </section>
+    );
+  }
+  
+  function MasterCoursesSection() {
     return (
       <section className="py-20 bg-gray-100 text-black">
         <div className="max-w-6xl mx-auto px-4">
