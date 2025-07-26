@@ -14,16 +14,16 @@ const benefits = [
 ];
 
 const pricingOptions = [
-  { title: "Por clase", description: "Paga clase por clase", price: "Flexible", discount: "", image: "/images/por-clase.jpg", plan: "por-clase" },
-  { title: "Quincenal", description: "Ahorra pagando cada 15 días", price: "8%", discount: "-8%", image: "/images/quincenal.jpg", plan: "quincenal" },
-  { title: "Mensual", description: "Ahorra con pago mensual", price: "14%", discount: "-14%", image: "/images/mensual.jpg", plan: "mensual" },
-  { title: "Curso completo", description: "Máximo ahorro", price: "20%", discount: "-20%", image: "/images/curso-completo.jpg", plan: "curso-completo" },
+  { title: "Por clase", description: "Paga clase por clase", price: "Flexible", discount: "", image: "/images/pago por clase.jpg", plan: "por-clase" },
+  { title: "Quincenal", description: "Ahorra pagando cada 15 días", price: "8%", discount: "-8%", image: "/images/pago por quincena.jpg", plan: "quincenal" },
+  { title: "Mensual", description: "Ahorra con pago mensual", price: "14%", discount: "-14%", image: "/images/pago mensual.jpg", plan: "mensual" },
+  { title: "Curso completo", description: "Máximo ahorro", price: "20%", discount: "-20%", image: "/images/curso completo.jpg", plan: "curso-completo" },
 ];
 
 const certificates = [
   { name: "Barbicide", image: "/lovable-uploads/92910c3a-9ab9-4040-81b7-2400bf55429f.png" },
   { name: "Barbicide Certification", image: "/lovable-uploads/1dd4286a-901c-4cba-9e53-53d06179454d.png" },
-  { name: "AMB Certificación Oficial", image: "/lovable-uploads/bd1b84e7-cb19-4084-a1b4-daae1f7deba9.png" },
+  { name: "AMB Certificación Oficial", image: "/lovable-uploads/bd1b84e7-cb19-4040-a1b4-daae1f7deba9.png" },
   { name: "Amos Academy", image: "/lovable-uploads/ed4fd92b-1021-4a93-a841-12eeaaee8ffd.png" },
   { name: "Fundación Carlos Slim", image: "/lovable-uploads/056b97e0-40b6-4bec-8dd9-a6452668c10b.png" },
 ];
@@ -41,10 +41,10 @@ const learningEnvironment = [
 ];
 
 const masterCourses = [
-  { title: "Colorimetría Avanzada", desc: "Domina las técnicas de color profesional", price: "$3,500" },
-  { title: "Corte a Tijera", desc: "Perfecciona el arte del corte clásico", price: "$2,800" },
-  { title: "Fades Profesionales", desc: "Técnicas avanzadas de degradados", price: "$2,500" },
-  { title: "Barbería Clásica", desc: "Técnicas tradicionales de barbería", price: "$3,200" },
+  { title: "Colorimetría Avanzada", desc: "Domina las técnicas de color profesional", price: "$3,500", image: "/images/colorimetria.jpg" },
+  { title: "Corte a Tijera", desc: "Perfecciona el arte del corte clásico", price: "$2,800", image: "/images/5c0fe394-6cb2-46cb-80ce-8c0c26f04975.png" },
+  { title: "Fades Profesionales", desc: "Técnicas avanzadas de degradados", price: "$2,500", image: "/images/fades.png" },
+  { title: "Barbería Clásica", desc: "Técnicas tradicionales de barbería", price: "$3,200", image: "/images/barber-5428008_1280.jpg" },
 ];
 
 function Navbar() {
@@ -56,15 +56,15 @@ function Navbar() {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-3">
             <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center p-1">
-              <img 
-                src="/lovable-uploads/214876ff-6021-4a14-920e-bff95182dc62.png" 
-                alt="AMB Logo" 
+              <img
+                src="/lovable-uploads/214876ff-6021-4a14-920e-bff95182dc62.png"
+                alt="AMB Logo"
                 className="w-full h-full object-contain"
               />
             </div>
             <span className="text-white font-semibold">Barbería 360°</span>
           </div>
-          
+
           <div className="hidden md:flex items-center space-x-4">
             <EnrollmentModal>
               <button className="bg-yellow-400 text-black px-6 py-2 rounded-lg font-semibold hover:bg-yellow-300 transition-colors">
@@ -82,7 +82,7 @@ function Navbar() {
             </a>
           </div>
 
-          <button 
+          <button
             className="md:hidden text-white"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Abrir menú de navegación"
@@ -117,17 +117,17 @@ function Hero() {
     <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-black text-white pt-20">
       <div className="max-w-4xl mx-auto text-center px-4">
         <div className="w-40 h-40 bg-white rounded-full mx-auto mb-8 flex items-center justify-center p-4">
-          <img 
-            src="/lovable-uploads/214876ff-6021-4a14-920e-bff95182dc62.png" 
-            alt="AMB Logo" 
+          <img
+            src="/lovable-uploads/214876ff-6021-4a14-920e-bff95182dc62.png"
+            alt="AMB Logo"
             className="w-full h-full object-contain"
           />
         </div>
-        
+
         <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
           Conviértete en Barbero Profesional desde Cero en Querétaro
         </h1>
-        
+
         <div className="bg-black/30 rounded-xl p-6 mb-8 grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="text-center">
             <div className="text-3xl mb-2">📍</div>
@@ -145,7 +145,7 @@ function Hero() {
             <div className="text-gray-300">desde el primer día</div>
           </div>
         </div>
-        
+
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <EnrollmentModal>
             <button className="bg-yellow-400 text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-300 transition-colors">
@@ -187,9 +187,9 @@ function InscriptionSection() {
     <section className="py-20 bg-yellow-400 text-black">
       <div className="max-w-4xl mx-auto px-4 text-center">
         <div className="w-20 h-20 bg-white rounded-full mx-auto mb-8 flex items-center justify-center p-2">
-          <img 
-            src="/lovable-uploads/214876ff-6021-4a14-920e-bff95182dc62.png" 
-            alt="AMB Logo" 
+          <img
+            src="/lovable-uploads/214876ff-6021-4a14-920e-bff95182dc62.png"
+            alt="AMB Logo"
             className="w-full h-full object-contain"
           />
         </div>
@@ -271,8 +271,8 @@ function PricingSection() {
           {pricingOptions.map((option, index) => (
             <div key={index} className="bg-gray-900 rounded-xl p-6 text-center border border-gray-800">
               <div className="w-32 h-32 mx-auto mb-6 rounded-lg overflow-hidden bg-gray-800">
-                <img 
-                  src={option.image} 
+                <img
+                  src={option.image}
                   alt={option.title}
                   className="w-full h-full object-cover"
                 />
@@ -301,9 +301,9 @@ function CertificatesSection() {
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-16">
           <div className="w-24 h-24 bg-black rounded-full mx-auto mb-6 flex items-center justify-center p-3">
-            <img 
-              src="/lovable-uploads/ae0a782f-1452-445a-a992-875f288b3932.png" 
-              alt="AMB Logo" 
+            <img
+              src="/lovable-uploads/ae0a782f-1452-445a-a992-875f288b3932.png"
+              alt="AMB Logo"
               className="w-full h-full object-contain filter invert"
             />
           </div>
@@ -325,8 +325,8 @@ function CertificatesSection() {
                 <div className="p-1 h-full">
                   <div className="flex flex-col flex-shrink-0 bg-gray-50 rounded-xl p-6 text-center border border-gray-200 w-full h-full">
                     <div className="w-full h-40 mb-4 flex items-center justify-center">
-                      <img 
-                        src={cert.image} 
+                      <img
+                        src={cert.image}
                         alt={cert.name}
                         className="max-w-full max-h-full object-contain rounded-lg"
                       />
@@ -340,7 +340,7 @@ function CertificatesSection() {
           <CarouselPrevious />
           <CarouselNext />
         </Carousel>
-        
+
         <div className="text-center mt-12">
           <p className="text-lg text-gray-700 mb-6">
             Al finalizar el curso recibirás <strong>múltiples certificaciones oficiales</strong> que te respaldan como barbero profesional
@@ -353,10 +353,10 @@ function CertificatesSection() {
 
 function TestimonialsSection() {
   const testimonials = [
-    { name: "Juan Zamudio", text: "Entré sin saber ni cómo agarrar las máquinas. Hoy tengo mi propia barbería y trabajo por mi cuenta. Todo gracias a AMB", rating: 5 },
-    { name: "Marco Becerra", text: "Era guardia de seguridad. Trabajaba en casetas, con horarios inhumanos. Hoy soy barbero con clientes fijos y una vida diferente.", rating: 5 },
-    { name: "Estefanía Resendiz", text: "Soy estilista desde hace años, pero no sabía barbería. Aquí aprendí todo lo que me faltaba.", rating: 5 },
-    { name: "Luis Ochoa", text: "Estudié en otra escuela y no aprendí nada práctico. Me cambié a AMB y fue otra historia. Hoy vivo de esto.", rating: 5 },
+    { name: "Juan Zamudio", text: "Entré sin saber ni cómo agarrar las máquinas. Hoy tengo mi propia barbería y trabajo por mi cuenta. Todo gracias a AMB", rating: 5, image: "/images/230308-carlos-flores-cs-7a4f1c.webp" },
+    { name: "Marco Becerra", text: "Era guardia de seguridad. Trabajaba en casetas, con horarios inhumanos. Hoy soy barbero con clientes fijos y una vida diferente.", rating: 5, image: "/images/IMG_5113.JPG" },
+    { name: "Estefanía Resendiz", text: "Soy estilista desde hace años, pero no sabía barbería. Aquí aprendí todo lo que me faltaba.", rating: 5, image: "/images/348s.jpg" },
+    { name: "Luis Ochoa", text: "Estudié en otra escuela y no aprendí nada práctico. Me cambié a AMB y fue otra historia. Hoy vivo de esto.", rating: 5, image: "/images/location-image-171416640172.jpg" },
   ];
 
   return (
@@ -367,17 +367,42 @@ function TestimonialsSection() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-gray-900 rounded-xl p-6 border border-gray-700">
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center text-black font-bold mr-4">
-                  {testimonial.name.charAt(0)}
+            <div key={index} className="bg-gray-900 rounded-xl p-6 border border-gray-700 flex flex-col md:flex-row items-center">
+              <img src={testimonial.image} alt={`Testimonio de ${testimonial.name}`} className="w-24 h-24 rounded-full object-cover mb-4 md:mb-0 md:mr-6"/>
+              <div>
+                <div className="flex items-center mb-4">
+                  <div>
+                    <div className="font-bold">{testimonial.name}</div>
+                    <div className="text-yellow-400">{"⭐".repeat(testimonial.rating)}</div>
+                  </div>
                 </div>
-                <div>
-                  <div className="font-bold">{testimonial.name}</div>
-                  <div className="text-yellow-400">{"⭐".repeat(testimonial.rating)}</div>
-                </div>
+                <p className="text-gray-300 italic">"{testimonial.text}"</p>
               </div>
-              <p className="text-gray-300 italic">"{testimonial.text}"</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function GallerySection() {
+  const galleryImages = [
+    "/images/Imagen de WhatsApp 2025-05-26 a las 14.31.09_0019abd3.jpg",
+    "/images/Imagen de WhatsApp 2025-05-26 a las 14.31.08_b411930b.jpg",
+    "/images/IMG_5084.JPG",
+  ];
+
+  return (
+    <section className="py-20 bg-gray-200">
+      <div className="max-w-6xl mx-auto px-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-black">
+          Nuestra Academia en Acción
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {galleryImages.map((image, index) => (
+            <div key={index} className="rounded-lg overflow-hidden shadow-lg">
+              <img src={image} alt={`Galería de la academia ${index + 1}`} className="w-full h-full object-cover"/>
             </div>
           ))}
         </div>
@@ -387,28 +412,35 @@ function TestimonialsSection() {
 }
 
 function MasterCoursesSection() {
-  return (
-    <section className="py-20 bg-gray-100 text-black">
-      <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-          Master Courses - Especializaciones
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {masterCourses.map((course, index) => (
-            <div key={index} className="bg-white rounded-xl p-6 text-center border border-gray-200 shadow-lg">
-              <h3 className="text-xl font-bold mb-3">{course.title}</h3>
-              <p className="text-gray-600 mb-4">{course.desc}</p>
-              <div className="text-2xl font-bold text-yellow-600 mb-4">{course.price}</div>
-              <a href="https://wa.me/5214423643964" className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-bold hover:bg-yellow-300 transition-colors block">
-                Más información
-              </a>
-            </div>
-          ))}
+    return (
+      <section className="py-20 bg-gray-100 text-black">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
+            Master Courses - Especializaciones
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {masterCourses.map((course, index) => (
+              <div key={index} className="bg-white rounded-xl p-6 text-center border border-gray-200 shadow-lg">
+                 <div className="w-full h-40 mb-6 rounded-lg overflow-hidden bg-gray-200">
+                    <img
+                    src={course.image}
+                    alt={course.title}
+                    className="w-full h-full object-cover"
+                    />
+                </div>
+                <h3 className="text-xl font-bold mb-3">{course.title}</h3>
+                <p className="text-gray-600 mb-4">{course.desc}</p>
+                <div className="text-2xl font-bold text-yellow-600 mb-4">{course.price}</div>
+                <a href="https://wa.me/5214423643964" className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-bold hover:bg-yellow-300 transition-colors block">
+                  Más información
+                </a>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
-  );
-}
+      </section>
+    );
+  }
 
 function ContactSection() {
   return (
@@ -506,9 +538,9 @@ function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center mb-12">
           <div className="flex items-center justify-center md:justify-start space-x-4">
             <div className="w-16 h-16 bg-white rounded-lg flex items-center justify-center p-2">
-              <img 
-                src="/lovable-uploads/214876ff-6021-4a14-920e-bff95182dc62.png" 
-                alt="AMB Logo" 
+              <img
+                src="/lovable-uploads/214876ff-6021-4a14-920e-bff95182dc62.png"
+                alt="AMB Logo"
                 className="w-full h-full object-contain"
               />
             </div>
@@ -555,6 +587,7 @@ const Index = () => {
       <PricingSection />
       <CertificatesSection />
       <TestimonialsSection />
+      <GallerySection />
       <MasterCoursesSection />
       <ContactSection />
       <SocialMediaSection />
