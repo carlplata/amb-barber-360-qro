@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
 import { EnrollmentModal } from "@/components/EnrollmentModal";
@@ -55,9 +55,9 @@ function Navbar() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center p-1">
+            <div className="w-12 h-12 flex items-center justify-center p-1">
               <img
-                src="/lovable-uploads/214876ff-6021-4a14-920e-bff95182dc62.png"
+                src="/lovable-uploads/ae0a782f-1452-445a-a992-875f288b3932.png"
                 alt="AMB Logo"
                 className="w-full h-full object-contain"
               />
@@ -147,13 +147,11 @@ function Hero() {
           </Carousel>
         </div>
         <div className="max-w-4xl mx-auto text-center px-4 z-10 relative">
-          <div className="w-40 h-40 bg-white rounded-full mx-auto mb-8 flex items-center justify-center p-4">
-            <img
-              src="/lovable-uploads/214876ff-6021-4a14-920e-bff95182dc62.png"
-              alt="AMB Logo"
-              className="w-full h-full object-contain"
-            />
-          </div>
+          <img
+            src="/lovable-uploads/ae0a782f-1452-445a-a992-875f288b3932.png"
+            alt="AMB Logo"
+            className="w-64 mx-auto mb-8 object-contain"
+          />
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
             Conviértete en Barbero Profesional desde Cero en Querétaro
           </h1>
@@ -214,13 +212,6 @@ function InscriptionSection() {
   return (
     <section className="py-20 bg-yellow-400 text-black">
       <div className="max-w-4xl mx-auto px-4 text-center">
-        <div className="w-20 h-20 bg-white rounded-full mx-auto mb-8 flex items-center justify-center p-2">
-          <img
-            src="/lovable-uploads/214876ff-6021-4a14-920e-bff95182dc62.png"
-            alt="AMB Logo"
-            className="w-full h-full object-contain"
-          />
-        </div>
         <h2 className="text-3xl md:text-4xl font-bold mb-8">
           Inscripción de $2,000 MXN incluye:
         </h2>
@@ -328,13 +319,6 @@ function CertificatesSection() {
     <section className="py-20 bg-white text-black overflow-hidden">
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-16">
-          <div className="w-24 h-24 bg-black rounded-full mx-auto mb-6 flex items-center justify-center p-3">
-            <img
-              src="/lovable-uploads/ae0a782f-1452-445a-a992-875f288b3932.png"
-              alt="AMB Logo"
-              className="w-full h-full object-contain filter invert"
-            />
-          </div>
           <h2 className="text-3xl md:text-4xl font-bold">
             Certificaciones Oficiales
           </h2>
