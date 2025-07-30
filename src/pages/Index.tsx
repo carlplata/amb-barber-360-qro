@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X, Instagram, MessageCircle, Facebook, MapPin } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
+import { EnrollmentModal } from "@/components/EnrollmentModal";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
-import { TiktokIcon } from "@/components/icons/TiktokIcon";
+import { TiktokIcon } from "@/components/icons/TiktokIcon"; // Importamos el nuevo ícono
 
 const benefits = [
   { icon: "✂️", title: "25 clases prácticas", description: "Aprende con práctica real" },
@@ -48,7 +49,7 @@ const masterCourses = [
 
 // URLs
 const linktreeUrl = "https://linktr.ee/cursosamb";
-const googleMapsUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14940.321398332156!2d-100.4039885871582!3d20.593170700000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d3451e5ff5406d%3A0x8919133f3893361!2sCentro%2C%2076000%20Santiago%20de%20Quer%C3%A9taro%2C%20Qro.!5e0!3m2!1sen!2smx!4v1722022030615!5m2!1sen!2smx1";
+const googleMapsUrl = "https://maps.app.goo.gl/9gX9bS2u7r6G8p8G8";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -539,7 +540,7 @@ function LocationSection() {
           </div>
           <div className="w-full h-80 bg-gray-800 rounded-xl overflow-hidden">
             <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14940.321398332156!2d-100.4039885871582!3d20.593170700000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d3451e5ff5406d%3A0x8919133f3893361!2sCentro%2C%2076000%20Santiago%20de%20Quer%C3%A9taro%2C%20Qro.!5e0!3m2!1sen!2smx!4v1722022030615!5m2!1sen!2smx2"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14940.321398332156!2d-100.4039885871582!3d20.593170700000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d3451e5ff5406d%3A0x8919133f3893361!2sCentro%2C%2076000%20Santiago%20de%20Quer%C3%A9taro%2C%20Qro.!5e0!3m2!1sen!2smx!4v1722022030615!5m2!1sen!2smx3"
               width="100%"
               height="100%"
               style={{ border: 0 }}
