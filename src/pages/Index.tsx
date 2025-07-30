@@ -164,7 +164,7 @@ function LocationSection() {
             </p>
             <div className="w-full h-96 rounded-xl overflow-hidden border-4 border-gray-200 shadow-lg">
             <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3734.903823730335!2d-100.39572568453458!3d20.59165398622998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d3455b5a5b5b5b%3A0x5f5f5f5f5f5f5f5f!2sThe%20Barber&#39;s%20House%20Academy!5e0!3m2!1ses-419!2smx!4v1627882835265!5m2!1ses-419!2smx"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3734.903823730335!2d-100.39572568453458!3d20.59165398622998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d3455b5a5b5b5b%3A0x5f5f5f5f5f5f5f5f!2sThe%20Barber's%20House%20Academy!5e0!3m2!1ses-419!2smx!4v1627882835265!5m2!1ses-419!2smx"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -189,7 +189,7 @@ function Footer() {
                 <a href="https://www.facebook.com/thebarbershouse.academy" className="text-2xl hover:text-yellow-400 transition-colors"><FaFacebook /></a>
             </div>
             <p className="text-gray-500 text-sm">
-                &copy; {new Date().getFullYear()} The Barber's House Academy. Todos los derechos reservados.
+                © {new Date().getFullYear()} The Barber's House Academy. Todos los derechos reservados.
             </p>
         </div>
       </footer>
