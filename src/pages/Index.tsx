@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X, Instagram, MessageCircle, Facebook, MapPin, Scissors, Palette, Flame } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
@@ -47,7 +47,19 @@ const masterCourses = [
 
 // URLs
 const linktreeUrl = "https://linktr.ee/cursosamb";
-const googleMapsUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14940.321398332156!2d-100.4039885871582!3d20.593170700000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d3451e5ff5406d%3A0x8919133f3893361!2sCentro%2C%2076000%20Santiago%20de%20Quer%C3%A9taro%2C%20Qro.!5e0!3m2!1sen!2smx!4v1722022030615!5m2!1sen!2smx9";
+const googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=Av.+Tecnologico+Sur+%234A,+Local+09,+Centro,+Queretaro,+Qro.1";
+
+// Componente para el ícono de TikTok
+const TiktokIcon = (props: React.SVGProps<SVGSVGElement>) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      {...props}
+    >
+      <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-2.43.05-4.84-.94-6.37-2.96-2.2-2.95-2.2-6.82 0-9.78 1.53-2.04 3.84-3.13 6.15-3.09.03 2.33-.01 4.66.02 7 .02 1.08.38 2.18 1.19 2.94.79.73 1.83 1.12 2.89 1.11.93 0 1.86-.34 2.62-1.01.69-.64 1.14-1.48 1.2-2.42.03-2.55.01-5.1-.02-7.65-.78-.29-1.55-.66-2.25-1.08-1.15-.7-2.18-1.63-2.95-2.75-.81-1.17-1.34-2.52-1.46-3.96-.05-1.5-.04-3.01-.01-4.52.01-.19.03-.38.04-.57.02-.12.05-.24.07-.36.01-.04.02-.07.03-.11.02-.09.04-.18.06-.27.01-.05.02-.1.04-.15.01-.04.03-.09.04-.13.01-.03.02-.06.04-.09.01-.03.02-.06.03-.09.02-.06.04-.12.06-.18.01-.03.02-.06.03-.08.02-.07.03-.13.05-.2.01-.02.02-.05.03-.07.02-.06.04-.12.06-.18.01-.03.02-.05.03-.08.01-.02.02-.04.03-.06.02-.06.05-.12.07-.18zm-2.86 5.11c-.01 1.3.01 2.59-.01 3.89-.02 1.03-.41 2.05-1.21 2.79-.76.7-1.75 1.05-2.76 1.01-1.03-.04-2.02-.42-2.73-1.15-.75-.77-1.16-1.8-1.16-2.89.01-1.28-.01-2.55.01-3.83.02-1.1.43-2.19 1.23-2.95.81-.77 1.84-1.16 2.89-1.13 1.11.03 2.14.46 2.91 1.28.78.82 1.23 1.9 1.22 3.01z" />
+    </svg>
+  );
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -436,7 +448,7 @@ function TestimonialsSection() {
   
   function MasterCoursesSection() {
     return (
-      <section className="py-20 bg-gray-100 text-black">
+      <section className="py-20 bg-white text-black">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 font-heading uppercase tracking-wider">
             💼 Cursos Master (Avanzados)
@@ -446,7 +458,7 @@ function TestimonialsSection() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {masterCourses.map((course, index) => (
-              <div key={index} className="bg-white rounded-xl p-6 text-center border border-gray-200 shadow-lg transition-transform hover:scale-105 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
+              <div key={index} className="bg-gray-50 rounded-xl p-6 text-center border border-gray-200 shadow-lg transition-transform hover:scale-105 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
                  <div className="w-full h-40 mb-6 rounded-lg overflow-hidden bg-gray-200">
                     <img
                     src={course.image}
@@ -506,7 +518,7 @@ function SocialMediaSection() {
               <Facebook size={32} />
             </a>
             <a href="https://www.tiktok.com/@escueladebarberiaamb" target="_blank" rel="noopener noreferrer" aria-label="Visita nuestro TikTok" className="text-gray-400 hover:text-white transition-transform hover:scale-125">
-                <img src="/images/tiktok-logo.png" alt="TikTok" className="w-8 h-8 filter grayscale hover:filter-none transition-all" />
+              <TiktokIcon className="w-7 h-7" />
             </a>
             <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer" aria-label="Encuéntranos en Google Maps" className="text-gray-400 hover:text-red-500 transition-transform hover:scale-125">
               <MapPin size={32} />
@@ -544,7 +556,7 @@ function LocationSection() {
           </div>
           <div className="w-full h-80 bg-gray-800 rounded-xl overflow-hidden">
             <iframe
-                src="https://www.google.com/maps/search/?api=1&query=Av.+Tecnologico+Sur+%234A,+Local+09,+Centro,+Queretaro,+Qro.0"
+                src="https://www.google.com/maps/search/?api=1&query=Av.+Tecnologico+Sur+%234A,+Local+09,+Centro,+Queretaro,+Qro.2"
               width="100%"
               height="100%"
               style={{ border: 0 }}
