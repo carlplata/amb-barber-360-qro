@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Menu, X, Instagram, MessageCircle, Facebook, MapPin, Scissors, Palette, Flame } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
-import { TiktokIcon } from "@/components/icons/TiktokIcon";
+import { Badge } from "@/components/ui/badge";
 
 const benefits = [
   { icon: "✂️", title: "25 clases prácticas", description: "Aprende con práctica real" },
@@ -14,10 +14,10 @@ const benefits = [
 ];
 
 const pricingOptions = [
-    { title: "Por clase", description: "Paga clase por clase", price: "Flexible", discount: "", image: "/images/pago por clase.jpg", plan: "por-clase" },
-    { title: "Quincenal", description: "Ahorra pagando cada 15 días", price: "8%", discount: "-8%", image: "/images/pago por quincena.jpg", plan: "quincenal" },
-    { title: "Mensual", description: "Ahorra con pago mensual", price: "14%", discount: "-14%", image: "/images/pago mensual.jpg", plan: "mensual" },
-    { title: "Curso completo", description: "Máximo ahorro", price: "20%", discount: "-20%", image: "/images/curso completo.jpg", plan: "curso-completo" },
+    { title: "Por clase", description: "Paga clase por clase", price: "Flexible", discount: "", image: "/images/pago por clase.jpg", plan: "por-clase", popular: false },
+    { title: "Quincenal", description: "Ahorra pagando cada 15 días", price: "8%", discount: "-8%", image: "/images/pago por quincena.jpg", plan: "quincenal", popular: false },
+    { title: "Mensual", description: "Ahorra con pago mensual", price: "14%", discount: "-14%", image: "/images/pago mensual.jpg", plan: "mensual", popular: false },
+    { title: "Curso completo", description: "Máximo ahorro", price: "20%", discount: "-20%", image: "/images/curso completo.jpg", plan: "curso-completo", popular: true },
 ];
 
 const certificates = [
@@ -30,7 +30,7 @@ const certificates = [
 
 const modalities = [
     { icon: "🚀", title: "3 Meses", desc: "Dos clases por semana (lunes y miércoles o martes y jueves)." },
-    { icon: "🐢", title: "6 Meses", desc: "Una clase por semana (sábados o domingos)." },
+    { icon: "🏆", title: "6 Meses", desc: "Una clase por semana (sábados o domingos)." },
 ];
 
 const learningEnvironment = [
@@ -39,9 +39,15 @@ const learningEnvironment = [
   { icon: "💇‍♂️", title: "Práctica real con clientes", desc: "Desde la primera semana trabajas con clientes reales" },
 ];
 
+const masterCourses = [
+    { title: "Colorimetría Masculina", icon: "🎨", image: "/images/colorimetria.jpg" },
+    { title: "Corte a Tijera y Textura", icon: "✂️", image: "/images/5c0fe394-6cb2-46cb-80ce-8c0c26f04975.png" },
+    { title: "Fades Modernos", icon: "🔥", image: "/images/fades.png" },
+];
+
 // URLs
 const linktreeUrl = "https://linktr.ee/cursosamb";
-const googleMapsUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14940.321398332156!2d-100.4039885871582!3d20.593170700000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d3451e5ff5406d%3A0x8919133f3893361!2sCentro%2C%2076000%20Santiago%20de%20Quer%C3%A9taro%2C%20Qro.!5e0!3m2!1sen!2smx!4v1722022030615!5m2!1sen!2smx7";
+const googleMapsUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14940.321398332156!2d-100.4039885871582!3d20.593170700000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d3451e5ff5406d%3A0x8919133f3893361!2sCentro%2C%2076000%20Santiago%20de%20Quer%C3%A9taro%2C%20Qro.!5e0!3m2!1sen!2smx!4v1722022030615!5m2!1sen!2smx9";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -292,7 +298,10 @@ function PricingSection() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {pricingOptions.map((option, index) => (
-              <div key={index} className="bg-gray-900 rounded-xl p-6 text-center border border-gray-800 transition-transform hover:scale-105 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
+              <div key={index} className="relative bg-gray-900 rounded-xl p-6 text-center border border-gray-800 transition-transform hover:scale-105 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
+                {option.popular && (
+                  <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-yellow-400 text-black font-bold">Más Popular</Badge>
+                )}
                 <div className="w-32 h-32 mx-auto mb-6 rounded-lg overflow-hidden bg-gray-800">
                   <img
                     src={option.image}
@@ -436,27 +445,22 @@ function TestimonialsSection() {
             Disponible después de terminar Barbería 360°. En ocasiones especiales puedes cursarlos como extras dentro de tu curso.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-xl p-6 text-center border border-gray-200 shadow-lg transition-transform hover:scale-105 animate-fade-in-up">
-              <div className="text-4xl mb-4">🎨</div>
-              <h3 className="text-xl font-bold mb-4 font-heading">Colorimetría Masculina</h3>
-              <a href={linktreeUrl} target="_blank" rel="noopener noreferrer" className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-bold hover:bg-yellow-300 transition-transform hover:scale-105 block font-heading uppercase">
-                Inscribirme
-              </a>
-            </div>
-            <div className="bg-white rounded-xl p-6 text-center border border-gray-200 shadow-lg transition-transform hover:scale-105 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
-              <div className="text-4xl mb-4">✂️</div>
-              <h3 className="text-xl font-bold mb-4 font-heading">Corte a Tijera y Textura</h3>
-              <a href={linktreeUrl} target="_blank" rel="noopener noreferrer" className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-bold hover:bg-yellow-300 transition-transform hover:scale-105 block font-heading uppercase">
-                Inscribirme
-              </a>
-            </div>
-            <div className="bg-white rounded-xl p-6 text-center border border-gray-200 shadow-lg transition-transform hover:scale-105 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
-              <div className="text-4xl mb-4">🔥</div>
-              <h3 className="text-xl font-bold mb-4 font-heading">Fades Modernos</h3>
-              <a href={linktreeUrl} target="_blank" rel="noopener noreferrer" className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-bold hover:bg-yellow-300 transition-transform hover:scale-105 block font-heading uppercase">
-                Inscribirme
-              </a>
-            </div>
+            {masterCourses.map((course, index) => (
+              <div key={index} className="bg-white rounded-xl p-6 text-center border border-gray-200 shadow-lg transition-transform hover:scale-105 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
+                 <div className="w-full h-40 mb-6 rounded-lg overflow-hidden bg-gray-200">
+                    <img
+                    src={course.image}
+                    alt={course.title}
+                    className="w-full h-full object-cover"
+                    />
+                </div>
+                <div className="text-4xl mb-4">{course.icon}</div>
+                <h3 className="text-xl font-bold mb-4 font-heading">{course.title}</h3>
+                <a href={linktreeUrl} target="_blank" rel="noopener noreferrer" className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-bold hover:bg-yellow-300 transition-transform hover:scale-105 block font-heading uppercase">
+                  Inscribirme
+                </a>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -502,7 +506,7 @@ function SocialMediaSection() {
               <Facebook size={32} />
             </a>
             <a href="https://www.tiktok.com/@escueladebarberiaamb" target="_blank" rel="noopener noreferrer" aria-label="Visita nuestro TikTok" className="text-gray-400 hover:text-white transition-transform hover:scale-125">
-              <TiktokIcon className="w-7 h-7" />
+                <img src="/images/tiktok-logo.png" alt="TikTok" className="w-8 h-8 filter grayscale hover:filter-none transition-all" />
             </a>
             <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer" aria-label="Encuéntranos en Google Maps" className="text-gray-400 hover:text-red-500 transition-transform hover:scale-125">
               <MapPin size={32} />
@@ -540,7 +544,7 @@ function LocationSection() {
           </div>
           <div className="w-full h-80 bg-gray-800 rounded-xl overflow-hidden">
             <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14940.321398332156!2d-100.4039885871582!3d20.593170700000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d3451e5ff5406d%3A0x8919133f3893361!2sCentro%2C%2076000%20Santiago%20de%20Quer%C3%A9taro%2C%20Qro.!5e0!3m2!1sen!2smx!4v1722022030615!5m2!1sen!2smx8"
+                src="https://www.google.com/maps/search/?api=1&query=Av.+Tecnologico+Sur+%234A,+Local+09,+Centro,+Queretaro,+Qro.0"
               width="100%"
               height="100%"
               style={{ border: 0 }}
