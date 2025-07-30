@@ -49,7 +49,7 @@ const masterCourses = [
 
 // URLs
 const linktreeUrl = "https://linktr.ee/cursosamb";
-const googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=Av.+Tecnologico+Sur+%234A,+Local+09,+Centro,+Queretaro,+Qro.5";
+const googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=Av.+Tecnologico+Sur+%234A,+Local+09,+Centro,+Queretaro,+Qro.7";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -438,18 +438,18 @@ function TestimonialsSection() {
   
   function MasterCoursesSection() {
     return (
-      <section className="py-20 bg-white text-black">
+      <section className="py-20 bg-gray-900 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 font-heading uppercase tracking-wider">
             💼 Cursos Master (Avanzados)
           </h2>
-          <p className="text-gray-600 mb-12 max-w-2xl mx-auto">
+          <p className="text-gray-400 mb-12 max-w-2xl mx-auto">
             Disponible después de terminar Barbería 360°. En ocasiones especiales puedes cursarlos como extras dentro de tu curso.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {masterCourses.map((course, index) => (
-              <div key={index} className="bg-gray-50 rounded-xl p-6 text-center border border-gray-200 shadow-lg transition-transform hover:scale-105 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
-                 <div className="w-full h-40 mb-6 rounded-lg overflow-hidden bg-gray-200">
+              <div key={index} className="bg-gray-800 rounded-xl p-6 text-center border border-gray-700 shadow-lg transition-transform hover:scale-105 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
+                 <div className="w-full h-40 mb-6 rounded-lg overflow-hidden bg-gray-700">
                     <img
                     src={course.image}
                     alt={course.title}
@@ -546,7 +546,7 @@ function LocationSection() {
           </div>
           <div className="w-full h-80 bg-gray-800 rounded-xl overflow-hidden">
             <iframe
-                src="https://www.google.com/maps/search/?api=1&query=Av.+Tecnologico+Sur+%234A,+Local+09,+Centro,+Queretaro,+Qro.6"
+                src="https://www.google.com/maps/search/?api=1&query=Av.+Tecnologico+Sur+%234A,+Local+09,+Centro,+Queretaro,+Qro.8"
               width="100%"
               height="100%"
               style={{ border: 0 }}
