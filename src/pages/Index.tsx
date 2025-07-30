@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
-import { Menu, X, Instagram, MessageCircle, Facebook, MapPin, Tiktok } from "lucide-react";
+import { useState } from "react";
+import { Menu, X, Instagram, MessageCircle, Facebook, MapPin } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
-import { EnrollmentModal } from "@/components/EnrollmentModal";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
+import { TiktokIcon } from "@/components/icons/TiktokIcon";
 
 const benefits = [
   { icon: "✂️", title: "25 clases prácticas", description: "Aprende con práctica real" },
@@ -48,7 +48,7 @@ const masterCourses = [
 
 // URLs
 const linktreeUrl = "https://linktr.ee/cursosamb";
-const googleMapsUrl = "https://maps.app.goo.gl/u489n4N4QZ4x3Vj69";
+const googleMapsUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14940.321398332156!2d-100.4039885871582!3d20.593170700000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d3451e5ff5406d%3A0x8919133f3893361!2sCentro%2C%2076000%20Santiago%20de%20Quer%C3%A9taro%2C%20Qro.!5e0!3m2!1sen!2smx!4v1722022030615!5m2!1sen!2smx1";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -121,12 +121,12 @@ function Hero() {
             muted
             playsInline
             className="w-full h-full object-cover"
-            poster="/images/location-image-171416640172.jpg" // Una imagen de respaldo mientras carga el video
+            poster="/images/location-image-171416640172.jpg"
           >
             <source src="/videos/hero-background.mp4" type="video/mp4" />
             Tu navegador no soporta el video.
           </video>
-          <div className="absolute inset-0 bg-black/60" /> {/* Overlay oscuro */}
+          <div className="absolute inset-0 bg-black/60" />
         </div>
         <div className="max-w-4xl mx-auto text-center px-4 z-10 relative animate-fade-in-up">
           <img
@@ -266,7 +266,7 @@ function ModalitiesSection() {
       <section className="py-20 bg-gray-100 text-black">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 font-heading uppercase tracking-wider">
-            Modalidades de curso: Elige tu mejor horario
+            Modalidades de curso
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             {modalities.map((modality, index) => (
@@ -501,7 +501,7 @@ function SocialMediaSection() {
               <Facebook size={32} />
             </a>
             <a href="https://www.tiktok.com/@escueladebarberiaamb" target="_blank" rel="noopener noreferrer" aria-label="Visita nuestro TikTok" className="text-gray-400 hover:text-white transition-transform hover:scale-125">
-              <Tiktok size={28} />
+              <TiktokIcon className="w-7 h-7" />
             </a>
             <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer" aria-label="Encuéntranos en Google Maps" className="text-gray-400 hover:text-red-500 transition-transform hover:scale-125">
               <MapPin size={32} />
@@ -539,7 +539,7 @@ function LocationSection() {
           </div>
           <div className="w-full h-80 bg-gray-800 rounded-xl overflow-hidden">
             <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3734.823901429828!2d-100.39420788899827!3d20.59542480214804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d3454b667232e5%3A0x6b72354a5518b3e8!2sAsociaci%C3%B3n%20Mexicana%20de%20Barberia!5e0!3m2!1ses-419!2smx!4v1722370385966!5m2!1ses-419!2smx"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14940.321398332156!2d-100.4039885871582!3d20.593170700000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d3451e5ff5406d%3A0x8919133f3893361!2sCentro%2C%2076000%20Santiago%20de%20Quer%C3%A9taro%2C%20Qro.!5e0!3m2!1sen!2smx!4v1722022030615!5m2!1sen!2smx2"
               width="100%"
               height="100%"
               style={{ border: 0 }}
