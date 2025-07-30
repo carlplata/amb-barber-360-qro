@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Menu, X, Instagram, MessageCircle, Facebook, MapPin, Scissors, Palette, Flame } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import { Badge } from "@/components/ui/badge";
+import { TiktokIcon } from "@/components/icons/TiktokIcon";
 
 const benefits = [
   { icon: "✂️", title: "25 clases prácticas", description: "Aprende con práctica real" },
@@ -47,19 +48,7 @@ const masterCourses = [
 
 // URLs
 const linktreeUrl = "https://linktr.ee/cursosamb";
-const googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=Av.+Tecnologico+Sur+%234A,+Local+09,+Centro,+Queretaro,+Qro.1";
-
-// Componente para el ícono de TikTok
-const TiktokIcon = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      {...props}
-    >
-      <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-2.43.05-4.84-.94-6.37-2.96-2.2-2.95-2.2-6.82 0-9.78 1.53-2.04 3.84-3.13 6.15-3.09.03 2.33-.01 4.66.02 7 .02 1.08.38 2.18 1.19 2.94.79.73 1.83 1.12 2.89 1.11.93 0 1.86-.34 2.62-1.01.69-.64 1.14-1.48 1.2-2.42.03-2.55.01-5.1-.02-7.65-.78-.29-1.55-.66-2.25-1.08-1.15-.7-2.18-1.63-2.95-2.75-.81-1.17-1.34-2.52-1.46-3.96-.05-1.5-.04-3.01-.01-4.52.01-.19.03-.38.04-.57.02-.12.05-.24.07-.36.01-.04.02-.07.03-.11.02-.09.04-.18.06-.27.01-.05.02-.1.04-.15.01-.04.03-.09.04-.13.01-.03.02-.06.04-.09.01-.03.02-.06.03-.09.02-.06.04-.12.06-.18.01-.03.02-.06.03-.08.02-.07.03-.13.05-.2.01-.02.02-.05.03-.07.02-.06.04-.12.06-.18.01-.03.02-.05.03-.08.01-.02.02-.04.03-.06.02-.06.05-.12.07-.18zm-2.86 5.11c-.01 1.3.01 2.59-.01 3.89-.02 1.03-.41 2.05-1.21 2.79-.76.7-1.75 1.05-2.76 1.01-1.03-.04-2.02-.42-2.73-1.15-.75-.77-1.16-1.8-1.16-2.89.01-1.28-.01-2.55.01-3.83.02-1.1.43-2.19 1.23-2.95.81-.77 1.84-1.16 2.89-1.13 1.11.03 2.14.46 2.91 1.28.78.82 1.23 1.9 1.22 3.01z" />
-    </svg>
-  );
+const googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=Av.+Tecnologico+Sur+%234A,+Local+09,+Centro,+Queretaro,+Qro.3";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -556,7 +545,7 @@ function LocationSection() {
           </div>
           <div className="w-full h-80 bg-gray-800 rounded-xl overflow-hidden">
             <iframe
-                src="https://www.google.com/maps/search/?api=1&query=Av.+Tecnologico+Sur+%234A,+Local+09,+Centro,+Queretaro,+Qro.2"
+                src="https://www.google.com/maps/search/?api=1&query=Av.+Tecnologico+Sur+%234A,+Local+09,+Centro,+Queretaro,+Qro.4"
               width="100%"
               height="100%"
               style={{ border: 0 }}
