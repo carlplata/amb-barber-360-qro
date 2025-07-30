@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X, Instagram, MessageCircle, Facebook, MapPin } from "lucide-react";
+import { Menu, X, Instagram, MessageCircle, Facebook, MapPin, Scissors, Palette, Flame } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import { TiktokIcon } from "@/components/icons/TiktokIcon";
@@ -39,16 +39,9 @@ const learningEnvironment = [
   { icon: "💇‍♂️", title: "Práctica real con clientes", desc: "Desde la primera semana trabajas con clientes reales" },
 ];
 
-const masterCourses = [
-    { title: "Colorimetría Avanzada", desc: "Domina las técnicas de color profesional", image: "/images/colorimetria.jpg" },
-    { title: "Corte a Tijera", desc: "Perfecciona el arte del corte clásico", image: "/images/5c0fe394-6cb2-46cb-80ce-8c0c26f04975.png" },
-    { title: "Fades Profesionales", desc: "Técnicas avanzadas de degradados", image: "/images/fades.png" },
-    { title: "Barbería Clásica", desc: "Técnicas tradicionales de barbería", image: "/images/barber-5428008_1280.jpg" },
-];
-
 // URLs
 const linktreeUrl = "https://linktr.ee/cursosamb";
-const googleMapsUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14940.321398332156!2d-100.4039885871582!3d20.593170700000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d3451e5ff5406d%3A0x8919133f3893361!2sCentro%2C%2076000%20Santiago%20de%20Quer%C3%A9taro%2C%20Qro.!5e0!3m2!1sen!2smx!4v1722022030615!5m2!1sen!2smx5";
+const googleMapsUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14940.321398332156!2d-100.4039885871582!3d20.593170700000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d3451e5ff5406d%3A0x8919133f3893361!2sCentro%2C%2076000%20Santiago%20de%20Quer%C3%A9taro%2C%20Qro.!5e0!3m2!1sen!2smx!4v1722022030615!5m2!1sen!2smx7";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -435,27 +428,35 @@ function TestimonialsSection() {
   function MasterCoursesSection() {
     return (
       <section className="py-20 bg-gray-100 text-black">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 font-heading uppercase tracking-wider">
-            Master Courses - Especializaciones
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 font-heading uppercase tracking-wider">
+            💼 Cursos Master (Avanzados)
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {masterCourses.map((course, index) => (
-              <div key={index} className="bg-white rounded-xl p-6 text-center border border-gray-200 shadow-lg transition-transform hover:scale-105 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
-                 <div className="w-full h-40 mb-6 rounded-lg overflow-hidden bg-gray-200">
-                    <img
-                    src={course.image}
-                    alt={course.title}
-                    className="w-full h-full object-cover"
-                    />
-                </div>
-                <h3 className="text-xl font-bold mb-3 font-heading">{course.title}</h3>
-                <p className="text-gray-600 mb-4">{course.desc}</p>
-                <a href="https://wa.me/5214423643964" target="_blank" rel="noopener noreferrer" className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-bold hover:bg-yellow-300 transition-transform hover:scale-105 block font-heading uppercase">
-                  Más información
-                </a>
-              </div>
-            ))}
+          <p className="text-gray-600 mb-12 max-w-2xl mx-auto">
+            Disponible después de terminar Barbería 360°. En ocasiones especiales puedes cursarlos como extras dentro de tu curso.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white rounded-xl p-6 text-center border border-gray-200 shadow-lg transition-transform hover:scale-105 animate-fade-in-up">
+              <div className="text-4xl mb-4">🎨</div>
+              <h3 className="text-xl font-bold mb-4 font-heading">Colorimetría Masculina</h3>
+              <a href={linktreeUrl} target="_blank" rel="noopener noreferrer" className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-bold hover:bg-yellow-300 transition-transform hover:scale-105 block font-heading uppercase">
+                Inscribirme
+              </a>
+            </div>
+            <div className="bg-white rounded-xl p-6 text-center border border-gray-200 shadow-lg transition-transform hover:scale-105 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
+              <div className="text-4xl mb-4">✂️</div>
+              <h3 className="text-xl font-bold mb-4 font-heading">Corte a Tijera y Textura</h3>
+              <a href={linktreeUrl} target="_blank" rel="noopener noreferrer" className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-bold hover:bg-yellow-300 transition-transform hover:scale-105 block font-heading uppercase">
+                Inscribirme
+              </a>
+            </div>
+            <div className="bg-white rounded-xl p-6 text-center border border-gray-200 shadow-lg transition-transform hover:scale-105 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
+              <div className="text-4xl mb-4">🔥</div>
+              <h3 className="text-xl font-bold mb-4 font-heading">Fades Modernos</h3>
+              <a href={linktreeUrl} target="_blank" rel="noopener noreferrer" className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-bold hover:bg-yellow-300 transition-transform hover:scale-105 block font-heading uppercase">
+                Inscribirme
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -539,7 +540,7 @@ function LocationSection() {
           </div>
           <div className="w-full h-80 bg-gray-800 rounded-xl overflow-hidden">
             <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14940.321398332156!2d-100.4039885871582!3d20.593170700000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d3451e5ff5406d%3A0x8919133f3893361!2sCentro%2C%2076000%20Santiago%20de%20Quer%C3%A9taro%2C%20Qro.!5e0!3m2!1sen!2smx!4v1722022030615!5m2!1sen!2smx6"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14940.321398332156!2d-100.4039885871582!3d20.593170700000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d3451e5ff5406d%3A0x8919133f3893361!2sCentro%2C%2076000%20Santiago%20de%20Quer%C3%A9taro%2C%20Qro.!5e0!3m2!1sen!2smx!4v1722022030615!5m2!1sen!2smx8"
               width="100%"
               height="100%"
               style={{ border: 0 }}
