@@ -25,7 +25,6 @@ function LearningEnvironmentSection() {
         { icon: "👥", title: "Grupos pequeños", desc: "Máximo 15 estudiantes por grupo para atención personalizada" },
         { icon: "💇‍♂️", title: "Práctica real con clientes", desc: "Desde la primera semana trabajas con clientes reales" },
     ];
-
     return (
         <section className="py-20 bg-white text-black">
             <div className="max-w-6xl mx-auto px-4">
@@ -51,7 +50,6 @@ function CoursesSection() {
         { title: "Curso de Barbería Profesional", duration: "3 Meses", desc: "Conviértete en barbero profesional desde cero.", image: "/images/barber-4912626_1280.jpg" },
         { title: "Curso Intensivo de Fin de Semana", duration: "Intensivo", desc: "Aprende lo esencial en un formato acelerado.", image: "/images/man-791783_1280.jpg" },
     ];
-
     return (
         <section className="py-20 bg-black text-white">
             <div className="max-w-6xl mx-auto px-4">
@@ -91,7 +89,6 @@ function MasterCoursesSection() {
         { title: "Fades Profesionales", desc: "Técnicas avanzadas de degradados", image: "/images/fades.png" },
         { title: "Barbería Clásica", desc: "Técnicas tradicionales de barbería", image: "/images/barber-5428008_1280.jpg" },
     ];
-
     return (
         <section className="py-20 bg-gray-100 text-black">
             <div className="max-w-6xl mx-auto px-4">
@@ -126,7 +123,6 @@ function TestimonialsSection() {
         { name: "Carlos M.", text: "La mejor decisión de mi vida. Aprendí más en 3 meses que en años de práctica por mi cuenta. Los profesores son unos cracks.", image: "/images/man-1282208_1280.jpg" },
         { name: "Javier G.", text: "Gracias a la academia ahora tengo mi propia barbería. La práctica con clientes reales desde el inicio es clave.", image: "/images/barber-4219905_1280.jpg" },
     ];
-
     return (
         <section className="py-20 bg-black text-white">
             <div className="max-w-4xl mx-auto px-4">
@@ -161,7 +157,7 @@ function LocationSection() {
                 </p>
                 <div className="w-full h-96 rounded-xl overflow-hidden border-4 border-gray-200 shadow-lg">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3734.882770545194!2d-100.4043943850742!3d20.60156498623668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d35b1d5a7a8d6f%3A0x8c6d4e8b8f8c9e5c!2sAv.%20Universidad%20242%2C%20El%20Carrizal%2C%2076030%20Santiago%20de%20Quer%C3%A9taro%2C%20Qro.!5e0!3m2!1ses-419!2smx!4v1688000000000!5m2!1ses-419!2smx"
+                        src="http://googleusercontent.com/maps.google.com/4"
                         width="100%"
                         height="100%"
                         style={{ border: 0 }}
