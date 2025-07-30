@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Instagram, MessageCircle } from "lucide-react";
+import { Menu, X, Instagram, MessageCircle, Facebook, MapPin, Tiktok } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
 import { EnrollmentModal } from "@/components/EnrollmentModal";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
@@ -29,9 +29,8 @@ const certificates = [
 ];
 
 const modalities = [
-  { icon: "🕒", title: "Matutino", desc: "Lunes y miércoles 9am-12pm" },
-  { icon: "🌆", title: "Vespertino", desc: "Martes y jueves 4pm-7pm" },
-  { icon: "🗓️", title: "Sabatino", desc: "Sábados 10am-2pm" },
+    { icon: "🚀", title: "3 Meses", desc: "Dos clases por semana (lunes y miércoles o martes y jueves)." },
+    { icon: "🐢", title: "6 Meses", desc: "Una clase por semana (sábados o domingos)." },
 ];
 
 const learningEnvironment = [
@@ -49,7 +48,7 @@ const masterCourses = [
 
 // URLs
 const linktreeUrl = "https://linktr.ee/cursosamb";
-const googleMapsUrl = "https://maps.app.goo.gl/u5f5k5f5f5f5f5f5"; // URL de ejemplo, reemplázala por la tuya
+const googleMapsUrl = "https://maps.app.goo.gl/u489n4N4QZ4x3Vj69";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -263,25 +262,28 @@ function LearningEnvironmentSection() {
 }
 
 function ModalitiesSection() {
-  return (
-    <section className="py-20 bg-gray-100 text-black">
-      <div className="max-w-4xl mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 font-heading uppercase tracking-wider">
-          Modalidades de curso: Elige tu mejor horario
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {modalities.map((modality, index) => (
-            <div key={index} className="bg-yellow-100 rounded-xl p-6 text-center transition-transform hover:scale-105 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
-              <div className="text-4xl mb-4">{modality.icon}</div>
-              <h3 className="text-xl font-bold mb-2 font-heading">{modality.title}</h3>
-              <p className="text-gray-700">{modality.desc}</p>
-            </div>
-          ))}
+    return (
+      <section className="py-20 bg-gray-100 text-black">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 font-heading uppercase tracking-wider">
+            Modalidades de curso: Elige tu mejor horario
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            {modalities.map((modality, index) => (
+              <div key={index} className="bg-yellow-100 rounded-xl p-6 text-center transition-transform hover:scale-105 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
+                <div className="text-4xl mb-4">{modality.icon}</div>
+                <h3 className="text-xl font-bold mb-2 font-heading">{modality.title}</h3>
+                <p className="text-gray-700">{modality.desc}</p>
+              </div>
+            ))}
+          </div>
+          <a href={linktreeUrl} target="_blank" rel="noopener noreferrer" className="bg-black text-yellow-400 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-800 transition-transform hover:scale-105 font-heading uppercase inline-block">
+            Consultar horarios disponibles
+          </a>
         </div>
-      </div>
-    </section>
-  );
-}
+      </section>
+    );
+  }
 
 function PricingSection() {
     const createWhatsAppLink = (planTitle: string) => {
@@ -485,30 +487,33 @@ function ContactSection() {
 }
 
 function SocialMediaSection() {
-  return (
-    <section className="py-20 bg-black text-white">
-      <div className="max-w-4xl mx-auto px-4 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-16 font-heading uppercase tracking-wider">
-          Síguenos en Redes Sociales
-        </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <a href="https://instagram.com/asociacionmexicanadebarberia" target="_blank" rel="noopener noreferrer" aria-label="Visita nuestro Instagram" className="bg-gray-800 hover:bg-pink-600 text-white px-6 py-4 rounded-lg font-bold transition-all hover:scale-110">
-            📸 Instagram
-          </a>
-          <a href="https://facebook.com/asociacionmexicanadebarberia" target="_blank" rel="noopener noreferrer" aria-label="Visita nuestro Facebook" className="bg-gray-800 hover:bg-blue-600 text-white px-6 py-4 rounded-lg font-bold transition-all hover:scale-110">
-            📘 Facebook
-          </a>
-          <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer" aria-label="Encuéntranos en Google Maps" className="bg-gray-800 hover:bg-red-600 text-white px-6 py-4 rounded-lg font-bold transition-all hover:scale-110">
-            📍 Google Maps
-          </a>
-          <a href="https://wa.me/5214423643964" target="_blank" rel="noopener noreferrer" aria-label="Contáctanos por WhatsApp" className="bg-gray-800 hover:bg-green-600 text-white px-6 py-4 rounded-lg font-bold transition-all hover:scale-110">
-            💬 WhatsApp
-          </a>
+    return (
+      <section className="py-20 bg-black text-white">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-16 font-heading uppercase tracking-wider">
+            Síguenos en Redes Sociales
+          </h2>
+          <div className="flex justify-center items-center gap-8">
+            <a href="https://instagram.com/asociacionmexicanadebarberia" target="_blank" rel="noopener noreferrer" aria-label="Visita nuestro Instagram" className="text-gray-400 hover:text-pink-500 transition-transform hover:scale-125">
+              <Instagram size={32} />
+            </a>
+            <a href="https://facebook.com/asociacionmexicanadebarberia" target="_blank" rel="noopener noreferrer" aria-label="Visita nuestro Facebook" className="text-gray-400 hover:text-blue-600 transition-transform hover:scale-125">
+              <Facebook size={32} />
+            </a>
+            <a href="https://www.tiktok.com/@escueladebarberiaamb" target="_blank" rel="noopener noreferrer" aria-label="Visita nuestro TikTok" className="text-gray-400 hover:text-white transition-transform hover:scale-125">
+              <Tiktok size={28} />
+            </a>
+            <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer" aria-label="Encuéntranos en Google Maps" className="text-gray-400 hover:text-red-500 transition-transform hover:scale-125">
+              <MapPin size={32} />
+            </a>
+            <a href="https://wa.me/5214423643964" target="_blank" rel="noopener noreferrer" aria-label="Contáctanos por WhatsApp" className="text-gray-400 hover:text-green-500 transition-transform hover:scale-125">
+              <MessageCircle size={32} />
+            </a>
+          </div>
         </div>
-      </div>
-    </section>
-  );
-}
+      </section>
+    );
+  }
 
 function LocationSection() {
   return (
@@ -534,7 +539,7 @@ function LocationSection() {
           </div>
           <div className="w-full h-80 bg-gray-800 rounded-xl overflow-hidden">
             <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3734.887565785023!2d-100.3959136849932!3d20.59250598621437!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d3451e5e5e5e5d%3A0x8e8e8e8e8e8e8e8e!2sAMB%20Barber%C3%ADa!5e0!3m2!1ses-419!2smx!4v1620000000000!5m2!1ses-419!2smx"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3734.823901429828!2d-100.39420788899827!3d20.59542480214804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d3454b667232e5%3A0x6b72354a5518b3e8!2sAsociaci%C3%B3n%20Mexicana%20de%20Barberia!5e0!3m2!1ses-419!2smx!4v1722370385966!5m2!1ses-419!2smx"
               width="100%"
               height="100%"
               style={{ border: 0 }}
