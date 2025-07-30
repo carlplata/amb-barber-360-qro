@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X, Instagram, Facebook, MapPin } from "lucide-react";
+import { Menu, X, Instagram, Facebook, MapPin, CheckCircle2 } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import { Badge } from "@/components/ui/badge";
@@ -49,7 +49,7 @@ const masterCourses = [
 
 // URLs
 const linktreeUrl = "https://linktr.ee/cursosamb";
-const googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=Asociacion+Mexicana+de+Barberia+Queretaro5";
+const googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=Asociacion+Mexicana+de+Barberia+Queretaro6";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -564,7 +564,7 @@ function LocationSection() {
           </div>
           <div className="w-full h-80 bg-gray-800 rounded-xl overflow-hidden">
             <iframe
-                src="https://www.google.com/maps/search/?api=1&query=Asociacion+Mexicana+de+Barberia+Queretaro4"
+                src="https://www.google.com/maps/search/?api=1&query=Asociacion+Mexicana+de+Barberia+Queretaro7"
               width="100%"
               height="100%"
               style={{ border: 0 }}
