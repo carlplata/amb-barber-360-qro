@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { Menu, X, Instagram, MessageCircle, Facebook, MapPin, Scissors, Palette, Flame } from "lucide-react";
+import { Menu, X, Instagram, Facebook, MapPin } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import { Badge } from "@/components/ui/badge";
 import { TiktokIcon } from "@/components/icons/TiktokIcon";
+import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 
 const benefits = [
   { icon: "✂️", title: "25 clases prácticas", description: "Aprende con práctica real" },
@@ -48,7 +49,7 @@ const masterCourses = [
 
 // URLs
 const linktreeUrl = "https://linktr.ee/cursosamb";
-const googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=Av.+Tecnologico+Sur+%234A,+Local+09,+Centro,+Queretaro,+Qro.3";
+const googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=Av.+Tecnologico+Sur+%234A,+Local+09,+Centro,+Queretaro,+Qro.5";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -76,7 +77,7 @@ function Navbar() {
               Pagar
             </a>
             <a href="https://wa.me/5214423643964" target="_blank" rel="noopener noreferrer" aria-label="Contáctanos por WhatsApp" className="text-gray-400 hover:text-green-500 transition-colors">
-              <MessageCircle size={24} />
+              <WhatsAppIcon className="w-6 h-6" />
             </a>
             <a href="https://instagram.com/asociacionmexicanadebarberia" target="_blank" rel="noopener noreferrer" aria-label="Visita nuestro Instagram" className="text-gray-400 hover:text-pink-500 transition-colors">
               <Instagram size={24} />
@@ -102,7 +103,7 @@ function Navbar() {
             <a href="https://www.mercadopago.com.mx/checkout/v1/redirect?preference-id=141039576-ff609d72-4186-4497-b7c2-89d0fa84f7fd" target="_blank" rel="noopener noreferrer" className="block bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold text-center">
               Pagar
             </a>
-            <a href="https://wa.me/5214423643964" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white py-2"><MessageCircle size={20} /> WhatsApp</a>
+            <a href="https://wa.me/5214423643964" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white py-2"><WhatsAppIcon className="w-5 h-5" /> WhatsApp</a>
             <a href="https://instagram.com/asociacionmexicanadebarberia" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white py-2"><Instagram size={20} /> Instagram</a>
           </div>
         </div>
@@ -507,13 +508,13 @@ function SocialMediaSection() {
               <Facebook size={32} />
             </a>
             <a href="https://www.tiktok.com/@escueladebarberiaamb" target="_blank" rel="noopener noreferrer" aria-label="Visita nuestro TikTok" className="text-gray-400 hover:text-white transition-transform hover:scale-125">
-              <TiktokIcon className="w-7 h-7" />
+              <TiktokIcon />
             </a>
             <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer" aria-label="Encuéntranos en Google Maps" className="text-gray-400 hover:text-red-500 transition-transform hover:scale-125">
               <MapPin size={32} />
             </a>
             <a href="https://wa.me/5214423643964" target="_blank" rel="noopener noreferrer" aria-label="Contáctanos por WhatsApp" className="text-gray-400 hover:text-green-500 transition-transform hover:scale-125">
-              <MessageCircle size={32} />
+              <WhatsAppIcon className="w-8 h-8" />
             </a>
           </div>
         </div>
@@ -545,7 +546,7 @@ function LocationSection() {
           </div>
           <div className="w-full h-80 bg-gray-800 rounded-xl overflow-hidden">
             <iframe
-                src="https://www.google.com/maps/search/?api=1&query=Av.+Tecnologico+Sur+%234A,+Local+09,+Centro,+Queretaro,+Qro.4"
+                src="https://www.google.com/maps/search/?api=1&query=Av.+Tecnologico+Sur+%234A,+Local+09,+Centro,+Queretaro,+Qro.6"
               width="100%"
               height="100%"
               style={{ border: 0 }}
