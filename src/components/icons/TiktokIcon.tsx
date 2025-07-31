@@ -10,7 +10,7 @@ export const TiktokIcon = (props: React.SVGProps<SVGSVGElement>) => (
     fillRule="evenodd"
     clipRule="evenodd"
     viewBox="0 0 449.45 515.38"
-    width="28" // Ajustado para el tamaño deseado
+    width="28"
     height="28"
     fill="currentColor"
     {...props}
