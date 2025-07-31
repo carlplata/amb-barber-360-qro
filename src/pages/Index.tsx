@@ -1,20 +1,10 @@
-import Navbar from "../components/Navbar";
-import Hero from "../components/Hero";
-import BenefitsSection from "../components/BenefitsSection";
-import VideoSection from "../components/VideoSection";
-import InscriptionSection from "../components/InscriptionSection";
-import LearningEnvironmentSection from "../components/LearningEnvironmentSection";
-import ModalitiesSection from "../components/ModalitiesSection";
-import PricingSection from "../components/PricingSection";
-import CertificatesSection from "../components/CertificatesSection";
-import TestimonialsSection from "../components/TestimonialsSection";
-import ReadyToStartSection from "../components/ReadyToStartSection";
-import GallerySection from "../components/GallerySection";
-import MasterCoursesSection from "../components/MasterCoursesSection";
-import ContactSection from "../components/ContactSection";
-import SocialMediaSection from "../components/SocialMediaSection";
-import LocationSection from "../components/LocationSection";
-import Footer from "../components/Footer";
+import { useState } from "react";
+import { Menu, X, Instagram, Facebook, MapPin, CheckCircle2 } from "lucide-react";
+import { ContactForm } from "@/components/ContactForm";
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
+import { Badge } from "@/components/ui/badge";
+import { TiktokIcon } from "@/components/icons/TiktokIcon";
+import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 
 // --- DATOS DE LA APLICACIÓN ---
 const benefits = [
@@ -205,7 +195,7 @@ function BenefitsSection() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {benefits.map((benefit, index) => (
-            <div key={index} className="bg-gray-800 rounded-xl p-6 text-center border border-gray-700 transition-transform hover:scale-105 hover:border-yellow-400 animate-fade-in-up" style={{ animationDelay: (index * 100) + "ms" }}
+            <div key={index} className="bg-gray-800 rounded-xl p-6 text-center border border-gray-700 transition-transform hover:scale-105 hover:border-yellow-400 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
               <div className="text-4xl mb-4">{benefit.icon}</div>
               <h3 className="text-xl font-bold mb-2 font-heading">{benefit.title}</h3>
               <p className="text-gray-300">{benefit.description}</p>
@@ -592,7 +582,7 @@ function LocationSection() {
           </div>
           <div className="w-full h-80 bg-gray-800 rounded-xl overflow-hidden">
             <iframe
-                src="https://maps.app.goo.gl/u5f5k5f5f5f5f5f51"
+                src="https://maps.app.goo.gl/u5f5k5f5f5f5f5f52"
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -651,30 +641,6 @@ function Footer() {
         </div>
       </div>
     </footer>
-  );
-}
-
-function Index() {
-  return (
-    <>
-      <Navbar />
-      <Hero />
-      <BenefitsSection />
-      <VideoSection />
-      <InscriptionSection />
-      <LearningEnvironmentSection />
-      <ModalitiesSection />
-      <PricingSection />
-      <CertificatesSection />
-      <TestimonialsSection />
-      <ReadyToStartSection />
-      <GallerySection />
-      <MasterCoursesSection />
-      <ContactSection />
-      <SocialMediaSection />
-      <LocationSection />
-      <Footer />
-    </>
   );
 }
 
