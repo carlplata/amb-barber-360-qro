@@ -40,34 +40,18 @@ const masterCourses = [
     { title: "Fades Modernos", icon: "🔥", image: "/images/fades.png" },
 ];
 
+const certificateList = [
+    "Barbicide® (2 certificados)",
+    "AMB",
+    "Carlos Slim",
+    "Amos Academy – Barbering Essentials",
+  ];
+
 // URLs
 const linktreeUrl = "https://linktr.ee/cursosamb";
 const googleMapsUrl = "https://maps.app.goo.gl/9d1y5Z9d6X7s8c7C9";
 
 // --- COMPONENTES DE LA PÁGINA ---
-const Index = () => {
-    return (
-        <div className="min-h-screen bg-black">
-          <Navbar />
-          <Hero />
-          <BenefitsSection />
-          <VideoSection />
-          <InscriptionSection />
-          <LearningEnvironmentSection />
-          <ModalitiesSection />
-          <PricingSection />
-          <CertificatesSection />
-          <TestimonialsSection />
-          <ReadyToStartSection />
-          <GallerySection />
-          <MasterCoursesSection />
-          <ContactSection />
-          <SocialMediaSection />
-          <LocationSection />
-          <Footer />
-        </div>
-      );
-    };
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -186,7 +170,7 @@ function Hero() {
     );
   }
 
-function BenefitsSection() {
+function BenefitsSection({ benefitsData }: { benefitsData: typeof benefits }) {
   return (
     <section className="py-20 bg-gray-900 text-white">
       <div className="max-w-6xl mx-auto px-4">
@@ -194,7 +178,7 @@ function BenefitsSection() {
           ¿Por qué elegir nuestro curso?
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {benefits.map((benefit, index) => (
+          {benefitsData.map((benefit, index) => (
             <div key={index} className="bg-gray-800 rounded-xl p-6 text-center border border-gray-700 transition-transform hover:scale-105 hover:border-yellow-400 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
               <div className="text-4xl mb-4">{benefit.icon}</div>
               <h3 className="text-xl font-bold mb-2 font-heading">{benefit.title}</h3>
@@ -259,7 +243,7 @@ function InscriptionSection() {
   );
 }
 
-function LearningEnvironmentSection() {
+function LearningEnvironmentSection({ environmentData }: { environmentData: typeof learningEnvironment }) {
   return (
     <section className="py-20 bg-white text-black">
       <div className="max-w-6xl mx-auto px-4">
@@ -267,7 +251,7 @@ function LearningEnvironmentSection() {
           Ambiente de Aprendizaje Profesional
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {learningEnvironment.map((item, index) => (
+          {environmentData.map((item, index) => (
             <div key={index} className="bg-gray-50 rounded-xl p-6 text-center border border-gray-200 transition-transform hover:scale-105 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
               <div className="text-4xl mb-4">{item.icon}</div>
               <h3 className="text-xl font-bold mb-2 font-heading">{item.title}</h3>
@@ -280,7 +264,7 @@ function LearningEnvironmentSection() {
   );
 }
 
-function ModalitiesSection() {
+function ModalitiesSection({ modalitiesData }: { modalitiesData: typeof modalities }) {
     return (
       <section className="py-20 bg-gray-100 text-black">
         <div className="max-w-4xl mx-auto px-4 text-center">
@@ -288,7 +272,7 @@ function ModalitiesSection() {
             Modalidades de curso
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {modalities.map((modality, index) => (
+            {modalitiesData.map((modality, index) => (
               <div key={index} className="bg-yellow-100 rounded-xl p-6 text-center transition-transform hover:scale-105 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
                 <div className="text-4xl mb-4">{modality.icon}</div>
                 <h3 className="text-xl font-bold mb-2 font-heading">{modality.title}</h3>
@@ -310,7 +294,7 @@ function ModalitiesSection() {
     );
   }
 
-function PricingSection() {
+function PricingSection({ pricingData }: { pricingData: typeof pricingOptions }) {
     const createWhatsAppLink = (planTitle: string) => {
         const message = `Hola, me interesa el plan ${planTitle} para el curso de barbería 360. ¿Qué horarios hay disponibles?`;
         return `https://wa.me/5214423643964?text=${encodeURIComponent(message)}`;
@@ -323,7 +307,7 @@ function PricingSection() {
             Formas de Pago
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {pricingOptions.map((option, index) => (
+            {pricingData.map((option, index) => (
               <div key={index} className="relative bg-gray-900 rounded-xl p-6 text-center border border-gray-800 transition-transform hover:scale-105 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
                 {option.popular && (
                   <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-yellow-400 text-black font-bold">Más Popular</Badge>
@@ -351,14 +335,7 @@ function PricingSection() {
     );
   }
 
-function CertificatesSection() {
-    const certificateList = [
-      "Barbicide® (2 certificados)",
-      "AMB",
-      "Carlos Slim",
-      "Amos Academy – Barbering Essentials",
-    ];
-
+function CertificatesSection({ certificatesData }: { certificatesData: typeof certificateList }) {
     return (
       <section className="py-20 bg-white text-black">
         <div className="max-w-4xl mx-auto px-4">
@@ -368,7 +345,7 @@ function CertificatesSection() {
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
-            {certificateList.map((cert, index) => (
+            {certificatesData.map((cert, index) => (
               <div key={index} className="flex items-center gap-4 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
                 <CheckCircle2 className="text-green-500 w-6 h-6 flex-shrink-0" />
                 <span className="text-lg">{cert}</span>
@@ -472,7 +449,7 @@ function ReadyToStartSection() {
     );
   }
   
-  function MasterCoursesSection() {
+  function MasterCoursesSection({ coursesData }: { coursesData: typeof masterCourses }) {
     return (
       <section className="py-20 bg-gray-900 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
@@ -483,7 +460,7 @@ function ReadyToStartSection() {
             Disponible después de terminar Barbería 360°. En ocasiones especiales puedes cursarlos como extras dentro de tu curso.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {masterCourses.map((course, index) => (
+            {coursesData.map((course, index) => (
               <div key={index} className="bg-gray-800 rounded-xl p-6 text-center border border-gray-700 shadow-lg transition-transform hover:scale-105 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
                  <div className="w-full h-40 mb-6 rounded-lg overflow-hidden bg-gray-700">
                     <img
@@ -582,7 +559,7 @@ function LocationSection() {
           </div>
           <div className="w-full h-80 bg-gray-800 rounded-xl overflow-hidden">
             <iframe
-                src="https://maps.app.goo.gl/u5f5k5f5f5f5f5f52"
+                src="https://maps.app.goo.gl/u5f5k5f5f5f5f5f53"
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -644,4 +621,28 @@ function Footer() {
   );
 }
 
-export default Index;
+const App = () => {
+    return (
+        <div className="min-h-screen bg-black">
+          <Navbar />
+          <Hero />
+          <BenefitsSection benefitsData={benefits} />
+          <VideoSection />
+          <InscriptionSection />
+          <LearningEnvironmentSection environmentData={learningEnvironment} />
+          <ModalitiesSection modalitiesData={modalities} />
+          <PricingSection pricingData={pricingOptions} />
+          <CertificatesSection certificatesData={certificateList} />
+          <TestimonialsSection />
+          <ReadyToStartSection />
+          <GallerySection />
+          <MasterCoursesSection coursesData={masterCourses} />
+          <ContactSection />
+          <SocialMediaSection />
+          <LocationSection />
+          <Footer />
+        </div>
+      );
+    };
+
+export default App;
