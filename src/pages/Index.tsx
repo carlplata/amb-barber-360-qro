@@ -88,37 +88,37 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-sm border-b border-gray-800">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-md border-b border-gray-800 shadow-lg">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 flex items-center justify-center p-1">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center p-1">
               <img
                 src="/lovable-uploads/ae0a782f-1452-445a-a992-875f288b3932.png"
                 alt="AMB Logo"
                 className="w-full h-full object-contain"
               />
             </div>
-            <span className="text-white font-heading uppercase tracking-wider">Barbería 360°</span>
+            <span className="text-white font-heading uppercase tracking-wider text-sm sm:text-base">Barbería 360°</span>
           </div>
 
-          <div className="hidden md:flex items-center space-x-4">
-            <a href={linktreeUrl} target="_blank" rel="noopener noreferrer" className="bg-yellow-400 text-black px-6 py-2 rounded-lg font-semibold hover:bg-yellow-300 transition-transform hover:scale-105">
+          <div className="hidden md:flex items-center space-x-3">
+            <a href={linktreeUrl} target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-black px-4 py-2 rounded-lg font-semibold hover:from-yellow-300 hover:to-yellow-400 transition-all hover:scale-105 shadow-lg">
               Inscribirme
             </a>
-            <a href="https://www.mercadopago.com.mx/checkout/v1/redirect?preference-id=141039576-ff609d72-4186-4497-b7c2-89d0fa84f7fd" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-transform hover:scale-105">
+            <a href="https://www.mercadopago.com.mx/checkout/v1/redirect?preference-id=141039576-ff609d72-4186-4497-b7c2-89d0fa84f7fd" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-2 rounded-lg font-semibold hover:from-blue-500 hover:to-blue-600 transition-all hover:scale-105 shadow-lg">
               Pagar
             </a>
-            <a href="https://wa.me/5214423643964" target="_blank" rel="noopener noreferrer" aria-label="Contáctanos por WhatsApp" className="text-gray-400 hover:text-green-500 transition-colors">
-              <WhatsAppIcon className="w-6 h-6" />
+            <a href="https://wa.me/5214423643964" target="_blank" rel="noopener noreferrer" aria-label="Contáctanos por WhatsApp" className="text-gray-400 hover:text-green-500 transition-colors p-2 hover:bg-green-500/10 rounded-lg">
+              <WhatsAppIcon className="w-5 h-5" />
             </a>
-            <a href="https://instagram.com/asociacionmexicanadebarberia" target="_blank" rel="noopener noreferrer" aria-label="Visita nuestro Instagram" className="text-gray-400 hover:text-pink-500 transition-colors">
-              <Instagram size={24} />
+            <a href="https://instagram.com/asociacionmexicanadebarberia" target="_blank" rel="noopener noreferrer" aria-label="Visita nuestro Instagram" className="text-gray-400 hover:text-pink-500 transition-colors p-2 hover:bg-pink-500/10 rounded-lg">
+              <Instagram size={20} />
             </a>
           </div>
 
           <button
-            className="md:hidden text-white"
+            className="md:hidden text-white p-2 hover:bg-gray-800 rounded-lg transition-colors"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Abrir menú de navegación"
           >
@@ -128,16 +128,22 @@ function Navbar() {
       </div>
 
       {isOpen && (
-        <div className="md:hidden bg-black/95 border-t border-gray-800">
-          <div className="px-4 py-3 space-y-3">
-            <a href={linktreeUrl} target="_blank" rel="noopener noreferrer" className="block w-full bg-yellow-400 text-black px-4 py-2 rounded-lg font-semibold text-center">
+        <div className="md:hidden bg-black/98 backdrop-blur-md border-t border-gray-800 shadow-xl">
+          <div className="px-4 py-4 space-y-3">
+            <a href={linktreeUrl} target="_blank" rel="noopener noreferrer" className="block w-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-black px-4 py-3 rounded-lg font-semibold text-center hover:from-yellow-300 hover:to-yellow-400 transition-all">
               Inscribirme
             </a>
-            <a href="https://www.mercadopago.com.mx/checkout/v1/redirect?preference-id=141039576-ff609d72-4186-4497-b7c2-89d0fa84f7fd" target="_blank" rel="noopener noreferrer" className="block bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold text-center">
+            <a href="https://www.mercadopago.com.mx/checkout/v1/redirect?preference-id=141039576-ff609d72-4186-4497-b7c2-89d0fa84f7fd" target="_blank" rel="noopener noreferrer" className="block bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-3 rounded-lg font-semibold text-center hover:from-blue-500 hover:to-blue-600 transition-all">
               Pagar
             </a>
-            <a href="https://wa.me/5214423643964" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white py-2"><WhatsAppIcon className="w-5 h-5" /> WhatsApp</a>
-            <a href="https://instagram.com/asociacionmexicanadebarberia" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white py-2"><Instagram size={20} /> Instagram</a>
+            <div className="flex justify-center space-x-6 pt-2">
+              <a href="https://wa.me/5214423643964" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-green-400 hover:text-green-300 transition-colors py-2">
+                <WhatsAppIcon className="w-5 h-5" /> WhatsApp
+              </a>
+              <a href="https://instagram.com/asociacionmexicanadebarberia" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-pink-400 hover:text-pink-300 transition-colors py-2">
+                <Instagram size={20} /> Instagram
+              </a>
+            </div>
           </div>
         </div>
       )}
@@ -165,33 +171,33 @@ function Hero() {
           <img
             src="/lovable-uploads/ae0a782f-1452-445a-a992-875f288b3932.png"
             alt="AMB Logo"
-            className="w-64 mx-auto mb-8 object-contain"
+            className="w-48 sm:w-56 md:w-64 mx-auto mb-6 sm:mb-8 object-contain"
           />
-          <h1 className="font-heading text-4xl md:text-6xl font-bold mb-6 leading-tight uppercase tracking-wider">
+          <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight uppercase tracking-wider">
             Conviértete en Barbero Profesional desde Cero en Querétaro
           </h1>
-          <div className="bg-black/30 rounded-xl p-6 mb-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="bg-black/40 backdrop-blur-sm rounded-xl p-4 sm:p-6 mb-6 sm:mb-8 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 border border-white/20">
             <div className="text-center">
-              <div className="text-3xl mb-2">📍</div>
-              <div className="font-semibold font-heading">Curso presencial</div>
-              <div className="text-gray-300">en Querétaro</div>
+              <div className="text-2xl sm:text-3xl mb-2">📍</div>
+              <div className="font-semibold font-heading text-sm sm:text-base">Curso presencial</div>
+              <div className="text-gray-300 text-xs sm:text-sm">en Querétaro</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl mb-2">🧑‍🎓</div>
-              <div className="font-semibold font-heading">Sin experiencia previa</div>
-              <div className="text-gray-300">Empezamos desde cero</div>
+              <div className="text-2xl sm:text-3xl mb-2">🧑‍🎓</div>
+              <div className="font-semibold font-heading text-sm sm:text-base">Sin experiencia previa</div>
+              <div className="text-gray-300 text-xs sm:text-sm">Empezamos desde cero</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl mb-2">✂️</div>
-              <div className="font-semibold font-heading">Clases prácticas</div>
-              <div className="text-gray-300">desde el primer día</div>
+              <div className="text-2xl sm:text-3xl mb-2">✂️</div>
+              <div className="font-semibold font-heading text-sm sm:text-base">Clases prácticas</div>
+              <div className="text-gray-300 text-xs sm:text-sm">desde el primer día</div>
             </div>
           </div>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href={linktreeUrl} target="_blank" rel="noopener noreferrer" className="bg-yellow-400 text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-300 transition-transform hover:scale-105 font-heading uppercase">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center max-w-md sm:max-w-none mx-auto">
+            <a href={linktreeUrl} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto bg-gradient-to-r from-yellow-400 to-yellow-500 text-black px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg hover:from-yellow-300 hover:to-yellow-400 transition-all hover:scale-105 font-heading uppercase shadow-lg">
               Inscribirme ahora
             </a>
-            <a href="https://wa.me/5214423643964" target="_blank" rel="noopener noreferrer" className="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-black transition-all hover:scale-105 font-heading uppercase">
+            <a href="https://wa.me/5214423643964" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg hover:bg-white hover:text-black transition-all hover:scale-105 font-heading uppercase shadow-lg">
               Hablar con asesor
             </a>
           </div>
@@ -202,17 +208,17 @@ function Hero() {
 
 function BenefitsSection({ benefitsData }: { benefitsData: typeof benefits }) {
   return (
-    <section className="py-20 bg-gray-900 text-white">
+    <section className="py-16 sm:py-20 bg-gradient-to-br from-gray-900 to-black text-white">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="font-heading text-3xl md:text-4xl font-bold text-center mb-16 uppercase tracking-wider">
+        <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12 sm:mb-16 uppercase tracking-wider bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
           ¿Por qué elegir nuestro curso?
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {benefitsData.map((benefit, index) => (
-            <div key={index} className="bg-gray-800 rounded-xl p-6 text-center border border-gray-700 transition-transform hover:scale-105 hover:border-yellow-400 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
-              <div className="text-4xl mb-4">{benefit.icon}</div>
-              <h3 className="text-xl font-bold mb-2 font-heading">{benefit.title}</h3>
-              <p className="text-gray-300">{benefit.description}</p>
+            <div key={index} className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-5 sm:p-6 text-center border border-gray-700 hover:border-yellow-400/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-yellow-400/10 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
+              <div className="text-3xl sm:text-4xl mb-4">{benefit.icon}</div>
+              <h3 className="text-lg sm:text-xl font-bold mb-2 font-heading text-yellow-400">{benefit.title}</h3>
+              <p className="text-gray-300 text-sm sm:text-base">{benefit.description}</p>
             </div>
           ))}
         </div>
@@ -248,24 +254,25 @@ function VideoSection() {
 
 function InscriptionSection() {
   return (
-    <section className="py-20 bg-yellow-400 text-black">
-      <div className="max-w-4xl mx-auto px-4 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-8 font-heading uppercase tracking-wider">
+    <section className="py-16 sm:py-20 bg-gradient-to-br from-yellow-400 via-yellow-500 to-orange-400 text-black relative overflow-hidden">
+      <div className="absolute inset-0 bg-black/5" />
+      <div className="relative max-w-4xl mx-auto px-4 text-center">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8 font-heading uppercase tracking-wider text-black drop-shadow-sm">
           Inscripción de $2,000 MXN incluye:
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-          <div className="bg-white rounded-xl p-6 transition-transform hover:scale-105 animate-fade-in-up">
-            <div className="text-4xl mb-4">👕</div>
-            <h3 className="text-xl font-bold mb-2 font-heading">Mandil profesional de cuero</h3>
-            <p className="text-gray-600">Valor $700 MXN incluido con tu inscripción</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-8">
+          <div className="bg-white/95 backdrop-blur-sm rounded-xl p-5 sm:p-6 transition-all hover:scale-105 hover:shadow-xl animate-fade-in-up border border-white/50">
+            <div className="text-3xl sm:text-4xl mb-4">👕</div>
+            <h3 className="text-lg sm:text-xl font-bold mb-2 font-heading">Mandil profesional de cuero</h3>
+            <p className="text-gray-700 text-sm sm:text-base">Valor $700 MXN incluido con tu inscripción</p>
           </div>
-          <div className="bg-white rounded-xl p-6 transition-transform hover:scale-105 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
-            <div className="text-4xl mb-4">📖</div>
-            <h3 className="text-xl font-bold mb-2 font-heading">Manual digital y acceso online</h3>
-            <p className="text-gray-600">Recibe todo el contenido siempre disponible</p>
+          <div className="bg-white/95 backdrop-blur-sm rounded-xl p-5 sm:p-6 transition-all hover:scale-105 hover:shadow-xl animate-fade-in-up border border-white/50" style={{ animationDelay: '100ms' }}>
+            <div className="text-3xl sm:text-4xl mb-4">📖</div>
+            <h3 className="text-lg sm:text-xl font-bold mb-2 font-heading">Manual digital y acceso online</h3>
+            <p className="text-gray-700 text-sm sm:text-base">Recibe todo el contenido siempre disponible</p>
           </div>
         </div>
-        <a href={linktreeUrl} target="_blank" rel="noopener noreferrer" className="bg-black text-yellow-400 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-800 transition-transform hover:scale-105 font-heading uppercase inline-block">
+        <a href={linktreeUrl} target="_blank" rel="noopener noreferrer" className="bg-black text-yellow-400 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg hover:bg-gray-800 transition-all hover:scale-105 hover:shadow-lg font-heading uppercase inline-block shadow-xl">
           Apartar mi lugar
         </a>
       </div>
@@ -331,30 +338,30 @@ function PricingSection({ pricingData }: { pricingData: typeof pricingOptions })
       };
 
     return (
-      <section className="py-20 bg-black text-white">
+      <section className="py-16 sm:py-20 bg-gradient-to-br from-black to-gray-900 text-white">
         <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 font-heading uppercase tracking-wider">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12 sm:mb-16 font-heading uppercase tracking-wider bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
             Formas de Pago
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {pricingData.map((option, index) => (
-              <div key={index} className="relative bg-gray-900 rounded-xl p-6 text-center border border-gray-800 transition-transform hover:scale-105 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
+              <div key={index} className="relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl p-5 sm:p-6 text-center border border-gray-700 hover:border-yellow-400/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-yellow-400/10 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
                 {option.popular && (
-                  <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-yellow-400 text-black font-bold">Más Popular</Badge>
+                  <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-yellow-400 to-orange-400 text-black font-bold border-0 px-3 py-1 text-xs sm:text-sm">Más Popular</Badge>
                 )}
-                <div className="w-32 h-32 mx-auto mb-6 rounded-lg overflow-hidden bg-gray-800">
+                <div className="w-24 h-24 sm:w-32 sm:h-32 mx-auto mb-4 sm:mb-6 rounded-lg overflow-hidden bg-gray-800 border border-gray-600">
                   <img
                     src={option.image}
                     alt={option.title}
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <h3 className="text-xl font-bold mb-4 font-heading">{option.title}</h3>
-                <p className="text-gray-300 mb-4">{option.description}</p>
-                <div className={`text-3xl font-bold mb-6 ${option.discount ? 'text-green-400' : 'text-white'}`}>
+                <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 font-heading text-yellow-400">{option.title}</h3>
+                <p className="text-gray-300 mb-3 sm:mb-4 text-sm sm:text-base">{option.description}</p>
+                <div className={`text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 ${option.discount ? 'text-green-400' : 'text-white'}`}>
                   {option.discount || option.price}
                 </div>
-                <a href={createWhatsAppLink(option.title)} target="_blank" rel="noopener noreferrer" className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-bold hover:bg-yellow-300 transition-transform hover:scale-105 block w-full font-heading uppercase">
+                <a href={createWhatsAppLink(option.title)} target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-black px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-bold hover:from-yellow-300 hover:to-yellow-400 transition-all hover:scale-105 hover:shadow-lg block w-full font-heading uppercase text-sm sm:text-base">
                     Elegir plan
                 </a>
               </div>

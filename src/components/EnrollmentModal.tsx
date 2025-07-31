@@ -16,8 +16,8 @@ type EnrollmentFormData = {
   name: string;
   email: string;
   phone: string;
-  payment_plan: string;
-  modality: string;
+  payment_plan: 'por-clase' | 'quincenal' | 'mensual' | 'curso-completo' | '';
+  modality: 'matutino' | 'vespertino' | 'sabatino' | '';
 }
 
 export function EnrollmentModal({ children, defaultPaymentPlan }: EnrollmentModalProps) {
@@ -27,14 +27,22 @@ export function EnrollmentModal({ children, defaultPaymentPlan }: EnrollmentModa
     name: '',
     email: '',
     phone: '',
-    payment_plan: defaultPaymentPlan || '',
+    payment_plan: (defaultPaymentPlan as 'por-clase' | 'quincenal' | 'mensual' | 'curso-completo') || '',
     modality: ''
   })
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Ya no se necesita "as any", el tipado es correcto
-    const success = await submitEnrollment(formData)
+    // Validar que los campos requeridos estén llenos
+    if (!formData.payment_plan || !formData.modality) return
+    
+    const success = await submitEnrollment({
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      payment_plan: formData.payment_plan as 'por-clase' | 'quincenal' | 'mensual' | 'curso-completo',
+      modality: formData.modality as 'matutino' | 'vespertino' | 'sabatino'
+    })
     if (success) {
       setFormData({ name: '', email: '', phone: '', payment_plan: '', modality: '' })
       setOpen(false)
@@ -87,7 +95,7 @@ export function EnrollmentModal({ children, defaultPaymentPlan }: EnrollmentModa
           />
           <Select
             value={formData.payment_plan}
-            onValueChange={(value) => setFormData({ ...formData, payment_plan: value })}
+            onValueChange={(value) => setFormData({ ...formData, payment_plan: value as 'por-clase' | 'quincenal' | 'mensual' | 'curso-completo' })}
             disabled={loading}
           >
             <SelectTrigger>
@@ -102,7 +110,7 @@ export function EnrollmentModal({ children, defaultPaymentPlan }: EnrollmentModa
           </Select>
           <Select
             value={formData.modality}
-            onValueChange={(value) => setFormData({ ...formData, modality: value })}
+            onValueChange={(value) => setFormData({ ...formData, modality: value as 'matutino' | 'vespertino' | 'sabatino' })}
             disabled={loading}
           >
             <SelectTrigger>
