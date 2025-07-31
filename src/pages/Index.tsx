@@ -583,7 +583,7 @@ function LocationSection() {
           </div>
           <div className="w-full h-80 bg-gray-800 rounded-xl overflow-hidden">
             <iframe
-                src="[https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3734.902316402283!2d-100.39525368453458!3d20.59259280720474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d3454b63364c7b%3A0x4705553038381813!2sAMB%20(Asociaci%C3%B3n%20Mexicana%20de%20Barber%C3%ADa)!5e0!3m2!1ses-419!2smx!4v1689280049449!5m2!1ses-419!2smx9](https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3734.902316402283!2d-100.39525368453458!3d20.59259280720474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d3454b63364c7b%3A0x4705553038381813!2sAMB%20(Asociaci%C3%B3n%20Mexicana%20de%20Barber%C3%ADa)!5e0!3m2!1ses-419!2smx!4v1689280049449!5m2!1ses-419!2smx9)"
+                src="[https://maps.app.goo.gl/u5f5k5f5f5f5f5f50](https://maps.app.goo.gl/u5f5k5f5f5f5f5f50)"
               width="100%"
               height="100%"
               style={{ border: 0 }}
