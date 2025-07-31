@@ -1,4 +1,3 @@
-```typescript
 import { useState } from "react";
 import { Menu, X, Instagram, Facebook, MapPin, CheckCircle2 } from "lucide-react";
 import { ContactForm } from "@/components/ContactForm";
@@ -42,8 +41,8 @@ const masterCourses = [
 ];
 
 // URLs
-const linktreeUrl = "[https://linktr.ee/cursosamb](https://linktr.ee/cursosamb)";
-const googleMapsUrl = "[https://maps.app.goo.gl/9d1y5Z9d6X7s8c7C9](https://maps.app.goo.gl/9d1y5Z9d6X7s8c7C9)";
+const linktreeUrl = "https://linktr.ee/cursosamb";
+const googleMapsUrl = "https://maps.app.goo.gl/9d1y5Z9d6X7s8c7C9";
 
 // --- COMPONENTES DE LA PÁGINA ---
 const Index = () => {
@@ -92,13 +91,13 @@ function Navbar() {
             <a href={linktreeUrl} target="_blank" rel="noopener noreferrer" className="bg-yellow-400 text-black px-6 py-2 rounded-lg font-semibold hover:bg-yellow-300 transition-transform hover:scale-105">
               Inscribirme
             </a>
-            <a href="[https://www.mercadopago.com.mx/checkout/v1/redirect?preference-id=141039576-ff609d72-4186-4497-b7c2-89d0fa84f7fd](https://www.mercadopago.com.mx/checkout/v1/redirect?preference-id=141039576-ff609d72-4186-4497-b7c2-89d0fa84f7fd)" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-transform hover:scale-105">
+            <a href="https://www.mercadopago.com.mx/checkout/v1/redirect?preference-id=141039576-ff609d72-4186-4497-b7c2-89d0fa84f7fd" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-transform hover:scale-105">
               Pagar
             </a>
-            <a href="[https://wa.me/5214423643964](https://wa.me/5214423643964)" target="_blank" rel="noopener noreferrer" aria-label="Contáctanos por WhatsApp" className="text-gray-400 hover:text-green-500 transition-colors">
+            <a href="https://wa.me/5214423643964" target="_blank" rel="noopener noreferrer" aria-label="Contáctanos por WhatsApp" className="text-gray-400 hover:text-green-500 transition-colors">
               <WhatsAppIcon className="w-6 h-6" />
             </a>
-            <a href="[https://instagram.com/asociacionmexicanadebarberia](https://instagram.com/asociacionmexicanadebarberia)" target="_blank" rel="noopener noreferrer" aria-label="Visita nuestro Instagram" className="text-gray-400 hover:text-pink-500 transition-colors">
+            <a href="https://instagram.com/asociacionmexicanadebarberia" target="_blank" rel="noopener noreferrer" aria-label="Visita nuestro Instagram" className="text-gray-400 hover:text-pink-500 transition-colors">
               <Instagram size={24} />
             </a>
           </div>
@@ -119,11 +118,11 @@ function Navbar() {
             <a href={linktreeUrl} target="_blank" rel="noopener noreferrer" className="block w-full bg-yellow-400 text-black px-4 py-2 rounded-lg font-semibold text-center">
               Inscribirme
             </a>
-            <a href="[https://www.mercadopago.com.mx/checkout/v1/redirect?preference-id=141039576-ff609d72-4186-4497-b7c2-89d0fa84f7fd](https://www.mercadopago.com.mx/checkout/v1/redirect?preference-id=141039576-ff609d72-4186-4497-b7c2-89d0fa84f7fd)" target="_blank" rel="noopener noreferrer" className="block bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold text-center">
+            <a href="https://www.mercadopago.com.mx/checkout/v1/redirect?preference-id=141039576-ff609d72-4186-4497-b7c2-89d0fa84f7fd" target="_blank" rel="noopener noreferrer" className="block bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold text-center">
               Pagar
             </a>
-            <a href="[https://wa.me/5214423643964](https://wa.me/5214423643964)" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white py-2"><WhatsAppIcon className="w-5 h-5" /> WhatsApp</a>
-            <a href="[https://instagram.com/asociacionmexicanadebarberia](https://instagram.com/asociacionmexicanadebarberia)" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white py-2"><Instagram size={20} /> Instagram</a>
+            <a href="https://wa.me/5214423643964" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white py-2"><WhatsAppIcon className="w-5 h-5" /> WhatsApp</a>
+            <a href="https://instagram.com/asociacionmexicanadebarberia" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-white py-2"><Instagram size={20} /> Instagram</a>
           </div>
         </div>
       )}
@@ -178,7 +177,7 @@ function Hero() {
             <a href={linktreeUrl} target="_blank" rel="noopener noreferrer" className="bg-yellow-400 text-black px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-300 transition-transform hover:scale-105 font-heading uppercase">
               Inscribirme ahora
             </a>
-            <a href="[https://wa.me/5214423643964](https://wa.me/5214423643964)" target="_blank" rel="noopener noreferrer" className="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-black transition-all hover:scale-105 font-heading uppercase">
+            <a href="https://wa.me/5214423643964" target="_blank" rel="noopener noreferrer" className="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-black transition-all hover:scale-105 font-heading uppercase">
               Hablar con asesor
             </a>
           </div>
@@ -219,7 +218,7 @@ function VideoSection() {
             <iframe
               width="100%"
               height="100%"
-              src="[https://www.facebook.com/plugins/video.php?height=315&href=https%3A%2F%2Fwww.facebook.com%2Fasociacionmexicanadebarberia%2Fvideos%2F2906440829675027%2F&show_text=false&width=560&t=0](https://www.facebook.com/plugins/video.php?height=315&href=https%3A%2F%2Fwww.facebook.com%2Fasociacionmexicanadebarberia%2Fvideos%2F2906440829675027%2F&show_text=false&width=560&t=0)"
+              src="https://www.facebook.com/plugins/video.php?height=315&href=https%3A%2F%2Fwww.facebook.com%2Fasociacionmexicanadebarberia%2Fvideos%2F2906440829675027%2F&show_text=false&width=560&t=0"
               style={{ border: 'none', overflow: 'hidden' }}
               scrolling="no"
               frameBorder="0"
@@ -439,7 +438,7 @@ function ReadyToStartSection() {
           <p className="text-lg mb-6 text-gray-300">
             🟨 Aparta tu lugar desde $2,000 MXN y recibe tu kit profesional
           </p>
-          <a href="[https://wa.me/5214423643964](https://wa.me/5214423643964)" target="_blank" rel="noopener noreferrer" className="bg-green-500 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-green-600 transition-transform hover:scale-105 font-heading uppercase inline-flex items-center gap-2">
+          <a href="https://wa.me/5214423643964" target="_blank" rel="noopener noreferrer" className="bg-green-500 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-green-600 transition-transform hover:scale-105 font-heading uppercase inline-flex items-center gap-2">
             <WhatsAppIcon className="w-6 h-6" />
             Habla con un asesor
           </a>
@@ -517,7 +516,7 @@ function ContactSection() {
           <ContactForm />
           <div className="text-center mt-8">
             <a
-              href="[https://wa.me/5214423643964](https://wa.me/5214423643964)"
+              href="https://wa.me/5214423643964"
               target="_blank" rel="noopener noreferrer"
               className="bg-green-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-green-600 transition-transform hover:scale-105 inline-block font-heading uppercase"
             >
@@ -538,19 +537,19 @@ function SocialMediaSection() {
             Síguenos en Redes Sociales
           </h2>
           <div className="flex justify-center items-center gap-8">
-            <a href="[https://instagram.com/asociacionmexicanadebarberia](https://instagram.com/asociacionmexicanadebarberia)" target="_blank" rel="noopener noreferrer" aria-label="Visita nuestro Instagram" className="text-gray-400 hover:text-pink-500 transition-transform hover:scale-125">
+            <a href="https://instagram.com/asociacionmexicanadebarberia" target="_blank" rel="noopener noreferrer" aria-label="Visita nuestro Instagram" className="text-gray-400 hover:text-pink-500 transition-transform hover:scale-125">
               <Instagram size={32} />
             </a>
-            <a href="[https://facebook.com/asociacionmexicanadebarberia](https://facebook.com/asociacionmexicanadebarberia)" target="_blank" rel="noopener noreferrer" aria-label="Visita nuestro Facebook" className="text-gray-400 hover:text-blue-600 transition-transform hover:scale-125">
+            <a href="https://facebook.com/asociacionmexicanadebarberia" target="_blank" rel="noopener noreferrer" aria-label="Visita nuestro Facebook" className="text-gray-400 hover:text-blue-600 transition-transform hover:scale-125">
               <Facebook size={32} />
             </a>
-            <a href="[https://www.tiktok.com/@escueladebarberiaamb](https://www.tiktok.com/@escueladebarberiaamb)" target="_blank" rel="noopener noreferrer" aria-label="Visita nuestro TikTok" className="text-gray-400 hover:text-white transition-transform hover:scale-125">
+            <a href="https://www.tiktok.com/@escueladebarberiaamb" target="_blank" rel="noopener noreferrer" aria-label="Visita nuestro TikTok" className="text-gray-400 hover:text-white transition-transform hover:scale-125">
               <TiktokIcon />
             </a>
             <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer" aria-label="Encuéntranos en Google Maps" className="text-gray-400 hover:text-red-500 transition-transform hover:scale-125">
               <MapPin size={32} />
             </a>
-            <a href="[https://wa.me/5214423643964](https://wa.me/5214423643964)" target="_blank" rel="noopener noreferrer" aria-label="Contáctanos por WhatsApp" className="text-gray-400 hover:text-green-500 transition-transform hover:scale-125">
+            <a href="https://wa.me/5214423643964" target="_blank" rel="noopener noreferrer" aria-label="Contáctanos por WhatsApp" className="text-gray-400 hover:text-green-500 transition-transform hover:scale-125">
               <WhatsAppIcon className="w-8 h-8" />
             </a>
           </div>
@@ -583,7 +582,7 @@ function LocationSection() {
           </div>
           <div className="w-full h-80 bg-gray-800 rounded-xl overflow-hidden">
             <iframe
-                src="[https://maps.app.goo.gl/u5f5k5f5f5f5f5f50](https://maps.app.goo.gl/u5f5k5f5f5f5f5f50)"
+                src="https://maps.app.goo.gl/u5f5k5f5f5f5f5f51"
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -628,7 +627,7 @@ function Footer() {
               Tus datos están protegidos. Puedes pagar con tarjeta, débito, crédito o en efectivo.
             </p>
             <a
-              href="[https://www.mercadopago.com.mx/checkout/v1/redirect?preference-id=141039576-ff609d72-4186-4497-b7c2-89d0fa84f7fd](https://www.mercadopago.com.mx/checkout/v1/redirect?preference-id=141039576-ff609d72-4186-4497-b7c2-89d0fa84f7fd)"
+              href="https://www.mercadopago.com.mx/checkout/v1/redirect?preference-id=141039576-ff609d72-4186-4497-b7c2-89d0fa84f7fd"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-blue-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-blue-700 transition-transform hover:scale-105 inline-block font-heading uppercase"
