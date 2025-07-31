@@ -644,4 +644,28 @@ function Footer() {
   );
 }
 
+function Index() {
+  return (
+    <>
+      <Navbar />
+      <Hero />
+      <BenefitsSection />
+      <VideoSection />
+      <InscriptionSection />
+      <LearningEnvironmentSection />
+      <ModalitiesSection />
+      <PricingSection />
+      <CertificatesSection />
+      <TestimonialsSection />
+      <ReadyToStartSection />
+      <GallerySection />
+      <MasterCoursesSection />
+      <ContactSection />
+      <SocialMediaSection />
+      <LocationSection />
+      <Footer />
+    </>
+  );
+}
+
 export default Index;
