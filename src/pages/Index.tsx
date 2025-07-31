@@ -48,6 +48,13 @@ const masterCourses = [
     { title: "Fades Modernos", icon: "🔥", image: "/images/fades.png" },
 ];
 
+const certificateList = [
+    "Barbicide® (2 certificados)",
+    "AMB",
+    "Carlos Slim",
+    "Amos Academy – Barbering Essentials",
+  ];
+
 // URLs
 const linktreeUrl = "https://linktr.ee/cursosamb";
 const googleMapsUrl = "https://maps.app.goo.gl/9d1y5Z9d6X7s8c7C9";
@@ -58,17 +65,17 @@ const Index = () => {
         <div className="min-h-screen bg-black">
           <Navbar />
           <Hero />
-          <BenefitsSection />
+          <BenefitsSection benefitsData={benefits} />
           <VideoSection />
           <InscriptionSection />
-          <LearningEnvironmentSection />
-          <ModalitiesSection />
-          <PricingSection />
-          <CertificatesSection />
+          <LearningEnvironmentSection environmentData={learningEnvironment} />
+          <ModalitiesSection modalitiesData={modalities} />
+          <PricingSection pricingData={pricingOptions} />
+          <CertificatesSection certificatesData={certificates} />
           <TestimonialsSection />
           <ReadyToStartSection />
           <GallerySection />
-          <MasterCoursesSection />
+          <MasterCoursesSection coursesData={masterCourses} />
           <ContactSection />
           <SocialMediaSection />
           <LocationSection />
@@ -194,7 +201,7 @@ function Hero() {
     );
   }
 
-function BenefitsSection() {
+function BenefitsSection({ benefitsData }: { benefitsData: typeof benefits }) {
   return (
     <section className="py-20 bg-gray-900 text-white">
       <div className="max-w-6xl mx-auto px-4">
@@ -202,7 +209,7 @@ function BenefitsSection() {
           ¿Por qué elegir nuestro curso?
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {benefits.map((benefit, index) => (
+          {benefitsData.map((benefit, index) => (
             <div key={index} className="bg-gray-800 rounded-xl p-6 text-center border border-gray-700 transition-transform hover:scale-105 hover:border-yellow-400 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
               <div className="text-4xl mb-4">{benefit.icon}</div>
               <h3 className="text-xl font-bold mb-2 font-heading">{benefit.title}</h3>
@@ -267,7 +274,7 @@ function InscriptionSection() {
   );
 }
 
-function LearningEnvironmentSection() {
+function LearningEnvironmentSection({ environmentData }: { environmentData: typeof learningEnvironment }) {
   return (
     <section className="py-20 bg-white text-black">
       <div className="max-w-6xl mx-auto px-4">
@@ -275,7 +282,7 @@ function LearningEnvironmentSection() {
           Ambiente de Aprendizaje Profesional
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {learningEnvironment.map((item, index) => (
+          {environmentData.map((item, index) => (
             <div key={index} className="bg-gray-50 rounded-xl p-6 text-center border border-gray-200 transition-transform hover:scale-105 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
               <div className="text-4xl mb-4">{item.icon}</div>
               <h3 className="text-xl font-bold mb-2 font-heading">{item.title}</h3>
@@ -288,7 +295,7 @@ function LearningEnvironmentSection() {
   );
 }
 
-function ModalitiesSection() {
+function ModalitiesSection({ modalitiesData }: { modalitiesData: typeof modalities }) {
     return (
       <section className="py-20 bg-gray-100 text-black">
         <div className="max-w-4xl mx-auto px-4 text-center">
@@ -296,7 +303,7 @@ function ModalitiesSection() {
             Modalidades de curso
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {modalities.map((modality, index) => (
+            {modalitiesData.map((modality, index) => (
               <div key={index} className="bg-yellow-100 rounded-xl p-6 text-center transition-transform hover:scale-105 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
                 <div className="text-4xl mb-4">{modality.icon}</div>
                 <h3 className="text-xl font-bold mb-2 font-heading">{modality.title}</h3>
@@ -318,7 +325,7 @@ function ModalitiesSection() {
     );
   }
 
-function PricingSection() {
+function PricingSection({ pricingData }: { pricingData: typeof pricingOptions }) {
     const createWhatsAppLink = (planTitle: string) => {
         const message = `Hola, me interesa el plan ${planTitle} para el curso de barbería 360. ¿Qué horarios hay disponibles?`;
         return `https://wa.me/5214423643964?text=${encodeURIComponent(message)}`;
@@ -331,7 +338,7 @@ function PricingSection() {
             Formas de Pago
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {pricingOptions.map((option, index) => (
+            {pricingData.map((option, index) => (
               <div key={index} className="relative bg-gray-900 rounded-xl p-6 text-center border border-gray-800 transition-transform hover:scale-105 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
                 {option.popular && (
                   <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-yellow-400 text-black font-bold">Más Popular</Badge>
@@ -359,7 +366,7 @@ function PricingSection() {
     );
   }
 
-function CertificatesSection() {
+function CertificatesSection({ certificatesData }: { certificatesData: typeof certificates }) {
     return (
       <section className="py-20 bg-white text-black overflow-hidden">
         <div className="max-w-6xl mx-auto px-4">
@@ -376,7 +383,7 @@ function CertificatesSection() {
             className="w-full max-w-5xl mx-auto"
           >
             <CarouselContent>
-              {certificates.map((cert, index) => (
+              {certificatesData.map((cert, index) => (
                 <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                   <div className="p-1 h-full">
                     <div className="flex flex-col flex-shrink-0 bg-gray-50 rounded-xl p-6 text-center border border-gray-200 w-full h-full transition-shadow hover:shadow-xl">
@@ -488,7 +495,7 @@ function ReadyToStartSection() {
     );
   }
   
-  function MasterCoursesSection() {
+  function MasterCoursesSection({ coursesData }: { coursesData: typeof masterCourses }) {
     return (
       <section className="py-20 bg-gray-900 text-white">
         <div className="max-w-4xl mx-auto px-4 text-center">
@@ -499,7 +506,7 @@ function ReadyToStartSection() {
             Disponible después de terminar Barbería 360°. En ocasiones especiales puedes cursarlos como extras dentro de tu curso.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {masterCourses.map((course, index) => (
+            {coursesData.map((course, index) => (
               <div key={index} className="bg-gray-800 rounded-xl p-6 text-center border border-gray-700 shadow-lg transition-transform hover:scale-105 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
                  <div className="w-full h-40 mb-6 rounded-lg overflow-hidden bg-gray-700">
                     <img
@@ -660,28 +667,4 @@ function Footer() {
   );
 }
 
-const App = () => {
-    return (
-        <div className="min-h-screen bg-black">
-          <Navbar />
-          <Hero />
-          <BenefitsSection benefitsData={benefits} />
-          <VideoSection />
-          <InscriptionSection />
-          <LearningEnvironmentSection environmentData={learningEnvironment} />
-          <ModalitiesSection modalitiesData={modalities} />
-          <PricingSection pricingData={pricingOptions} />
-          <CertificatesSection certificatesData={certificateList} />
-          <TestimonialsSection />
-          <ReadyToStartSection />
-          <GallerySection />
-          <MasterCoursesSection coursesData={masterCourses} />
-          <ContactSection />
-          <SocialMediaSection />
-          <LocationSection />
-          <Footer />
-        </div>
-      );
-    };
-
-export default App;
+export default Index;
