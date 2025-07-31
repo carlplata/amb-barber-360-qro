@@ -1,10 +1,20 @@
-import { useState } from "react";
-import { Menu, X, Instagram, Facebook, MapPin, CheckCircle2 } from "lucide-react";
-import { ContactForm } from "@/components/ContactForm";
-import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
-import { Badge } from "@/components/ui/badge";
-import { TiktokIcon } from "@/components/icons/TiktokIcon";
-import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
+import Navbar from "../components/Navbar";
+import Hero from "../components/Hero";
+import BenefitsSection from "../components/BenefitsSection";
+import VideoSection from "../components/VideoSection";
+import InscriptionSection from "../components/InscriptionSection";
+import LearningEnvironmentSection from "../components/LearningEnvironmentSection";
+import ModalitiesSection from "../components/ModalitiesSection";
+import PricingSection from "../components/PricingSection";
+import CertificatesSection from "../components/CertificatesSection";
+import TestimonialsSection from "../components/TestimonialsSection";
+import ReadyToStartSection from "../components/ReadyToStartSection";
+import GallerySection from "../components/GallerySection";
+import MasterCoursesSection from "../components/MasterCoursesSection";
+import ContactSection from "../components/ContactSection";
+import SocialMediaSection from "../components/SocialMediaSection";
+import LocationSection from "../components/LocationSection";
+import Footer from "../components/Footer";
 
 // --- DATOS DE LA APLICACIÓN ---
 const benefits = [
