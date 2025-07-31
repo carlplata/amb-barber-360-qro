@@ -360,34 +360,42 @@ function PricingSection() {
   }
 
 function CertificatesSection() {
-    const certificateList = [
-      "Barbicide® (2 certificados)",
-      "AMB",
-      "Carlos Slim",
-      "Amos Academy – Barbering Essentials",
-    ];
-
     return (
-      <section className="py-20 bg-white text-black">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="text-center mb-12">
+      <section className="py-20 bg-white text-black overflow-hidden">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold font-heading uppercase tracking-wider">
               Certificaciones Oficiales
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
-            {certificateList.map((cert, index) => (
-              <div key={index} className="flex items-center gap-4 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
-                <CheckCircle2 className="text-green-500 w-6 h-6 flex-shrink-0" />
-                <span className="text-lg">{cert}</span>
-              </div>
-            ))}
-          </div>
-          <div className="text-center mt-12">
-            <p className="text-lg text-gray-700 mb-6">
-              Al finalizar, recibirás <strong>múltiples certificaciones oficiales</strong> que te respaldan como un barbero profesional de élite.
-            </p>
-          </div>
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full max-w-5xl mx-auto"
+          >
+            <CarouselContent>
+              {certificates.map((cert, index) => (
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                  <div className="p-1 h-full">
+                    <div className="flex flex-col flex-shrink-0 bg-gray-50 rounded-xl p-6 text-center border border-gray-200 w-full h-full transition-shadow hover:shadow-xl">
+                      <div className="w-full h-40 mb-4 flex items-center justify-center">
+                        <img
+                          src={cert.image}
+                          alt={cert.name}
+                          className="max-w-full max-h-full object-contain rounded-lg"
+                        />
+                      </div>
+                      <h3 className="text-lg font-bold mt-auto font-heading">{cert.name}</h3>
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
         </div>
       </section>
     );
@@ -657,17 +665,17 @@ const App = () => {
         <div className="min-h-screen bg-black">
           <Navbar />
           <Hero />
-          <BenefitsSection />
+          <BenefitsSection benefitsData={benefits} />
           <VideoSection />
           <InscriptionSection />
-          <LearningEnvironmentSection />
-          <ModalitiesSection />
-          <PricingSection />
-          <CertificatesSection />
+          <LearningEnvironmentSection environmentData={learningEnvironment} />
+          <ModalitiesSection modalitiesData={modalities} />
+          <PricingSection pricingData={pricingOptions} />
+          <CertificatesSection certificatesData={certificateList} />
           <TestimonialsSection />
           <ReadyToStartSection />
           <GallerySection />
-          <MasterCoursesSection />
+          <MasterCoursesSection coursesData={masterCourses} />
           <ContactSection />
           <SocialMediaSection />
           <LocationSection />
