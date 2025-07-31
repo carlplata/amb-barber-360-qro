@@ -88,32 +88,32 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/95 backdrop-blur-md border-b border-gray-800 shadow-lg">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center p-1">
+    <nav className="fixed top-0 left-0 right-0 z-50 glass-effect border-b border-white/10 shadow-elegant">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-20">
+          <div className="flex items-center space-x-4">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center p-1">
               <img
                 src="/lovable-uploads/ae0a782f-1452-445a-a992-875f288b3932.png"
                 alt="AMB Logo"
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain animate-glow"
               />
             </div>
-            <span className="text-white font-heading uppercase tracking-wider text-sm sm:text-base">Barbería 360°</span>
+            <span className="text-white font-heading font-bold uppercase tracking-wider text-base sm:text-lg gradient-text">Barbería 360°</span>
           </div>
 
-          <div className="hidden md:flex items-center space-x-3">
-            <a href={linktreeUrl} target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-black px-4 py-2 rounded-lg font-semibold hover:from-yellow-300 hover:to-yellow-400 transition-all hover:scale-105 shadow-lg">
+          <div className="hidden md:flex items-center space-x-4">
+            <a href={linktreeUrl} target="_blank" rel="noopener noreferrer" className="btn-primary px-6 py-3 text-base font-bold">
               Inscribirme
             </a>
-            <a href="https://www.mercadopago.com.mx/checkout/v1/redirect?preference-id=141039576-ff609d72-4186-4497-b7c2-89d0fa84f7fd" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-2 rounded-lg font-semibold hover:from-blue-500 hover:to-blue-600 transition-all hover:scale-105 shadow-lg">
+            <a href="https://www.mercadopago.com.mx/checkout/v1/redirect?preference-id=141039576-ff609d72-4186-4497-b7c2-89d0fa84f7fd" target="_blank" rel="noopener noreferrer" className="btn-secondary px-6 py-3 text-base font-bold text-white">
               Pagar
             </a>
-            <a href="https://wa.me/5214423643964" target="_blank" rel="noopener noreferrer" aria-label="Contáctanos por WhatsApp" className="text-gray-400 hover:text-green-500 transition-colors p-2 hover:bg-green-500/10 rounded-lg">
-              <WhatsAppIcon className="w-5 h-5" />
+            <a href="https://wa.me/5214423643964" target="_blank" rel="noopener noreferrer" aria-label="Contáctanos por WhatsApp" className="text-gray-300 hover:text-green-400 transition-all p-3 hover:bg-green-500/20 rounded-xl hover:scale-110">
+              <WhatsAppIcon className="w-6 h-6" />
             </a>
-            <a href="https://instagram.com/asociacionmexicanadebarberia" target="_blank" rel="noopener noreferrer" aria-label="Visita nuestro Instagram" className="text-gray-400 hover:text-pink-500 transition-colors p-2 hover:bg-pink-500/10 rounded-lg">
-              <Instagram size={20} />
+            <a href="https://instagram.com/asociacionmexicanadebarberia" target="_blank" rel="noopener noreferrer" aria-label="Visita nuestro Instagram" className="text-gray-300 hover:text-pink-400 transition-all p-3 hover:bg-pink-500/20 rounded-xl hover:scale-110">
+              <Instagram size={24} />
             </a>
           </div>
 
@@ -153,7 +153,7 @@ function Navbar() {
 
 function Hero() {
     return (
-      <section className="relative min-h-screen flex items-center justify-center text-white pt-20 overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center text-white pt-24 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <video
             autoPlay
@@ -165,39 +165,39 @@ function Hero() {
             <source src="/videos/hero-background.mp4" type="video/mp4" />
             Tu navegador no soporta el video.
           </video>
-          <div className="absolute inset-0 bg-black/60" />
+          <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70" />
         </div>
-        <div className="max-w-4xl mx-auto text-center px-4 z-10 relative animate-fade-in-up">
+        <div className="max-w-5xl mx-auto text-center px-4 z-10 relative animate-fade-in-up">
           <img
             src="/lovable-uploads/ae0a782f-1452-445a-a992-875f288b3932.png"
             alt="AMB Logo"
-            className="w-48 sm:w-56 md:w-64 mx-auto mb-6 sm:mb-8 object-contain"
+            className="w-52 sm:w-60 md:w-72 mx-auto mb-8 sm:mb-10 object-contain animate-bounce-in"
           />
-          <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight uppercase tracking-wider">
+          <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-black mb-8 leading-tight uppercase tracking-wider bg-gradient-to-r from-white via-primary to-accent bg-clip-text text-transparent animate-glow">
             Conviértete en Barbero Profesional desde Cero en Querétaro
           </h1>
-          <div className="bg-black/40 backdrop-blur-sm rounded-xl p-4 sm:p-6 mb-6 sm:mb-8 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 border border-white/20">
-            <div className="text-center">
-              <div className="text-2xl sm:text-3xl mb-2">📍</div>
-              <div className="font-semibold font-heading text-sm sm:text-base">Curso presencial</div>
-              <div className="text-gray-300 text-xs sm:text-sm">en Querétaro</div>
+          <div className="glass-effect rounded-2xl p-6 sm:p-8 mb-8 sm:mb-10 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 border border-white/30 shadow-elegant">
+            <div className="text-center group hover:scale-105 transition-all duration-300">
+              <div className="text-3xl sm:text-4xl mb-3 group-hover:animate-bounce">📍</div>
+              <div className="font-bold font-heading text-base sm:text-lg text-primary">Curso presencial</div>
+              <div className="text-gray-200 text-sm sm:text-base">en Querétaro</div>
             </div>
-            <div className="text-center">
-              <div className="text-2xl sm:text-3xl mb-2">🧑‍🎓</div>
-              <div className="font-semibold font-heading text-sm sm:text-base">Sin experiencia previa</div>
-              <div className="text-gray-300 text-xs sm:text-sm">Empezamos desde cero</div>
+            <div className="text-center group hover:scale-105 transition-all duration-300">
+              <div className="text-3xl sm:text-4xl mb-3 group-hover:animate-bounce">🧑‍🎓</div>
+              <div className="font-bold font-heading text-base sm:text-lg text-primary">Sin experiencia previa</div>
+              <div className="text-gray-200 text-sm sm:text-base">Empezamos desde cero</div>
             </div>
-            <div className="text-center">
-              <div className="text-2xl sm:text-3xl mb-2">✂️</div>
-              <div className="font-semibold font-heading text-sm sm:text-base">Clases prácticas</div>
-              <div className="text-gray-300 text-xs sm:text-sm">desde el primer día</div>
+            <div className="text-center group hover:scale-105 transition-all duration-300">
+              <div className="text-3xl sm:text-4xl mb-3 group-hover:animate-bounce">✂️</div>
+              <div className="font-bold font-heading text-base sm:text-lg text-primary">Clases prácticas</div>
+              <div className="text-gray-200 text-sm sm:text-base">desde el primer día</div>
             </div>
           </div>
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center max-w-md sm:max-w-none mx-auto">
-            <a href={linktreeUrl} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto bg-gradient-to-r from-yellow-400 to-yellow-500 text-black px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg hover:from-yellow-300 hover:to-yellow-400 transition-all hover:scale-105 font-heading uppercase shadow-lg">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center max-w-md sm:max-w-none mx-auto">
+            <a href={linktreeUrl} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto btn-primary px-8 sm:px-10 py-4 sm:py-5 text-lg sm:text-xl font-black uppercase">
               Inscribirme ahora
             </a>
-            <a href="https://wa.me/5214423643964" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg hover:bg-white hover:text-black transition-all hover:scale-105 font-heading uppercase shadow-lg">
+            <a href="https://wa.me/5214423643964" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto btn-outline px-8 sm:px-10 py-4 sm:py-5 text-lg sm:text-xl font-black uppercase text-white border-white hover:bg-white hover:text-black">
               Hablar con asesor
             </a>
           </div>
@@ -208,17 +208,18 @@ function Hero() {
 
 function BenefitsSection({ benefitsData }: { benefitsData: typeof benefits }) {
   return (
-    <section className="py-16 sm:py-20 bg-gradient-to-br from-gray-900 to-black text-white">
-      <div className="max-w-6xl mx-auto px-4">
-        <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12 sm:mb-16 uppercase tracking-wider bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
+    <section className="py-20 sm:py-24 bg-gradient-dark text-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,hsl(var(--primary)/0.1),transparent_50%)]" />
+      <div className="relative max-w-7xl mx-auto px-4">
+        <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black text-center mb-16 sm:mb-20 uppercase tracking-wider gradient-text animate-glow">
           ¿Por qué elegir nuestro curso?
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
           {benefitsData.map((benefit, index) => (
-            <div key={index} className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-5 sm:p-6 text-center border border-gray-700 hover:border-yellow-400/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-yellow-400/10 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
-              <div className="text-3xl sm:text-4xl mb-4">{benefit.icon}</div>
-              <h3 className="text-lg sm:text-xl font-bold mb-2 font-heading text-yellow-400">{benefit.title}</h3>
-              <p className="text-gray-300 text-sm sm:text-base">{benefit.description}</p>
+            <div key={index} className="card-modern bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm text-center border border-primary/20 hover:border-primary/60 group animate-fade-in-up" style={{ animationDelay: `${index * 150}ms` }}>
+              <div className="text-4xl sm:text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">{benefit.icon}</div>
+              <h3 className="text-xl sm:text-2xl font-bold mb-4 font-heading gradient-text">{benefit.title}</h3>
+              <p className="text-gray-300 text-base sm:text-lg leading-relaxed">{benefit.description}</p>
             </div>
           ))}
         </div>
@@ -254,25 +255,25 @@ function VideoSection() {
 
 function InscriptionSection() {
   return (
-    <section className="py-16 sm:py-20 bg-gradient-to-br from-yellow-400 via-yellow-500 to-orange-400 text-black relative overflow-hidden">
-      <div className="absolute inset-0 bg-black/5" />
-      <div className="relative max-w-4xl mx-auto px-4 text-center">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8 font-heading uppercase tracking-wider text-black drop-shadow-sm">
+    <section className="py-20 sm:py-24 bg-gradient-primary text-black relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(0,0,0,0.1),transparent_50%)]" />
+      <div className="relative max-w-5xl mx-auto px-4 text-center">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-8 sm:mb-12 font-heading uppercase tracking-wider text-secondary animate-glow">
           Inscripción de $2,000 MXN incluye:
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-8">
-          <div className="bg-white/95 backdrop-blur-sm rounded-xl p-5 sm:p-6 transition-all hover:scale-105 hover:shadow-xl animate-fade-in-up border border-white/50">
-            <div className="text-3xl sm:text-4xl mb-4">👕</div>
-            <h3 className="text-lg sm:text-xl font-bold mb-2 font-heading">Mandil profesional de cuero</h3>
-            <p className="text-gray-700 text-sm sm:text-base">Valor $700 MXN incluido con tu inscripción</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 mb-12">
+          <div className="card-modern bg-white/95 backdrop-blur-md border border-white/60 group hover:scale-105 animate-fade-in-up">
+            <div className="text-4xl sm:text-5xl mb-6 group-hover:animate-bounce">👕</div>
+            <h3 className="text-xl sm:text-2xl font-bold mb-4 font-heading text-secondary">Mandil profesional de cuero</h3>
+            <p className="text-gray-700 text-base sm:text-lg">Valor $700 MXN incluido con tu inscripción</p>
           </div>
-          <div className="bg-white/95 backdrop-blur-sm rounded-xl p-5 sm:p-6 transition-all hover:scale-105 hover:shadow-xl animate-fade-in-up border border-white/50" style={{ animationDelay: '100ms' }}>
-            <div className="text-3xl sm:text-4xl mb-4">📖</div>
-            <h3 className="text-lg sm:text-xl font-bold mb-2 font-heading">Manual digital y acceso online</h3>
-            <p className="text-gray-700 text-sm sm:text-base">Recibe todo el contenido siempre disponible</p>
+          <div className="card-modern bg-white/95 backdrop-blur-md border border-white/60 group hover:scale-105 animate-fade-in-up" style={{ animationDelay: '150ms' }}>
+            <div className="text-4xl sm:text-5xl mb-6 group-hover:animate-bounce">📖</div>
+            <h3 className="text-xl sm:text-2xl font-bold mb-4 font-heading text-secondary">Manual digital y acceso online</h3>
+            <p className="text-gray-700 text-base sm:text-lg">Recibe todo el contenido siempre disponible</p>
           </div>
         </div>
-        <a href={linktreeUrl} target="_blank" rel="noopener noreferrer" className="bg-black text-yellow-400 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg hover:bg-gray-800 transition-all hover:scale-105 hover:shadow-lg font-heading uppercase inline-block shadow-xl">
+        <a href={linktreeUrl} target="_blank" rel="noopener noreferrer" className="btn-secondary px-8 py-4 text-xl font-black uppercase text-white shadow-elegant">
           Apartar mi lugar
         </a>
       </div>
