@@ -155,7 +155,6 @@ function Hero() {
             muted
             playsInline
             className="w-full h-full object-cover"
-            poster="/images/location-image-171416640172.jpg"
           >
             <source src="/videos/hero-background.mp4" type="video/mp4" />
             Tu navegador no soporta el video.
@@ -445,26 +444,46 @@ function TestimonialsSection() {
   
 function ReadyToStartSection() {
     return (
-      <section className="py-20 bg-yellow-400">
-        <div className="max-w-4xl mx-auto px-4 text-center bg-black/80 text-white rounded-xl shadow-2xl p-10 animate-fade-in-up">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 font-heading uppercase tracking-wider">
-            🚀 ¿Qué necesitas para empezar?
-          </h2>
-          <div className="space-y-4 text-xl mb-10">
-            <p>🚫 No necesitas experiencia</p>
-            <p>⏳ No necesitas esperar el momento perfecto</p>
-            <p className="font-bold text-yellow-400">✅ Solo necesitas dar el primer paso</p>
+      <section className="py-20 bg-gradient-to-br from-yellow-400 via-orange-400 to-red-400 relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/10" />
+        <div className="relative max-w-4xl mx-auto px-4 text-center">
+          <div className="bg-black/90 backdrop-blur-sm text-white rounded-2xl shadow-2xl p-12 border border-yellow-400/30 relative">
+            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-black px-6 py-2 rounded-full font-bold text-sm">
+              ⚡ ÚLTIMO PASO HACIA TU NUEVA CARRERA
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-10 font-heading uppercase tracking-wider bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
+              🚀 ¿Qué necesitas para empezar?
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+              <div className="bg-gray-800/50 rounded-xl p-6 border border-gray-600/50 hover:border-yellow-400/50 transition-all">
+                <div className="text-5xl mb-4">🚫</div>
+                <h3 className="text-xl font-bold mb-2 text-yellow-400">Sin experiencia</h3>
+                <p className="text-gray-300">No necesitas saber nada de barbería</p>
+              </div>
+              <div className="bg-gray-800/50 rounded-xl p-6 border border-gray-600/50 hover:border-yellow-400/50 transition-all">
+                <div className="text-5xl mb-4">⏳</div>
+                <h3 className="text-xl font-bold mb-2 text-yellow-400">Sin esperas</h3>
+                <p className="text-gray-300">No necesitas esperar el momento perfecto</p>
+              </div>
+              <div className="bg-gradient-to-br from-yellow-400/20 to-orange-400/20 rounded-xl p-6 border border-yellow-400/50">
+                <div className="text-5xl mb-4">✅</div>
+                <h3 className="text-xl font-bold mb-2 text-yellow-400">Solo decisión</h3>
+                <p className="text-white font-semibold">Dar el primer paso</p>
+              </div>
+            </div>
+            <div className="bg-gradient-to-r from-yellow-400/10 to-orange-400/10 rounded-xl p-8 mb-8 border border-yellow-400/30">
+              <h3 className="text-3xl font-bold mb-4 font-heading uppercase tracking-wider text-yellow-400">
+                📣 Inscríbete hoy en Querétaro
+              </h3>
+              <p className="text-xl mb-6 text-gray-200">
+                🟨 Aparta tu lugar desde <span className="text-yellow-400 font-bold">$2,000 MXN</span> y recibe tu kit profesional
+              </p>
+            </div>
+            <a href="https://wa.me/5214423643964" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-10 py-5 rounded-xl font-bold text-xl transition-all hover:scale-105 hover:shadow-lg hover:shadow-green-500/25 font-heading uppercase inline-flex items-center gap-3">
+              <WhatsAppIcon className="w-7 h-7" />
+              Habla con un asesor
+            </a>
           </div>
-          <h3 className="text-2xl font-bold mb-4 font-heading uppercase tracking-wider">
-            📣 Inscríbete hoy en Querétaro
-          </h3>
-          <p className="text-lg mb-6 text-gray-300">
-            🟨 Aparta tu lugar desde $2,000 MXN y recibe tu kit profesional
-          </p>
-          <a href="https://wa.me/5214423643964" target="_blank" rel="noopener noreferrer" className="bg-green-500 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-green-600 transition-transform hover:scale-105 font-heading uppercase inline-flex items-center gap-2">
-            <WhatsAppIcon className="w-6 h-6" />
-            Habla con un asesor
-          </a>
         </div>
       </section>
     );
