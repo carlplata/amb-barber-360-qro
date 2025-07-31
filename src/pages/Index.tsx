@@ -4,11 +4,45 @@ import { ContactForm } from "@/components/ContactForm";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import { Badge } from "@/components/ui/badge";
 
+// --- DATOS DE LA APLICACIÓN ---
+const benefits = [
+  { icon: "✂️", title: "25 clases prácticas", description: "Aprende con práctica real" },
+  { icon: "🧑‍🏫", title: "Profesores activos", description: "Barberos profesionales" },
+  { icon: "🏅", title: "5 certificaciones", description: "Reconocimiento oficial" },
+  { icon: "💼", title: "Bolsa de trabajo", description: "Oportunidades laborales" },
+  { icon: "📦", title: "Precio de distribución", description: "En productos y máquinas de por vida" },
+  { icon: "📍", title: "Ubicación céntrica Qro.", description: "Fácil acceso en la ciudad" },
+];
+
+const pricingOptions = [
+    { title: "Por clase", description: "Paga clase por clase", price: "Flexible", discount: "", image: "/images/pago por clase.jpg", plan: "por-clase", popular: false },
+    { title: "Quincenal", description: "Ahorra pagando cada 15 días", price: "8%", discount: "-8%", image: "/images/pago por quincena.jpg", plan: "quincenal", popular: false },
+    { title: "Mensual", description: "Ahorra con pago mensual", price: "14%", discount: "-14%", image: "/images/pago mensual.jpg", plan: "mensual", popular: false },
+    { title: "Curso completo", description: "Máximo ahorro", price: "20%", discount: "-20%", image: "/images/curso completo.jpg", plan: "curso-completo", popular: true },
+];
+
+const modalities = [
+    { icon: "🚀", title: "3 Meses", desc: "Dos clases por semana (lunes y miércoles o martes y jueves)." },
+    { icon: "🏆", title: "6 Meses", desc: "Una clase por semana (sábados o domingos)." },
+];
+
+const learningEnvironment = [
+  { icon: "👨‍🏫", title: "Profesores activos", desc: "Barberos profesionales trabajando en el sector" },
+  { icon: "👥", title: "Grupos pequeños", desc: "Máximo 15 estudiantes por grupo para atención personalizada" },
+  { icon: "💇‍♂️", title: "Práctica real con clientes", desc: "Desde la primera semana trabajas con clientes reales" },
+];
+
+const masterCourses = [
+    { title: "Colorimetría Masculina", icon: "🎨", image: "/images/colorimetria.jpg" },
+    { title: "Corte a Tijera y Textura", icon: "✂️", image: "/images/5c0fe394-6cb2-46cb-80ce-8c0c26f04975.png" },
+    { title: "Fades Modernos", icon: "🔥", image: "/images/fades.png" },
+];
+
 // URLs
 const linktreeUrl = "https://linktr.ee/cursosamb";
-const googleMapsUrl = "https://maps.app.goo.gl/3j2x4fJ6Z9Q2Z4Bw7";
+const googleMapsUrl = "https://maps.app.goo.gl/u5f3fG13T7g8YdYVA";
 
-// --- ÍCONOS PERSONALIZADOS ---
+// Componentes de Iconos Personalizados
 const TiktokIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28" {...props}><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-2.43.05-4.84-.94-6.37-2.96-2.2-2.95-2.2-6.82 0-9.78 1.53-2.04 3.84-3.13 6.15-3.09.03 2.33-.01 4.66.02 7 .02 1.08.38 2.18 1.19 2.94.79.73 1.83 1.12 2.89 1.11.93 0 1.86-.34 2.62-1.01.69-.64 1.14-1.48 1.2-2.42.03-2.55.01-5.1-.02-7.65-.78-.29-1.55-.66-2.25-1.08-1.15-.7-2.18-1.63-2.95-2.75-.81-1.17-1.34-2.52-1.46-3.96-.05-1.5-.04-3.01-.01-4.52.01-.19.03-.38.04-.57.02-.12.05-.24.07-.36.01-.04.02-.07.03-.11.02-.09.04-.18.06-.27.01-.05.02-.1.04-.15.01-.04.03-.09.04-.13.01-.03.02-.06.04-.09.01-.03.02-.06.03-.09.02-.06.04-.12.06-.18.01-.03.02-.06.03-.08.02-.07.03-.13.05-.2.01-.02.02-.05.03-.07.02-.06.04-.12.06-.18.01-.03.02-.05.03-.08.01-.02.02-.04.03-.06.02-.06.05-.12.07-.18zm-2.86 5.11c-.01 1.3.01 2.59-.01 3.89-.02 1.03-.41 2.05-1.21 2.79-.76.7-1.75 1.05-2.76 1.01-1.03-.04-2.02-.42-2.73-1.15-.75-.77-1.16-1.8-1.16-2.89.01-1.28-.01-2.55.01-3.83.02-1.1.43-2.19 1.23-2.95.81-.77 1.84-1.16 2.89-1.13 1.11.03 2.14.46 2.91 1.28.78.82 1.23 1.9 1.22 3.01z"/></svg>
   );
@@ -18,6 +52,29 @@ const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
   );
 
 // --- COMPONENTES DE LA PÁGINA ---
+const Index = () => {
+    return (
+        <div className="min-h-screen bg-black">
+          <Navbar />
+          <Hero />
+          <BenefitsSection />
+          <VideoSection />
+          <InscriptionSection />
+          <LearningEnvironmentSection />
+          <ModalitiesSection />
+          <PricingSection />
+          <CertificatesSection />
+          <TestimonialsSection />
+          <ReadyToStartSection />
+          <GallerySection />
+          <MasterCoursesSection />
+          <ContactSection />
+          <SocialMediaSection />
+          <LocationSection />
+          <Footer />
+        </div>
+      );
+    };
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -372,8 +429,8 @@ function TestimonialsSection() {
   
 function ReadyToStartSection() {
     return (
-      <section className="py-20 bg-yellow-500 text-black">
-        <div className="max-w-4xl mx-auto px-4 text-center bg-black/80 text-white rounded-xl shadow-2xl p-10">
+      <section className="py-20 bg-yellow-400">
+        <div className="max-w-4xl mx-auto px-4 text-center bg-black/80 text-white rounded-xl shadow-2xl p-10 animate-fade-in-up">
           <h2 className="text-3xl md:text-4xl font-bold mb-8 font-heading uppercase tracking-wider">
             🚀 ¿Qué necesitas para empezar?
           </h2>
@@ -532,7 +589,7 @@ function LocationSection() {
           </div>
           <div className="w-full h-80 bg-gray-800 rounded-xl overflow-hidden">
             <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3734.902316402283!2d-100.39525368453458!3d20.59259280720474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d3454b63364c7b%3A0x4705553038381813!2sAMB%20(Asociaci%C3%B3n%20Mexicana%20de%20Barber%C3%ADa)!5e0!3m2!1ses-419!2smx!4v1689280049449!5m2!1ses-419!2smx4"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3734.902316402283!2d-100.39525368453458!3d20.59259280720474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d3454b63364c7b%3A0x4705553038381813!2sAMB%20(Asociaci%C3%B3n%20Mexicana%20de%20Barber%C3%ADa)!5e0!3m2!1ses-419!2smx!4v1689280049449!5m2!1ses-419!2smx6"
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -596,7 +653,7 @@ function Footer() {
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-black">
       <Navbar />
       <Hero />
       <BenefitsSection />
