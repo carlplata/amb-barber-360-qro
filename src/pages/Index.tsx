@@ -99,7 +99,7 @@ function Navbar() {
                 className="w-full h-full object-contain animate-glow"
               />
             </div>
-            <span className="text-white font-heading font-bold uppercase tracking-wider text-base sm:text-lg gradient-text">Barbería 360°</span>
+            <span className="text-white font-heading font-bold uppercase tracking-wider text-base sm:text-lg gradient-text">BARBERIA 360° QUERÉTARO</span>
           </div>
 
           <div className="hidden md:flex items-center space-x-4">
@@ -130,6 +130,26 @@ function Navbar() {
       {isOpen && (
         <div className="md:hidden bg-black/98 backdrop-blur-md border-t border-gray-800 shadow-xl">
           <div className="px-4 py-4 space-y-3">
+            {/* Índice de secciones */}
+            <div className="bg-gray-900/80 rounded-lg p-3 mb-3">
+              <h3 className="text-white font-semibold mb-2 text-sm">Índice</h3>
+              <div className="grid grid-cols-2 gap-2 text-sm">
+                <a href="#hero" className="text-gray-300 hover:text-white transition-colors py-1" onClick={() => setIsOpen(false)}>Inicio</a>
+                <a href="#benefits" className="text-gray-300 hover:text-white transition-colors py-1" onClick={() => setIsOpen(false)}>Beneficios</a>
+                <a href="#inscription" className="text-gray-300 hover:text-white transition-colors py-1" onClick={() => setIsOpen(false)}>Inscripción</a>
+                <a href="#modalities" className="text-gray-300 hover:text-white transition-colors py-1" onClick={() => setIsOpen(false)}>Modalidades</a>
+                <a href="#pricing" className="text-gray-300 hover:text-white transition-colors py-1" onClick={() => setIsOpen(false)}>Precios</a>
+                <a href="#certificates" className="text-gray-300 hover:text-white transition-colors py-1" onClick={() => setIsOpen(false)}>Certificaciones</a>
+                <a href="#gallery" className="text-gray-300 hover:text-white transition-colors py-1" onClick={() => setIsOpen(false)}>Galería</a>
+                <a href="#contact" className="text-gray-300 hover:text-white transition-colors py-1" onClick={() => setIsOpen(false)}>Contacto</a>
+              </div>
+            </div>
+            
+            {/* Botón de disponibilidad de horarios */}
+            <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2uEGXCigtAFyn_kJjT8iM2vZdGOq8MQCjM5rQe7yJmQgRzWkQzY8QzYQzY" target="_blank" rel="noopener noreferrer" className="block w-full bg-gradient-to-r from-purple-600 to-purple-700 text-white px-4 py-3 rounded-lg font-semibold text-center hover:from-purple-500 hover:to-purple-600 transition-all">
+              📅 Ver Horarios Disponibles
+            </a>
+            
             <a href={linktreeUrl} target="_blank" rel="noopener noreferrer" className="block w-full bg-gradient-to-r from-yellow-400 to-yellow-500 text-black px-4 py-3 rounded-lg font-semibold text-center hover:from-yellow-300 hover:to-yellow-400 transition-all">
               Inscribirme
             </a>
