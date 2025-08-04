@@ -261,7 +261,7 @@ function InscriptionSection() {
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-8 sm:mb-12 font-heading uppercase tracking-wider text-secondary animate-glow">
           Inscripción de $2,000 MXN incluye:
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 mb-12">
           <div className="card-modern bg-white/95 backdrop-blur-md border border-white/60 group hover:scale-105 animate-fade-in-up">
             <div className="text-4xl sm:text-5xl mb-6 group-hover:animate-bounce">👕</div>
             <h3 className="text-xl sm:text-2xl font-bold mb-4 font-heading text-secondary">Mandil profesional de cuero</h3>
@@ -271,6 +271,11 @@ function InscriptionSection() {
             <div className="text-4xl sm:text-5xl mb-6 group-hover:animate-bounce">📖</div>
             <h3 className="text-xl sm:text-2xl font-bold mb-4 font-heading text-secondary">Manual digital y acceso online</h3>
             <p className="text-gray-700 text-base sm:text-lg">Recibe todo el contenido siempre disponible</p>
+          </div>
+          <div className="card-modern bg-white/95 backdrop-blur-md border border-white/60 group hover:scale-105 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+            <div className="text-4xl sm:text-5xl mb-6 group-hover:animate-bounce">🛒</div>
+            <h3 className="text-xl sm:text-2xl font-bold mb-4 font-heading text-secondary">Acceso de por vida</h3>
+            <p className="text-gray-700 text-base sm:text-lg">Venta de todo el material necesario y más a precio de distribuidor de por vida y a crédito</p>
           </div>
         </div>
         <a href={linktreeUrl} target="_blank" rel="noopener noreferrer" className="btn-secondary px-8 py-4 text-xl font-black uppercase text-white shadow-elegant">
@@ -363,7 +368,7 @@ function PricingSection({ pricingData }: { pricingData: typeof pricingOptions })
                   {option.discount || option.price}
                 </div>
                 <a href={createWhatsAppLink(option.title)} target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-black px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-bold hover:from-yellow-300 hover:to-yellow-400 transition-all hover:scale-105 hover:shadow-lg block w-full font-heading uppercase text-sm sm:text-base">
-                    Elegir plan
+                    Cotizar plan
                 </a>
               </div>
             ))}
@@ -378,9 +383,30 @@ function CertificatesSection({ certificatesData }: { certificatesData: typeof ce
       <section className="py-20 bg-white text-black overflow-hidden">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold font-heading uppercase tracking-wider">
+            <h2 className="text-3xl md:text-4xl font-bold font-heading uppercase tracking-wider mb-8">
               Certificaciones Oficiales
             </h2>
+            <div className="bg-gray-100 rounded-xl p-8 mb-12 max-w-2xl mx-auto">
+              <h3 className="text-xl font-bold mb-6 text-gray-800">Nuestras certificaciones incluyen:</h3>
+              <ul className="space-y-3 text-left text-gray-700">
+                <li className="flex items-center">
+                  <CheckCircle2 className="w-5 h-5 text-green-600 mr-3 flex-shrink-0" />
+                  <span>Barbicide® (2 certificados)</span>
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle2 className="w-5 h-5 text-green-600 mr-3 flex-shrink-0" />
+                  <span>AMB</span>
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle2 className="w-5 h-5 text-green-600 mr-3 flex-shrink-0" />
+                  <span>Carlos Slim (La bolsa de trabajo más grande de México)</span>
+                </li>
+                <li className="flex items-center">
+                  <CheckCircle2 className="w-5 h-5 text-green-600 mr-3 flex-shrink-0" />
+                  <span>Amos Academy – Barbering Essentials (Certificación internacional)</span>
+                </li>
+              </ul>
+            </div>
           </div>
           <Carousel
             opts={{
@@ -545,7 +571,7 @@ function ReadyToStartSection() {
                 <div className="text-4xl mb-4">{course.icon}</div>
                 <h3 className="text-xl font-bold mb-4 font-heading">{course.title}</h3>
                 <a href={linktreeUrl} target="_blank" rel="noopener noreferrer" className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-bold hover:bg-yellow-300 transition-transform hover:scale-105 block font-heading uppercase">
-                  Inscribirme
+                  Más información
                 </a>
               </div>
             ))}
@@ -632,7 +658,7 @@ function LocationSection() {
           </div>
           <div className="w-full h-80 bg-gray-800 rounded-xl overflow-hidden">
             <iframe
-                src="https://maps.app.goo.gl/u5f5k5f5f5f5f5f55"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3734.8!2d-100.38952!3d20.59297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d35b19b8b8b8b8%3A0x8b8b8b8b8b8b8b8b!2sAv.%20Tecnol%C3%B3gico%20Sur%20%234A%2C%20Local%2009%2C%20Centro%2C%20Quer%C3%A9taro%2C%20Qro.!5e0!3m2!1ses!2smx!4v1234567890123!5m2!1ses!2smx"
               width="100%"
               height="100%"
               style={{ border: 0 }}
