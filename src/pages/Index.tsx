@@ -146,7 +146,7 @@ function Navbar() {
             </div>
             
             {/* Botón de disponibilidad de horarios */}
-            <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2uEGXCigtAFyn_kJjT8iM2vZdGOq8MQCjM5rQe7yJmQgRzWkQzY8QzYQzY" target="_blank" rel="noopener noreferrer" className="block w-full bg-gradient-to-r from-purple-600 to-purple-700 text-white px-4 py-3 rounded-lg font-semibold text-center hover:from-purple-500 hover:to-purple-600 transition-all">
+            <a href={linktreeUrl} target="_blank" rel="noopener noreferrer" className="block w-full bg-gradient-to-r from-purple-600 to-purple-700 text-white px-4 py-3 rounded-lg font-semibold text-center hover:from-purple-500 hover:to-purple-600 transition-all">
               📅 Ver Horarios Disponibles
             </a>
             
@@ -173,7 +173,7 @@ function Navbar() {
 
 function Hero() {
     return (
-      <section className="relative min-h-screen flex items-center justify-center text-white pt-24 overflow-hidden">
+      <section id="hero" className="relative min-h-screen flex items-center justify-center text-white pt-24 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <video
             autoPlay
@@ -228,7 +228,7 @@ function Hero() {
 
 function BenefitsSection({ benefitsData }: { benefitsData: typeof benefits }) {
   return (
-    <section className="py-20 sm:py-24 bg-gradient-dark text-white relative overflow-hidden">
+    <section id="benefits" className="py-20 sm:py-24 bg-gradient-dark text-white relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,hsl(var(--primary)/0.1),transparent_50%)]" />
       <div className="relative max-w-7xl mx-auto px-4">
         <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black text-center mb-16 sm:mb-20 uppercase tracking-wider gradient-text animate-glow">
@@ -275,7 +275,7 @@ function VideoSection() {
 
 function InscriptionSection() {
   return (
-    <section className="py-20 sm:py-24 bg-gradient-primary text-black relative overflow-hidden">
+    <section id="inscription" className="py-20 sm:py-24 bg-gradient-primary text-black relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_80%,rgba(0,0,0,0.1),transparent_50%)]" />
       <div className="relative max-w-5xl mx-auto px-4 text-center">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-black mb-8 sm:mb-12 font-heading uppercase tracking-wider text-secondary animate-glow">
@@ -329,7 +329,7 @@ function LearningEnvironmentSection({ environmentData }: { environmentData: type
 
 function ModalitiesSection({ modalitiesData }: { modalitiesData: typeof modalities }) {
     return (
-      <section className="py-20 bg-gray-100 text-black">
+      <section id="modalities" className="py-20 bg-gray-100 text-black">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 font-heading uppercase tracking-wider">
             Modalidades de curso
@@ -364,7 +364,7 @@ function PricingSection({ pricingData }: { pricingData: typeof pricingOptions })
       };
 
     return (
-      <section className="py-16 sm:py-20 bg-gradient-to-br from-black to-gray-900 text-white">
+      <section id="pricing" className="py-16 sm:py-20 bg-gradient-to-br from-black to-gray-900 text-white">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12 sm:mb-16 font-heading uppercase tracking-wider bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
             Formas de Pago
@@ -400,7 +400,7 @@ function PricingSection({ pricingData }: { pricingData: typeof pricingOptions })
 
 function CertificatesSection({ certificatesData }: { certificatesData: typeof certificates }) {
     return (
-      <section className="py-20 bg-white text-black overflow-hidden">
+      <section id="certificates" className="py-20 bg-white text-black overflow-hidden">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold font-heading uppercase tracking-wider mb-8">
@@ -551,7 +551,7 @@ function ReadyToStartSection() {
     ];
   
     return (
-      <section className="py-20 bg-gray-200">
+      <section id="gallery" className="py-20 bg-gray-200">
         <div className="max-w-6xl mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-black font-heading uppercase tracking-wider">
             Nuestra Academia en Acción
@@ -603,7 +603,7 @@ function ReadyToStartSection() {
 
 function ContactSection() {
   return (
-    <section className="py-20 bg-white text-black">
+    <section id="contact" className="py-20 bg-white text-black">
       <div className="max-w-4xl mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 font-heading uppercase tracking-wider">
           Formulario de Contacto
