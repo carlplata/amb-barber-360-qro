@@ -363,11 +363,23 @@ function ModalitiesSection({ modalitiesData }: { modalitiesData: typeof modaliti
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {modalitiesData.map((modality, index) => (
-              <div key={index} className="bg-yellow-100 rounded-xl p-6 text-center transition-transform hover:scale-105 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
-                <div className="text-4xl mb-4">{modality.icon}</div>
-                <h3 className="text-xl font-bold mb-2 font-heading">{modality.title}</h3>
-                <p className="text-gray-700">{modality.desc}</p>
-              </div>
+              <Dialog key={index}>
+                <DialogTrigger asChild>
+                  <button className="bg-yellow-100 rounded-xl p-6 text-center transition-all duration-300 hover:scale-105 hover:bg-yellow-200 cursor-pointer border-2 border-transparent hover:border-yellow-400 animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
+                    <div className="text-4xl mb-4">{modality.icon}</div>
+                    <h3 className="text-xl font-bold mb-2 font-heading">{modality.title}</h3>
+                    <p className="text-gray-700 mb-3">{modality.desc}</p>
+                    <p className="text-yellow-600 text-sm font-semibold">Clic para ver precios</p>
+                  </button>
+                </DialogTrigger>
+                <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+                  <img 
+                    src="/lovable-uploads/3cef581e-9513-4c12-b030-cabf4282ba1f.png" 
+                    alt="Precios y formas de pago detalladas" 
+                    className="w-full h-auto object-contain"
+                  />
+                </DialogContent>
+              </Dialog>
             ))}
           </div>
           <div className="mt-8 text-center">
@@ -419,6 +431,24 @@ function PricingSection({ pricingData }: { pricingData: typeof pricingOptions })
                 </a>
               </div>
             ))}
+          </div>
+          
+          {/* Botón para ver precios detallados */}
+          <div className="mt-12 text-center">
+            <Dialog>
+              <DialogTrigger asChild>
+                <button className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-4 rounded-lg font-bold text-lg hover:from-blue-500 hover:to-blue-600 transition-all hover:scale-105 hover:shadow-lg font-heading uppercase">
+                  📊 Precios de las formas de pago
+                </button>
+              </DialogTrigger>
+              <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+                <img 
+                  src="/lovable-uploads/3cef581e-9513-4c12-b030-cabf4282ba1f.png" 
+                  alt="Precios y formas de pago detalladas" 
+                  className="w-full h-auto object-contain"
+                />
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
       </section>
