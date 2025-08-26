@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Menu, X, Instagram, Facebook, MapPin, CheckCircle2 } from "lucide-react";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { ContactForm } from "@/components/ContactForm";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import { Badge } from "@/components/ui/badge";
@@ -235,13 +236,39 @@ function BenefitsSection({ benefitsData }: { benefitsData: typeof benefits }) {
           ¿Por qué elegir nuestro curso?
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
-          {benefitsData.map((benefit, index) => (
-            <div key={index} className="card-modern bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm text-center border border-primary/20 hover:border-primary/60 group animate-fade-in-up" style={{ animationDelay: `${index * 150}ms` }}>
-              <div className="text-4xl sm:text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">{benefit.icon}</div>
-              <h3 className="text-xl sm:text-2xl font-bold mb-4 font-heading gradient-text">{benefit.title}</h3>
-              <p className="text-gray-300 text-base sm:text-lg leading-relaxed">{benefit.description}</p>
-            </div>
-          ))}
+          {benefitsData.map((benefit, index) => {
+            // Caso especial para "25 clases prácticas" - convertir en botón con modal
+            if (benefit.title === "25 clases prácticas") {
+              return (
+                <Dialog key={index}>
+                  <DialogTrigger asChild>
+                    <button className="card-modern bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm text-center border border-primary/20 hover:border-primary/60 group animate-fade-in-up transition-all duration-300 hover:scale-105 cursor-pointer" style={{ animationDelay: `${index * 150}ms` }}>
+                      <div className="text-4xl sm:text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">{benefit.icon}</div>
+                      <h3 className="text-xl sm:text-2xl font-bold mb-4 font-heading gradient-text">{benefit.title}</h3>
+                      <p className="text-gray-300 text-base sm:text-lg leading-relaxed">{benefit.description}</p>
+                      <p className="text-primary text-sm mt-2 font-semibold">Clic para ver detalles</p>
+                    </button>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+                    <img 
+                      src="/lovable-uploads/b70e9870-52a2-4dfc-af21-caf2e6a29c49.png" 
+                      alt="Detalles del programa de 25 clases prácticas" 
+                      className="w-full h-auto object-contain"
+                    />
+                  </DialogContent>
+                </Dialog>
+              );
+            }
+            
+            // Resto de los beneficios como antes
+            return (
+              <div key={index} className="card-modern bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm text-center border border-primary/20 hover:border-primary/60 group animate-fade-in-up" style={{ animationDelay: `${index * 150}ms` }}>
+                <div className="text-4xl sm:text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">{benefit.icon}</div>
+                <h3 className="text-xl sm:text-2xl font-bold mb-4 font-heading gradient-text">{benefit.title}</h3>
+                <p className="text-gray-300 text-base sm:text-lg leading-relaxed">{benefit.description}</p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -289,7 +316,7 @@ function InscriptionSection() {
           </div>
           <div className="card-modern bg-white/95 backdrop-blur-md border border-white/60 group hover:scale-105 animate-fade-in-up" style={{ animationDelay: '150ms' }}>
             <div className="text-4xl sm:text-5xl mb-6 group-hover:animate-bounce">📖</div>
-            <h3 className="text-xl sm:text-2xl font-bold mb-4 font-heading text-secondary">Manual digital y acceso online</h3>
+            <h3 className="text-xl sm:text-2xl font-bold mb-4 font-heading text-secondary">Manual físico y acceso online</h3>
             <p className="text-gray-700 text-base sm:text-lg">Recibe todo el contenido siempre disponible</p>
           </div>
           <div className="card-modern bg-white/95 backdrop-blur-md border border-white/60 group hover:scale-105 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
