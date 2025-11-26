@@ -374,7 +374,7 @@ function ModalitiesSection({ modalitiesData }: { modalitiesData: typeof modaliti
                 </DialogTrigger>
                 <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
                   <img 
-                    src="/lovable-uploads/3cef581e-9513-4c12-b030-cabf4282ba1f.png" 
+                    src="/images/formas-pago-detalle.jpg" 
                     alt="Precios y formas de pago detalladas" 
                     className="w-full h-auto object-contain"
                   />
@@ -443,7 +443,7 @@ function PricingSection({ pricingData }: { pricingData: typeof pricingOptions })
               </DialogTrigger>
               <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
                 <img 
-                  src="/lovable-uploads/3cef581e-9513-4c12-b030-cabf4282ba1f.png" 
+                  src="/images/formas-pago-detalle.jpg" 
                   alt="Precios y formas de pago detalladas" 
                   className="w-full h-auto object-contain"
                 />
