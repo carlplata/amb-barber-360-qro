@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Check, Star, MapPin, Phone, Instagram, Facebook, GraduationCap, Scissors, Calendar, User, FileText, CheckCircle2 } from "lucide-react";
@@ -13,8 +14,56 @@ import {
 
 const Index = () => {
   const whatsappUrl = "https://wa.me/5214423643964";
-  const googleMapsUrl = "https://maps.app.goo.gl/uX3QkQ8wZz1z1z1z9"; // Replace with real URL
-  const linktreeUrl = "https://linktr.ee/ambbarber360";
+  const googleMapsUrl = "https://maps.app.goo.gl/9d1y5Z9d6X7s8c7C9"; 
+  const linktreeUrl = "https://linktr.ee/cursosamb";
+
+  const schema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "name": "AMB Barbería 360 Querétaro",
+        "image": "https://lovable.dev/opengraph-image-p98pqg.png",
+        "url": "https://amb-barber-360-qro.netlify.app/",
+        "telephone": "+5214423643964",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Av. Tecnológico Sur #4A, Local 09, Centro",
+          "addressLocality": "Querétaro",
+          "postalCode": "76010",
+          "addressCountry": "MX"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 20.59297,
+          "longitude": -100.38952
+        },
+        "priceRange": "$$"
+      },
+      {
+        "@type": "Course",
+        "name": "Curso de Barbería Profesional desde Cero",
+        "description": "Domina el arte de la barbería con los mejores expertos. Certificación oficial y bolsa de trabajo.",
+        "provider": {
+          "@type": "Organization",
+          "name": "Asociación Mexicana de Barbería (AMB)",
+          "sameAs": ["https://instagram.com/asociacionmexicanadebarberia", "https://facebook.com/asociacionmexicanadebarberia"]
+        },
+        "hasCourseInstance": {
+          "@type": "CourseInstance",
+          "courseMode": "OnSite",
+          "location": "Querétaro, Mexico"
+        },
+        "offers": {
+          "@type": "Offer",
+          "category": "Paid",
+          "price": "2000",
+          "priceCurrency": "MXN",
+          "url": "https://wa.me/5214423643964"
+        }
+      }
+    ]
+  };
 
   const benefits = [
     {
@@ -51,6 +100,16 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>Curso de Barbería Profesional en Querétaro | AMB Barber 360</title>
+        <meta name="description" content="Conviértete en barbero profesional desde cero en Querétaro. Curso práctico con certificación oficial y bolsa de trabajo. ¡Inscríbete hoy!" />
+        <meta name="keywords" content="curso de barbería querétaro, escuela de barbería, aprender barbería, certificación barbería, amb barber 360" />
+        <meta property="og:title" content="Curso de Barbería Profesional en Querétaro | AMB Barber 360" />
+        <meta property="og:description" content="Domina el arte de la barbería con los mejores expertos. Curso práctico desde cero." />
+        <meta property="og:type" content="website" />
+        <script type="application/ld+json">{JSON.stringify(schema)}</script>
+      </Helmet>
+
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center bg-[url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&q=80')] bg-cover bg-center">
         <div className="absolute inset-0 bg-black/60" />
