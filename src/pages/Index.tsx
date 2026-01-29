@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Check, Star, MapPin, Phone, Instagram, Facebook, GraduationCap, Scissors, Calendar, User, FileText, CheckCircle2 } from "lucide-react";
-import ContactForm from "@/components/ContactForm";
-import EnrollmentModal from "@/components/EnrollmentModal";
+import { ContactForm } from "@/components/ContactForm";
+import { EnrollmentModal } from "@/components/EnrollmentModal";
 import { SEO } from "@/components/SEO";
 import {
   Accordion,
@@ -72,7 +72,11 @@ const Index = () => {
             Domina el arte de la barbería con los mejores expertos. Certificación oficial y bolsa de trabajo garantizada.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up delay-200">
-            <EnrollmentModal />
+            <EnrollmentModal>
+              <Button className="w-full sm:w-auto text-lg px-8 py-6 bg-primary hover:bg-primary/90 text-primary-foreground font-bold shadow-[0_0_20px_rgba(234,179,8,0.3)] hover:shadow-[0_0_30px_rgba(234,179,8,0.5)] transition-all duration-300">
+                Inscribirme ahora
+              </Button>
+            </EnrollmentModal>
             <Button 
               size="lg" 
               variant="outline" 
