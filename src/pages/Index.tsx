@@ -114,7 +114,7 @@ const Index = () => {
     return (
         <div className="min-h-screen bg-black">
             <Helmet>
-                <title>Curso de Barbería Profesional en Querétaro | AMB Barber 360</title>
+                <title>Curso de Barbería Profesional | AMB Barber 360 Querétaro</title>
                 <meta name="description" content="Conviértete en barbero profesional desde cero en Querétaro. Curso práctico con certificación oficial y bolsa de trabajo. ¡Inscríbete hoy!" />
                 <meta name="keywords" content="curso de barbería querétaro, escuela de barbería, aprender barbería, certificación barbería, amb barber 360" />
                 <meta property="og:title" content="Curso de Barbería Profesional en Querétaro | AMB Barber 360" />
