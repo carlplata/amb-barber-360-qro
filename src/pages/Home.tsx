@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
-import { Menu, X, Instagram, Facebook, MapPin, CheckCircle2 } from "lucide-react";
+import Autoplay from "embla-carousel-autoplay";
+import { Menu, X, Instagram, Facebook, MapPin, CheckCircle2, ChevronDown } from "lucide-react";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { ContactForm } from "@/components/ContactForm";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import { TiktokIcon } from "@/components/icons/TiktokIcon";
 import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
@@ -107,6 +109,43 @@ const Home = () => {
                     "priceCurrency": "MXN",
                     "url": "https://wa.me/5214423643964"
                 }
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "¿Necesito experiencia previa?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "No, nuestro curso está diseñado para principiantes. Empezamos desde cero absoluto."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "¿Cuál es la duración del curso?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Puedes elegir entre la modalidad de 3 meses (clases entre semana) o 6 meses (fines de semana). Ambos cubren el mismo temario práctico."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "¿Entregan certificado oficial?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Sí, entregamos 5 certificaciones, incluyendo Barbicide, AMB y constancia con validez curricular avalada por la Fundación Carlos Slim."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "¿Incluye material?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Con tu inscripción recibes un mandil profesional de cuero y acceso a precios de distribuidor para comprar tus máquinas y herramientas."
+                        }
+                    }
+                ]
             }
         ]
     };
@@ -131,6 +170,7 @@ const Home = () => {
             <ModalitiesSection modalitiesData={modalities} />
             <PricingSection pricingData={pricingOptions} />
             <CertificatesSection certificatesData={certificates} />
+            <FAQSection /> {/* FAQ added before testimonials */}
             <TestimonialsSection />
             <ReadyToStartSection />
             <GallerySection />
@@ -548,6 +588,11 @@ function CertificatesSection({ certificatesData }: { certificatesData: typeof ce
                         align: "start",
                         loop: true,
                     }}
+                    plugins={[
+                        Autoplay({
+                            delay: 2000,
+                        }),
+                    ]}
                     className="w-full max-w-5xl mx-auto"
                 >
                     <CarouselContent>
@@ -571,6 +616,53 @@ function CertificatesSection({ certificatesData }: { certificatesData: typeof ce
                     <CarouselPrevious />
                     <CarouselNext />
                 </Carousel>
+            </div>
+        </section>
+    );
+}
+
+function FAQSection() {
+    const faqs = [
+        {
+            question: "¿Necesito experiencia previa para inscribirme?",
+            answer: "No, en absoluto. Nuestro curso 'Barbería 360' está diseñado específicamente para llevarte desde cero hasta un nivel profesional. Nuestros instructores te guiarán paso a paso en el manejo de cada herramienta."
+        },
+        {
+            question: "¿Cuál es la diferencia entre el curso de 3 y 6 meses?",
+            answer: "El contenido académico y práctico es exactamente el mismo (25 clases). La diferencia es la intensidad: el curso de 3 meses requiere asistir 2 días entre semana, mientras que el de 6 meses es ideal para quienes trabajan o estudian, asistiendo solo un día el fin de semana."
+        },
+        {
+            question: "¿Las prácticas son con modelos reales?",
+            answer: "Sí. A diferencia de otras escuelas que usan cabezas de maniquí, en AMB garantizamos prácticas con modelos reales desde las primeras semanas. Esto te da la confianza y experiencia real que necesitas para trabajar."
+        },
+        {
+            question: "¿Tienen bolsa de trabajo?",
+            answer: "Sí, tenemos convenios con las mejores barberías de Querétaro y una bolsa de trabajo activa. Muchos de nuestros alumnos consiguen empleo incluso antes de graduarse gracias a la calidad de su portafolio."
+        },
+        {
+            question: "¿Qué certificaciones obtendré?",
+            answer: "Obtendrás un diploma oficial de la Asociación Mexicana de Barbería (AMB), certificados internacionales de higiene Barbicide®, constancia de Fundación Carlos Slim y certificado de Amos Academy."
+        }
+    ];
+
+    return (
+        <section className="py-20 bg-gray-50 text-black">
+            <div className="max-w-4xl mx-auto px-4">
+                <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 font-heading uppercase tracking-wider">
+                    Preguntas Frecuentes
+                </h2>
+                <Accordion type="single" collapsible className="w-full space-y-4">
+                    {faqs.map((faq, index) => (
+                        <AccordionItem key={index} value={`item-${index}`} className="bg-white border rounded-lg px-6 shadow-sm">
+                            <AccordionTrigger className="text-left font-bold text-lg hover:no-underline hover:text-primary transition-colors py-4">
+                                {faq.question}
+                            </AccordionTrigger>
+                            <AccordionContent className="text-gray-600 text-base pb-4 leading-relaxed">
+                                {faq.answer}
+                            </AccordionContent>
+                        </AccordionItem>
+                    ))}
+                </Accordion>
             </div>
         </section>
     );
