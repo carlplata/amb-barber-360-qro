@@ -1,0 +1,258 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    /* Modern color palette - Refined for High End */
+    --primary: 45 100% 50%;
+    /* Golden Yellow - More vibrant */
+    --primary-foreground: 0 0% 0%;
+    /* Black text on gold is most readable/premium */
+    --primary-glow: 45 100% 60%;
+
+    --secondary: 0 0% 8%;
+    /* Soft black */
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 35 100% 50%;
+    /* Slightly warmer gold/orange */
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 0 0% 20%;
+    /* Darker borders */
+    --input: 0 0% 20%;
+    --ring: 45 100% 50%;
+
+    /* Modern gradients - High End Dark */
+    --gradient-primary: linear-gradient(135deg, hsl(45 100% 50%), hsl(35 100% 45%));
+    /* Solid gold gradient */
+    --gradient-dark: linear-gradient(to bottom, hsl(0 0% 4%), hsl(0 0% 0%));
+    /* Deep Premium Black */
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 10%), hsl(0 0% 5%));
+    /* For cards */
+
+    /* Shadows with brand colors */
+    --shadow-glow: 0 0 30px hsl(var(--primary) / 0.2);
+    --shadow-elegant: 0 20px 50px -12px rgba(0, 0, 0, 0.7);
+    --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+
+    /* ... animation vars ... */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 1rem;
+    /* ... sidebar vars ... */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  /* ... dark mode overrides ... */
+  .dark {
+    /* ... keep existing dark mode vars or map them to the new logic ... */
+    --background: 0 0% 4%;
+    --foreground: 0 0% 98%;
+    /* ... */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-neutral-950 text-foreground font-sans antialiased;
+    /* Unified Background */
+  }
+
+  /* Import Google Fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+  /* Heading typography updates */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .font-heading {
+    letter-spacing: 0.02em;
+    /* Premium feel */
+  }
+
+  h1 { @apply text-3xl sm:text-5xl md:text-6xl; }
+  h2 { @apply text-2xl sm:text-4xl md:text-5xl; }
+  h3 { @apply text-xl sm:text-2xl md:text-3xl; }
+}
+
+@layer components {
+
+  /* Modern utility classes */
+  .gradient-text {
+    @apply bg-gradient-to-r from-amber-200 via-yellow-400 to-amber-500 bg-clip-text text-transparent bg-[size:200%_auto];
+    animation: shimmer 3s linear infinite, glow 3s ease-in-out infinite alternate;
+  }
+
+  .gradient-platinum {
+    @apply bg-gradient-to-b from-yellow-200 via-yellow-500 to-amber-700 bg-clip-text text-transparent drop-shadow-2xl bg-[size:200%_auto];
+    text-shadow: 0 2px 10px rgba(255, 193, 7, 0.2);
+    animation: shimmer 4s linear infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: 0% 50%;
+    }
+
+    100% {
+      background-position: 200% 50%;
+    }
+  }
+
+  .btn-modern {
+    @apply relative overflow-hidden rounded-xl px-8 py-4 font-heading font-black uppercase tracking-widest text-sm transition-all duration-300 active:scale-[0.98] flex items-center justify-center text-center;
+  }
+
+  @media (hover: hover) {
+    .btn-modern:hover {
+      @apply transform -translate-y-1;
+    }
+  }
+
+  .btn-primary {
+    @apply btn-modern bg-primary text-black border-none;
+    /* Solid Gold effect */
+    box-shadow: 0 0 20px rgba(255, 193, 7, 0.3);
+  }
+
+  @media (hover: hover) {
+    .btn-primary:hover {
+      @apply bg-yellow-400;
+      box-shadow: 0 0 30px rgba(255, 193, 7, 0.5);
+    }
+  }
+
+  .btn-secondary {
+    @apply btn-modern bg-white text-black hover:bg-neutral-200 shadow-lg border-none;
+  }
+
+  .btn-outline {
+    @apply btn-modern border border-primary/50 bg-transparent text-primary hover:bg-primary/10 hover:border-primary;
+  }
+
+  .btn-glass {
+    @apply btn-modern bg-white/5 backdrop-blur-md border border-white/10 text-white hover:bg-white/10 hover:border-white/20;
+  }
+
+  .card-modern {
+    @apply rounded-2xl bg-neutral-900/60 backdrop-blur-xl border border-white/5 p-8 transition-all duration-500 hover:border-primary/30 hover:bg-neutral-900/80;
+    /* Glassmorphism Dark */
+  }
+
+  .glass-effect {
+    @apply bg-neutral-950/70 backdrop-blur-md border border-white/5;
+  }
+
+  .card-interactive {
+    /* ... keep existing ... */
+    @apply transition-all duration-300 cursor-default active:scale-[0.98] active:border-primary/50;
+  }
+
+  /* Prevent sticky hover on mobile */
+  @media (hover: hover) {
+    .card-interactive:hover {
+      @apply scale-[1.02] border-primary/50 shadow-[0_0_25px_hsl(var(--primary)/0.15)];
+    }
+  }
+
+  /* Animation utilities */
+  /* ... keep existing ... */
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  }
+
+  .animate-bounce-in {
+    animation: bounceIn 0.8s ease-out forwards;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+}
+
+@layer utilities {
+
+  /* Custom animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes bounceIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.3);
+    }
+
+    50% {
+      transform: scale(1.05);
+    }
+
+    70% {
+      transform: scale(0.9);
+    }
+
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Slow Pulsing Glow for Fixed Bar Text */
+  @keyframes glow {
+    0% {
+      text-shadow: 0 0 5px hsl(var(--primary) / 0.2);
+      opacity: 0.85;
+    }
+
+    50% {
+      opacity: 0.95;
+    }
+
+    100% {
+      text-shadow: 0 0 25px hsl(var(--primary) / 1), 0 0 40px hsl(var(--primary) / 0.6);
+      opacity: 1;
+    }
+  }
+}
