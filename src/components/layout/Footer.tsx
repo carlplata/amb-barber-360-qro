@@ -2,6 +2,7 @@ import { Instagram, Facebook, MapPin, Phone, Clock, ExternalLink, ChevronRight, 
 import { TiktokIcon } from "@/components/icons/TiktokIcon";
 import { googleMapsUrl } from "@/data/landing-page";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { pixelTrackers } from "@/lib/pixel";
 
 export function Footer() {
     const currentYear = new Date().getFullYear();
@@ -184,6 +185,7 @@ function PaymentContent() {
                 href="https://www.mercadopago.com.mx/checkout/v1/redirect?preference-id=141039576-ff609d72-4186-4497-b7c2-89d0fa84f7fd"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => pixelTrackers.trackCTA("footer_payment", "Pagar Inscripción")}
                 className="flex items-center justify-center w-full bg-[#009EE3] hover:bg-[#008CC9] text-white text-xs font-bold py-3 px-4 rounded-xl transition-all hover:scale-[1.02] shadow-lg shadow-blue-500/20 group"
             >
                 Pagar Inscripción Ahora
@@ -200,6 +202,7 @@ function SocialButton({ href, icon, label }: { href: string; icon: React.ReactNo
             target="_blank"
             rel="noopener noreferrer"
             aria-label={label}
+            onClick={() => pixelTrackers.trackCTA("footer_social", label)}
             className="w-10 h-10 bg-white/5 hover:bg-white/10 rounded-full flex items-center justify-center text-neutral-400 hover:text-amber-500 transition-all hover:scale-110 border border-white/5 hover:border-amber-500/30"
         >
             {icon}
@@ -208,10 +211,12 @@ function SocialButton({ href, icon, label }: { href: string; icon: React.ReactNo
 }
 
 function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
+    const label = typeof children === "string" ? children : "link";
     return (
         <li>
             <a
                 href={href}
+                onClick={() => pixelTrackers.trackCTA("footer_nav", label)}
                 className="text-neutral-400 text-sm hover:text-amber-500 transition-colors flex items-center group"
             >
                 <ChevronRight size={14} className="mr-2 text-neutral-600 group-hover:text-amber-500 transition-colors opacity-0 group-hover:opacity-100 -ml-5 group-hover:ml-0 duration-300" />

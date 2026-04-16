@@ -1,6 +1,6 @@
 import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 import { whatsappBaseUrl } from "@/data/landing-page";
-import { trackLead } from "@/lib/pixel";
+import { pixelTrackers } from "@/lib/pixel";
 
 export function StickyCTA() {
     return (
@@ -9,7 +9,7 @@ export function StickyCTA() {
                 href={`${whatsappBaseUrl}?text=${encodeURIComponent("Hola, quisiera más información sobre el curso de barbería")}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={trackLead}
+                onClick={() => pixelTrackers.trackWhatsApp("sticky_cta", "Pedir Informes")}
         className="flex items-center justify-center gap-2 w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-6 rounded-full shadow-lg transition-all transform hover:scale-105"
             >
                 <WhatsAppIcon className="w-6 h-6" />

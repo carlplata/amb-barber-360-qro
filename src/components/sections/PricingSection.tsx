@@ -5,6 +5,7 @@ import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { Check, Gift, Info, ZoomIn } from "lucide-react";
 import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 import { motion, AnimatePresence } from "framer-motion";
+import { pixelTrackers } from "@/lib/pixel";
 
 export function PricingSection() {
     const [selectedModality, setSelectedModality] = useState(0); // 0 = 3 meses, 1 = 6 meses
@@ -13,6 +14,18 @@ export function PricingSection() {
         const modalityName = selectedModality === 0 ? "3 Meses (Intensivo)" : "6 Meses (Sabatino)";
         const message = `¡Hola! Vi la tabla de precios y me interesa el plan de *${planTitle}* para la modalidad de *${modalityName}*. ¿Cómo puedo apartar mi lugar?`;
         return `${whatsappBaseUrl}?text=${encodeURIComponent(message)}`;
+    };
+
+    const handleModalityChange = (index: number) => {
+        const modalityName = modalities[index].title;
+        pixelTrackers.trackCTA("pricing_modality", modalityName);
+        setSelectedModality(index);
+    };
+
+    const handlePlanClick = (planTitle: string) => {
+        const modalityName = selectedModality === 0 ? "3 Meses" : "6 Meses";
+        pixelTrackers.trackPricing(planTitle, modalityName);
+        pixelTrackers.trackWhatsApp("pricing_table", planTitle);
     };
 
     const inclusions = [
@@ -40,7 +53,7 @@ export function PricingSection() {
                     {modalities.map((modality, index) => (
                         <button
                             key={index}
-                            onClick={() => setSelectedModality(index)}
+                            onClick={() => handleModalityChange(index)}
                             className={`flex-1 py-3 px-4 rounded-xl text-sm sm:text-base font-bold transition-all duration-300 flex items-center justify-center gap-2 ${
                                 selectedModality === index 
                                 ? "bg-primary text-black shadow-glow-sm" 
@@ -141,6 +154,7 @@ export function PricingSection() {
                                 href={createWhatsAppLink(option.title)}
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                onClick={() => handlePlanClick(option.title)}
                                 className={`group flex flex-col items-center justify-center p-3 sm:p-5 rounded-2xl border transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] ${
                                     option.popular 
                                     ? "bg-primary border-primary text-black shadow-glow" 

@@ -1,5 +1,6 @@
 import { Video, MapPin } from "lucide-react";
 import { googleMapsUrl } from "@/data/landing-page";
+import { pixelTrackers } from "@/lib/pixel";
 
 export function LocationSection() {
     return (
@@ -29,6 +30,7 @@ export function LocationSection() {
                                 href="https://wa.me/5214423643964?text=Hola,%20quisiera%20agendar%20una%20videollamada%20para%20conocer%20la%20escuela"
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                onClick={() => pixelTrackers.trackWhatsApp("location_section", "Agendar Videollamada")}
                                 className="group relative overflow-hidden bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white px-6 py-3 rounded-xl font-bold shadow-lg shadow-purple-500/25 transition-all hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-3"
                             >
                                 <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
@@ -39,6 +41,7 @@ export function LocationSection() {
                                 href={googleMapsUrl}
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                onClick={() => pixelTrackers.trackLocation("google_maps")}
                                 className="px-6 py-3 rounded-xl border border-white/10 hover:bg-white/5 text-gray-300 hover:text-white transition-colors text-sm font-medium flex items-center justify-center"
                             >
                                 Ver en Mapa

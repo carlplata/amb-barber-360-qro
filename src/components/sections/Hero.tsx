@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { linktreeUrl, userSegments } from "@/data/landing-page";
-import { trackLead } from "@/lib/pixel";
+import { pixelTrackers } from "@/lib/pixel";
 import { UserSegmentsSection } from "@/components/sections/UserSegmentsSection";
 
 interface HeroProps {
@@ -44,6 +44,17 @@ export function Hero({ selectedId, onSelect }: HeroProps) {
         ? {}
         : { target: "_blank", rel: "noopener noreferrer" };
 
+    const handlePrimaryClick = () => {
+        if (isInternalLink) {
+            pixelTrackers.trackCTA("hero", `scroll_to_${ctaLink}`);
+        } else {
+            if (ctaLink.includes("linktr.ee")) {
+                pixelTrackers.trackLinktree("hero_primary");
+            }
+            pixelTrackers.trackWhatsApp("hero", ctaText);
+        }
+    };
+
     return (
         <section id="hero" className="relative min-h-fit sm:min-h-screen flex items-center justify-center text-white pt-24 pb-12 overflow-hidden">
             {/* Background Video */}
@@ -53,6 +64,7 @@ export function Hero({ selectedId, onSelect }: HeroProps) {
                     loop
                     muted
                     playsInline
+                    onPlay={() => pixelTrackers.trackVideoPlay("Hero Background")}
                     className="w-full h-full object-cover opacity-80 grayscale-[10%]"
                 >
                     <source src="/videos/hero-background.mp4" type="video/mp4" />
@@ -86,10 +98,10 @@ export function Hero({ selectedId, onSelect }: HeroProps) {
 
                 {/* CTAs */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-sm sm:max-w-none mx-auto mt-4">
-                    <a href={ctaLink} {...linkAttributes} onClick={trackLead} className="w-full sm:w-auto btn-primary h-12 text-base shadow-xl hover:shadow-2xl text-center whitespace-nowrap">
+                    <a href={ctaLink} {...linkAttributes} onClick={handlePrimaryClick} className="w-full sm:w-auto btn-primary h-12 text-base shadow-xl hover:shadow-2xl text-center whitespace-nowrap">
                         {ctaText}
                     </a>
-                    <a href="https://wa.me/5214423643964" target="_blank" rel="noopener noreferrer" onClick={trackLead} className="w-full sm:w-auto btn-outline h-12 text-base text-center whitespace-nowrap">
+                    <a href="https://wa.me/5214423643964" target="_blank" rel="noopener noreferrer" onClick={() => pixelTrackers.trackWhatsApp("hero", "Hablar con asesor")} className="w-full sm:w-auto btn-outline h-12 text-base text-center whitespace-nowrap">
                         Hablar con asesor
                     </a>
                 </div>

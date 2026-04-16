@@ -1,3 +1,5 @@
+import { pixelTrackers } from "@/lib/pixel";
+
 export function VideoSection() {
     return (
         <section className="py-12 sm:py-20 bg-black text-white">
@@ -5,12 +7,15 @@ export function VideoSection() {
                 <h2 className="text-2xl sm:text-4xl font-bold mb-6 sm:mb-12 font-heading uppercase tracking-wider">
                     Conoce Nuestra Escuela
                 </h2>
-                <div className="aspect-video bg-gray-800 rounded-lg overflow-hidden shadow-2xl">
+                <div 
+                    className="aspect-video bg-gray-800 rounded-lg overflow-hidden shadow-2xl cursor-pointer"
+                    onClick={() => pixelTrackers.trackVideoPlay("Escuela Showcase")}
+                >
                     <iframe
                         width="100%"
                         height="100%"
                         src="https://www.facebook.com/plugins/video.php?height=315&href=https%3A%2F%2Fwww.facebook.com%2Fasociacionmexicanadebarberia%2Fvideos%2F2906440829675027%2F&show_text=false&width=560&t=0"
-                        className="border-0 overflow-hidden"
+                        className="border-0 overflow-hidden pointer-events-none sm:pointer-events-auto"
                         allowFullScreen={true}
                         allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
                         title="Video de la escuela de barbería AMB"

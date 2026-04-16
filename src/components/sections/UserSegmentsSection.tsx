@@ -1,4 +1,5 @@
 import { userSegments } from "@/data/landing-page";
+import { pixelTrackers } from "@/lib/pixel";
 
 interface UserSegmentsSectionProps {
     onSelect: (segmentId: string | null) => void;
@@ -6,6 +7,11 @@ interface UserSegmentsSectionProps {
 }
 
 export function UserSegmentsSection({ onSelect, selectedId }: UserSegmentsSectionProps) {
+    const handleSelect = (id: string) => {
+        pixelTrackers.trackSegment(id);
+        onSelect(id);
+    };
+
     return (
         <div className="w-full mt-6 sm:mt-12 animate-fade-in-up delay-200">
             <h3 className="text-white text-lg sm:text-2xl font-bold mb-4 sm:mb-6 text-center px-2">
@@ -15,7 +21,7 @@ export function UserSegmentsSection({ onSelect, selectedId }: UserSegmentsSectio
                 {userSegments.map((segment) => (
                     <button
                         key={segment.id}
-                        onClick={() => onSelect(segment.id)}
+                        onClick={() => handleSelect(segment.id)}
                         className={`
                             relative group overflow-hidden rounded-xl border p-3 sm:p-4 transition-all duration-300 text-left flex flex-col justify-between
                             ${selectedId === segment.id
