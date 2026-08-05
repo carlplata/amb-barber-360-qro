@@ -27,8 +27,8 @@ export const certificates = [
 ];
 
 export const modalities = [
-    { icon: "🚀", title: "3 Meses (Intensivo)", desc: "Dos clases por semana (lunes y miércoles o martes y jueves).", priceImage: "/images/precios-3-meses.webp" },
-    { icon: "🏆", title: "6 Meses (Sabatino/Dominical)", desc: "Una clase por semana. Ideal para trabajadores y estudiantes.", priceImage: "/images/precios-6-meses.webp" },
+    { icon: "🚀", title: "3 Meses (Intensivo)", desc: "Dos clases por semana (lunes y miércoles o martes y jueves).", priceImage: "/images/precios-3-meses.jpg" },
+    { icon: "🏆", title: "6 Meses (Sabatino/Dominical)", desc: "Una clase por semana. Ideal para trabajadores y estudiantes.", priceImage: "/images/precios-6-meses.jpg" },
 ];
 
 export const learningEnvironment = [
